@@ -1,4 +1,5 @@
-const BOUNDARY = 80; // the radius for the eye movement boundary
+const BOUNDARYY = 40;
+const BOUNDARYX = 50; // the radius for the eye movement boundary
 const ORIGINALCY = 65;
 const ORIGINALCX = 105;
 
@@ -11,7 +12,7 @@ let eyeCoords = {
     "righty": eyeBalls[1].getBoundingClientRect().y,
 };
 
-window.addEventListener('resize', (event) => {
+window.addEventListener('resize', () => {
     eyeCoords = {
         "leftx": eyeBalls[0].getBoundingClientRect().x,
         "lefty": eyeBalls[0].getBoundingClientRect().y,
@@ -29,18 +30,15 @@ function chooseEye(cursor_x) {
 
 function lerpX(x, povX) {
     const direction = (x - povX)/Math.abs(x -povX);
-    const docWidth = document.documentElement.clientWidth;
-    const magnitude = x > docWidth/2 ? x - docWidth/2 : docWidth/2 - x;
-    return direction * (magnitude * BOUNDARY / docWidth/2);
+    const magnitude = x > povX ? x - povX : povX - x;
+    return direction * (magnitude * BOUNDARYX / povX);
 }
 
 function lerpY(y) {
     // boundary of a 50 rad circle
-    // height of document is needed
     const direction = (y - eyeCoords.lefty)/Math.abs(y - eyeCoords.lefty);
-    const docHeight = document.documentElement.clientHeight;
-    const magnitude = y > docHeight/2 ? y - docHeight/2 : docHeight/2 - y;
-    return direction * (magnitude * BOUNDARY / docHeight/2); 
+    const magnitude = y > eyeCoords.lefty ? y -eyeCoords.lefty: eyeCoords.lefty - y;
+    return direction * (magnitude * BOUNDARYY / eyeCoords.lefty); 
 }
 
 function handleMouseMove(event) {
