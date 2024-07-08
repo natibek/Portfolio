@@ -1,0 +1,104 @@
+.circle {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid black;
+    box-sizing: border-box;
+    pointer-events: none;
+    opacity: 0.4;
+    animation: ripple 0.25s linear forwards;
+}
+  
+@keyframes ripple {
+    to {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+    }
+}
+/* animations when click event occurs */
+
+.raise-brow {
+    animation: raise_brow 1s linear forwards;
+}
+
+@keyframes raise_brow {
+    5% {
+        top: -150px;
+        transform: scale(1.2);
+    }
+    100% {
+        top: -100px;
+        transform: scale(1);
+    }
+}
+
+.shock {
+    animation: shocked 1s linear forwards;
+}
+
+@keyframes shocked {
+    5% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* end animations when click event occurs */
+
+/* start eye brow raise animation */
+.raise {
+    animation: raising 1s ease-out forwards;
+}
+
+@keyframes raising {
+    50% {
+        top: -150px;
+    }
+    100% {
+        top: -100px;
+    }
+}
+
+.lower {
+    animation: lowering 1s ease-out forwards;
+}
+
+@keyframes lowering {
+    50% {
+        top: -70px;
+    }
+    100% {
+        top: -100px;
+    }
+}
+
+.squint {
+    animation: squinting 1s ease-out forwards;
+}
+
+@keyframes squinting {
+    50%,60%,70% {
+        transform: scaleY(0.8);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.dialate {
+    animation: dialating 1s ease-out forwards;
+}
+
+@keyframes dialating {
+    50%,60%,70% {
+        transform: scaleY(1.1);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+/* end eye brow raise animation */
