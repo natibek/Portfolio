@@ -26,6 +26,27 @@ document.addEventListener('mousemove', handleMouseMove);
 document.addEventListener('click', handleClick);
 document.addEventListener('DOMContentLoaded', handleWink);
 window.addEventListener('resize', resetCoords);
+for (let dropDown of document.getElementsByClassName("drop-down")) {
+  dropDown.addEventListener("click", handleDropDown);
+}
+// window.addEventListener('scroll', handleMouseMove);
+
+//start drop-down-handling
+function handleDropDown(event) {
+  // Updates the drop down icon to point in the correct direction
+
+  let target = event.target;
+  if (!target.classList.contains("drop-down")){
+    target = target.parentNode;
+  }
+
+  const dropDownIcon = target.querySelector("i:last-of-type");
+  console.log(dropDownIcon, target)
+  const className = dropDownIcon.className;
+  const newClassName = className.includes("down") ? className.replace("down", "up") : className.replace("up", "down");
+  dropDownIcon.setAttribute("class", newClassName);
+
+}
 
 // start wink handling
 async function handleWink() {
@@ -151,8 +172,11 @@ function handleMouseMove(event) {
   // Handles the mouse movement events. If the cursor is inbetween the eyes, the only movement is
   // in the y direction. Otherwise, the closest eye is chosen and the eye balls are moved to follow
   // the cursor from the POV of the chosen eye.
-  x = event.clientX;
-  y = event.clientY;
+  const scrollX = window.scrollX || document.documentElement.scrollLeft;
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
+
+  let x = event.clientX + scrollX;
+  let y = event.clientY + scrollY;
   let dy = lerpY(y);
   if (dy) {
     // sometimes the change is too fast and dy is NaN

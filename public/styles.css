@@ -36,6 +36,16 @@
     top:-40px;
 }
 
+.drop-down {
+    color:black;    
+    text-decoration: none;
+}
+
+.drop-down:hover {
+    color: black;
+    text-decoration: none;
+}
+
 /* */
 /* */
 /* */
