@@ -1,7 +1,7 @@
 // Handles the dynamic aspect of the page
 
-const BOUNDARYY = 45;
-const BOUNDARYX = 65; // the radius for the eye movement boundary
+const BOUNDARYY = 50;
+const BOUNDARYX = 70; // the radius for the eye movement boundary
 const ORIGINALCY = 65;
 const ORIGINALCX = 105;
 
@@ -9,6 +9,7 @@ let midAnimation = false;
 
 const eyeBalls = document.getElementsByClassName('eye-ball');
 const eyeLids = document.getElementsByClassName('eye-lid');
+const corneas = document.getElementsByClassName('cornea');
 let eyeCoords = {
   leftx: eyeBalls[0].getBoundingClientRect().x,
   lefty: eyeBalls[0].getBoundingClientRect().y,
@@ -153,14 +154,29 @@ function handleMouseMove(event) {
   x = event.clientX;
   y = event.clientY;
   let dy = lerpY(y);
-  [0, 1].forEach((idx) => eyeBalls[idx].setAttribute('cy', ORIGINALCY + dy));
+  if (dy) {
+    // sometimes the change is too fast and dy is NaN
+    [0, 1].forEach((idx) => {
+      corneas[idx].setAttribute('cy', ORIGINALCY + dy);
+      eyeBalls[idx].setAttribute('cy', ORIGINALCY + dy);
+    });
+  }
+
   if (x >= eyeCoords.rightx || x <= eyeCoords.leftx) {
     // not between the eyes just move up and down
     povX = chooseEye(x);
     let dx = lerpX(x, povX);
-    [0, 1].forEach((idx) => eyeBalls[idx].setAttribute('cx', ORIGINALCX + dx));
+    if (dx) {
+      [0, 1].forEach((idx) => {
+        corneas[idx].setAttribute('cx', ORIGINALCX + dx);
+        eyeBalls[idx].setAttribute('cx', ORIGINALCX + dx);
+      });
+    }
   } else {
-    [0, 1].forEach((idx) => eyeBalls[idx].setAttribute('cx', ORIGINALCX));
+    [0, 1].forEach((idx) => {
+      corneas[idx].setAttribute('cx', ORIGINALCX);
+      eyeBalls[idx].setAttribute('cx', ORIGINALCX);
+    });
   }
 }
 // end eye movement control

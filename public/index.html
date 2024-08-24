@@ -1,81 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <title>Nati's Portfolio</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="portfolio_page.png" type="image/png"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
-        <link rel="stylesheet" href="styles.css"/>
-        <link rel="stylesheet" href="animations.css"/>
-    </head>
 
-    <body>
-        <div class="face">
-            <div class="eyes">
-                <div class="eye">
-                    <svg height="100" width="260" id="left-brow" class="brow"> 
-                        <path id="fname-path" fill="none" d="M 0 120 C 0 120, 130 0, 260 120"></path>
-                        <text class="name" text-anchor="middle">
-                            <textPath href="#fname-path" startOffset="50%">Nathnael</textPath>
-                        </text>
-                    </svg>
-                    <svg class="eye-lid" width="210" height="130" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <filter id="f1">
-                                <feOffset in="SourceAlpha"/>
-                                <feGaussianBlur stdDeviation="2"/> 
-                                <feBlend in="SourceGraphic" in2="blurOut"/>
-                            </filter>
-                        </defs>
-                        <circle class="eye-ball" cx="105" cy="65" r="15" fill="black" /> 
-                        <ellipse cx="105" cy="65" rx="100" ry="60" fill="transparent" stroke="black" stroke-width="2" filter="url(#f1)"/>
-                    </svg>
-                </div>
+<head>
+  <title>Nati's Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="portfolio_page.png" type="image/png" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="animations.css" />
+</head>
 
-                <div class="eye">
-                    <svg height="100" width="260" id="right-brow" class="brow"> 
-                        <text class="name" text-anchor="middle">
-                            <textPath href="#fname-path" startOffset="50%">Bekele's</textPath>
-                        </text>
-                    </svg>
-                    
-                    <svg class="eye-lid" width="210" height="130" xmlns="http://www.w3.org/2000/svg">
-                        <circle class="eye-ball" cx="105" cy="65" r="15" fill="black" /> 
-                        <ellipse cx="105" cy="65" rx="100" ry="60" fill="transparent" stroke="black" stroke-width="2" filter="url(#f1)"/>
-                    <!-- <circle cx="105" cy="66" r="2" fill="white"/>-->
-                    </svg>
-                </div>
-            </div>
-            <div class="nose">
-                <svg height="200" width="150">
-                   <!--
+<body>
+  <div class="face">
+    <div class="eyes">
+      <div class="eye">
+        <svg height="100" width="260" id="left-brow" class="brow">
+          <path id="fname-path" fill="none" d="M 0 120 C 0 120, 130 0, 260 120"></path>
+          <text class="name" text-anchor="middle">
+            <textPath href="#fname-path" startOffset="50%">Nathnael</textPath>
+          </text>
+        </svg>
+        <svg class="eye-lid" width="210" height="130" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="f1">
+              <feOffset in="SourceAlpha" />
+              <feGaussianBlur stdDeviation="2" />
+              <feBlend in="SourceGraphic" in2="blurOut" />
+            </filter>
+          </defs>
+          <circle class="eye-ball" cx="105" cy="65" r="15" fill="black" />
+          <ellipse cx="105" cy="65" rx="100" ry="60" fill="transparent" stroke="black" stroke-width="2"
+            filter="url(#f1)" />
+          <circle class="cornea" cx="105" cy="66" r="2" fill="white" />
+        </svg>
+      </div>
+
+      <div class="eye">
+        <svg height="100" width="260" id="right-brow" class="brow">
+          <text class="name" text-anchor="middle">
+            <textPath href="#fname-path" startOffset="50%">Bekele's</textPath>
+          </text>
+        </svg>
+
+        <svg class="eye-lid" width="210" height="130" xmlns="http://www.w3.org/2000/svg">
+          <circle class="eye-ball" cx="105" cy="65" r="15" fill="black" />
+          <ellipse cx="105" cy="65" rx="100" ry="60" fill="transparent" stroke="black" stroke-width="2"
+            filter="url(#f1)" />
+          <circle class="cornea" cx="105" cy="66" r="2" fill="white" />
+        </svg>
+      </div>
+    </div>
+    <div class="nose">
+      <svg height="200" width="150">
+        <!--
                     <path fill="none" id="nose-path" stroke-width="3" d="M 70 0 L 90 150 L 10 130"/>
                     <text class="name" text-anchor="start">
                         <textPath href="#nose-path" startOffset="10%" side="right">Portfolio
                         </textPath>
                     </text>
-                   --> 
-                    <path fill="none" stroke="black" id="nose-path" stroke-width="3" d="M 30 0 L 10 150 L 90 130"/>
-                </svg>
-            </div>
+                   -->
+        <path fill="none" stroke="black" id="nose-path" stroke-width="3" d="M 30 0 L 10 150 L 90 130" />
+      </svg>
+    </div>
 
-            <div class="mustache">
-                <svg height="100" width="260"> 
-                        <text class="name" text-anchor="middle">
-                            <textPath href="#fname-path" startOffset="50%">Portfolio</textPath>
-                        </text>
-                </svg>
-            </div>
-        </div>
+    <div class="mustache">
+      <svg height="100" width="260">
+        <text class="name" text-anchor="middle">
+          <textPath href="#fname-path" startOffset="50%">Portfolio</textPath>
+        </text>
+      </svg>
+    </div>
+  </div>
 
+  <main>
+    <p>Hello</p>
+  </main>
 
-        <main>
-            <p>
-                Hello 
-            </p>
-        </main>
+  <script src="./../src/index.js"></script>
+</body>
 
-        <script src="./../src/index.js"></script>
-    </body>
 </html>
