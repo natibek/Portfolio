@@ -36,6 +36,11 @@
     top:-40px;
 }
 
+.name {
+    font-size: 3rem;
+    fill: black;
+}
+
 .drop-down {
     color:black;    
     text-decoration: none;
@@ -46,19 +51,47 @@
     text-decoration: none;
 }
 
-/* */
-/* */
-/* */
-/* */
-.name {
-    font-size: 3rem;
-    fill: black;
-}
-
 main {
-    height: 100dvh;
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 5px;
+    height: 100%;
+}
+
+.legend {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 20%;
+    height: fit-content;
+    margin-top: 4px;
+    padding: 5px;
+}
+
+.tags {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.tags li {
+    list-style-type: none;
+    display:flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    padding: 2px;
+}
+
+.icon {
+    display: flex;
+    justify-content: flex-end;
+    width: 30%;
+}
+
+.tag {
+    display: flex;
+    justify-content: start;
 }

@@ -1,5 +1,9 @@
 // Handles the dynamic aspect of the page
 
+const contentStartY = document.getElementById("content-start").getBoundingClientRect().y;
+document.getElementsByClassName("legend")[0].style.marginTop = contentStartY;
+
+
 const BOUNDARYY = 50;
 const BOUNDARYX = 70; // the radius for the eye movement boundary
 const ORIGINALCY = 65;
@@ -26,6 +30,7 @@ document.addEventListener('mousemove', handleMouseMove);
 document.addEventListener('click', handleClick);
 document.addEventListener('DOMContentLoaded', handleWink);
 window.addEventListener('resize', resetCoords);
+
 for (let dropDown of document.getElementsByClassName("drop-down")) {
   dropDown.addEventListener("click", handleDropDown);
 }
