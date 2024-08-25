@@ -120,7 +120,7 @@
     </div>
 
     <!-- Main Content -->
-    <main>
+    <main id="accordion">
       <div class="d-flex flex-row" style="gap: 80px" id="content-start">
         <div>
           <h3>Interests</h3>
@@ -137,27 +137,29 @@
           <h3>Coursework</h3>
           <ul>
             <li>Intro to Computer Science I/II: <em>Algorithms</em>
-              <img src="python.png" width="30px"/>
-              <img src="oop.png" width="30px"/>
+              <img src="python.png" width="30px" title="Python"/>
+              <img src="oop.png" width="30px" title="OOP"/>
             </li>
             <li>Systems Programming I/II: <em>Assembly, Multithreading, Algorithms</em>
-              <img src="c.png" width="30px"/>
+              <img src="c.png" width="30px" title="C"/>
             </li>
             <li>Data Visualization: <em>D3</em>
-              <img src="js.jpg" width="30px" height="30px"/>
+              <img src="js.jpg" width="30px" height="30px" title="JavaScript"/>
             </li>
             <li>Creative Machines and Innovative Designs: 
-              <img src="cpp.jpeg" width="30px"/>
+              <img src="cpp.jpeg" width="30px" title="C++"/>
             </li>
             <li>Computer Vision: <em>PyTorch, Various Models</em>
-              <img src="ml.jpeg" width="30px"/>
+              <img src="python.png" width="30px" title="Python"/>
+              <img src="ml.jpeg" width="30px" title="Machine Learning"/>
             </li>
             <li>Mathematical Foundations of Machine Learning
-              <img src="ml.jpeg" width="30px"/>
+              <img src="python.png" width="30px" title="Python"/>
+              <img src="ml.jpeg" width="30px" title="Machine Learning"/>
             </li>
             <li>Intro to Data Science I/II
-              <img src="python.png" width="30px"/>
-              <img src="ml.jpeg" width="30px"/>
+              <img src="python.png" width="30px" title="Python"/>
+              <img src="ml.jpeg" width="30px" title="Machine Learning"/>
             </li>
           </ul>
         </div>
@@ -175,22 +177,22 @@
         </div>
       </div>
 
-      <div>
+      <div >
         <h3>Internships</h3>
         <ul>
           <li>
-            <a data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1" class="drop-down" >
+            <a id="drop-down1" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1" class="drop-down" >
               Infleqtion: <em>Quantum Software Deveopment Intern in the Compiler Team</em> 
               <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
-              <img src="quantum.png" width="30px"/>
-              <img src="python.png" width="30px"/>
-              <img src="oop.png" width="30px"/>
-              <img src="flask.png" width="30px"/>
-              <img src="testing.jpg" width="30px"/>
+              <img src="quantum.png" width="30px" title="Quantum"/>
+              <img src="python.png" width="30px" title="Python"/>
+              <img src="oop.png" width="30px" title="OOP"/>
+              <img src="flask.png" width="30px" title="Flask"/>
+              <img src="testing.jpg" width="30px" title="Testing"/>
 
             </a>
 
-            <div class="collapse" id="collapse1">
+            <div class="collapse" id="collapse1" data-parent="#accordion" aria-labelledby="drop-down1">
               <ul>
                 <li></li>
               </ul>
@@ -198,14 +200,14 @@
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#collapse2" role="button" aria-expanded="true" aria-controls="collapse2" class="drop-down">
+            <a id="drop-down2" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="true" aria-controls="collapse2" class="drop-down">
               Golden Peak Media: <em>Generative AI Intern</em> 
               <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
-              <img src="python.png" width="30px"/>
-              <img src="ml.jpeg" width="30px"/>
+              <img src="python.png" width="30px" title="Python"/>
+              <img src="ml.jpeg" width="30px" title="Machine Learning"/>
             </a>
 
-            <div class="collapse" id="collapse2">
+            <div class="collapse" id="collapse2" data-parent="#accordion" aria-labelledby="drop-down2">
               <ul>
                 <li></li>
               </ul>
@@ -218,14 +220,14 @@
         <h3>Work Experience</h3>
         <ul>
           <li>
-            <a data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapse3" class="drop-down">
+            <a id="drop-down3" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapse3" class="drop-down">
               Biological Sciences Division at the University of Chicago: <em>Student Data Analyst and Programmer</em>
               <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
-              <img src="python.png" width="30px"/>
-              <img src="flask.png" width="30px"/>
-              <img src="bootstrap.png" width="30px"/>
+              <img src="python.png" width="30px" title="Python"/>
+              <img src="flask.png" width="30px" title="Flask"/>
+              <img src="bootstrap.png" width="30px" title="Bootstrap"/>
             </a>
-            <div class="collapse " id="collapse3">
+            <div class="collapse " id="collapse3" data-parent="#accordion" aria-labelledby="drop-down3">
               <ul>
                 <li></li>
               </ul>
@@ -233,14 +235,14 @@
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#collapse4" role="button" aria-expanded="false" aria-controls="collapse4" class="drop-down">
+            <a id="drop-down4" data-toggle="collapse" href="#collapse4" role="button" aria-expanded="false" aria-controls="collapse4" class="drop-down">
               Memory and Perception in Schizophrenia Lab: <em>Programming Assisntant</em>
               <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
-              <img src="python.png" width="30px"/>
-              <img src="psychopy.jpg" width="30px"/>
+              <img src="python.png" width="30px" title="Python"/>
+              <img src="psychopy.jpg" width="30px" title="PsychoPy"/>
             </a>
 
-            <div class="collapse " id="collapse4">
+            <div class="collapse " id="collapse4" data-parent="#accordion" aria-labelledby="drop-down4">
               <ul>
                 <li></li>
               </ul>
@@ -256,19 +258,19 @@
           <h4>Completed</h4>
           <ul>
             <li>
-              <a data-toggle="collapse" href="#collapse5" role="button" aria-expanded="false" aria-controls="collapse5" class="drop-down">
+              <a id="drop-down5" data-toggle="collapse" href="#collapse5" role="button" aria-expanded="false" aria-controls="collapse5" class="drop-down">
                 GuessTheWiki
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
                 <a href="https://www.guessthewiki.com" target="_blank"><img src="guessthewiki_icon.svg" width="30px" alt="link" style="position: relative; top: -3px;"/></a> &nbsp
-                <img src="python.png" width="30px"/>&nbsp
-                <img src="js.jpg" width="30px"/>&nbsp
-                <img src="flask.png" width="30px"/>&nbsp
-                <img src="react.png" width="30px"/>&nbsp
-                <img src="bootstrap.png" width="30px"/>&nbsp
+                <img src="python.png" width="30px" title="Python"/>&nbsp
+                <img src="js.jpg" width="30px" title="JavaScript"/>&nbsp
+                <img src="flask.png" width="30px" title="Flask"/>&nbsp
+                <img src="react.png" width="30px" title="React"/>&nbsp
+                <img src="bootstrap.png" width="30px" title="Bootstrap"/>&nbsp
 
               </a>
 
-              <div class="collapse " id="collapse5">
+              <div class="collapse " id="collapse5" data-parent="#accordion" aria-labelledby="drop-down5">
                 <ul>
                   <li></li>
                 </ul>
@@ -276,15 +278,15 @@
             </li>
 
             <li>
-              <a data-toggle="collapse" href="#collapse6" role="button" aria-expanded="false" aria-controls="collapse6" class="drop-down">
+              <a id="drop-down6" data-toggle="collapse" href="#collapse6" role="button" aria-expanded="false" aria-controls="collapse6" class="drop-down">
                 Box Backup App 
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp 
                 <a href="https://github.com/natibek/Box_Backup_App" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp
-                <img src="python.png" width="30px"/>&nbsp
-                <img src="tk.png" width="30px"/>&nbsp
+                <img src="python.png" width="30px" title="Python"/>&nbsp
+                <img src="tk.png" width="30px" title="Tkinter"/>&nbsp
               </a>
 
-              <div class="collapse " id="collapse6">
+              <div class="collapse " id="collapse6" data-parent="#accordion" aria-labelledby="drop-down6">
                 <ul>
                   <li></li>
                 </ul>
@@ -292,16 +294,16 @@
             </li>
 
             <li>
-              <a data-toggle="collapse" href="#collapse7" role="button" aria-expanded="false" aria-controls="collapse7" class="drop-down">
+              <a id="drop-down7" data-toggle="collapse" href="#collapse7" role="button" aria-expanded="false" aria-controls="collapse7" class="drop-down">
                 Gabata(<em>Mancala</em>) 
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
                 <a href="https://natibek.github.io/Gabata/Gabata_webpage.html" target="_blank"><img src="gabata.png" width="30px" alt="link"/></a> &nbsp 
-                <img src="python.png" width="30px"/>&nbsp 
-                <img src="oop.png" width="30px"/>&nbsp 
-                <img src="tk.png" width="30px"/>&nbsp 
+                <img src="python.png" width="30px" title="Python"/>&nbsp 
+                <img src="oop.png" width="30px" title="OOP"/>&nbsp 
+                <img src="tk.png" width="30px" title="Tkinter"/>&nbsp 
               </a>
 
-              <div class="collapse " id="collapse7">
+              <div class="collapse " id="collapse7" data-parent="#accordion" aria-labelledby="drop-down7">
                 <ul>
                   <li></li>
                 </ul>
@@ -309,16 +311,16 @@
             </li>
 
             <li>
-              <a data-toggle="collapse" href="#collapse8" role="button" aria-expanded="false" aria-controls="collapse8" class="drop-down">
+              <a id="drop-down8" data-toggle="collapse" href="#collapse8" role="button" aria-expanded="false" aria-controls="collapse8" class="drop-down">
                 Publication Tracking
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
                 <a href="https://github.com/natibek/PublicationTracking" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
-                <img src="python.png" width="30px"/>&nbsp 
-                <img src="flask.png" width="30px"/>&nbsp 
-                <img src="bootstrap.png" width="30px"/>
+                <img src="python.png" width="30px" title="Python"/>&nbsp 
+                <img src="flask.png" width="30px" title="Flask"/>&nbsp 
+                <img src="bootstrap.png" width="30px" title="Bootstrap"/>
               </a>
 
-              <div class="collapse " id="collapse8">
+              <div class="collapse " id="collapse8" data-parent="#accordion" aria-labelledby="drop-down8">
                 <ul>
                   <li></li>
                 </ul>
@@ -332,14 +334,14 @@
           <h4>In Progress</h4>
           <ul>
             <li>
-              <a data-toggle="collapse" href="#collapse9" role="button" aria-expanded="false" aria-controls="collapse9" class="drop-down">
+              <a id="drop-down9" data-toggle="collapse" href="#collapse9" role="button" aria-expanded="false" aria-controls="collapse9" class="drop-down">
                 AmPy
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
                 <a href="https://github.com/natibek/ampy" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
-                <img src="cpp.jpeg" width="30px"/>
+                <img src="cpp.jpeg" width="30px" title="C++"/>
               </a>
 
-              <div class="collapse " id="collapse9">
+              <div class="collapse " id="collapse9" data-parent="#accordion" aria-labelledby="drop-down9">
                 <ul>
                   <li></li>
                 </ul>
@@ -347,14 +349,14 @@
             </li>
 
             <li>
-              <a data-toggle="collapse" href="#collapse10" role="button" aria-expanded="false" aria-controls="collapse10" class="drop-down">
+              <a id="drop-down10" data-toggle="collapse" href="#collapse10" role="button" aria-expanded="false" aria-controls="collapse10" class="drop-down">
                 localGits
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
                 <a href="https://github.com/natibek/localGits" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
-                <img src="python.png" width="30px"/>
+                <img src="python.png" width="30px" title="Python"/>
               </a>
 
-              <div class="collapse " id="collapse10">
+              <div class="collapse " id="collapse10" data-parent="#accordion" aria-labelledby="drop-down10">
                 <ul>
                   <li></li>
                 </ul>
@@ -362,14 +364,14 @@
             </li>
 
             <li>          
-              <a data-toggle="collapse" href="#collapse11" role="button" aria-expanded="false" aria-controls="collapse11" class="drop-down">
+              <a id="drop-down11" data-toggle="collapse" href="#collapse11" role="button" aria-expanded="false" aria-controls="collapse11" class="drop-down">
                 licensepy
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
                 <a href="https://github.com/natibek/licensepy" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
-                <img src="python.png" width="30px"/>
+                <img src="python.png" width="30px" title="Python"/>
               </a>
 
-              <div class="collapse " id="collapse11">
+              <div class="collapse " id="collapse11" data-parent="#accordion" aria-labelledby="drop-down11">
                 <ul>
                   <li></li>
                 </ul>
@@ -377,18 +379,18 @@
             </li>
 
             <li>          
-              <a data-toggle="collapse" href="#collapse12" role="button" aria-expanded="false" aria-controls="collapse12" class="drop-down">
+              <a id="drop-down12" data-toggle="collapse" href="#collapse12" role="button" aria-expanded="false" aria-controls="collapse12" class="drop-down">
                 Crochet Pattern Generator 
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp
                 <a href="https://github.com/natibek/Crochet_Pattern_Generator" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
-                <img src="python.png" width="30px"/>&nbsp 
-                <img src="flask.png" width="30px"/>&nbsp 
-                <img src="js.jpg" width="30px"/>&nbsp 
-                <img src="react.png" width="30px"/>&nbsp 
-                <img src="bootstrap.png" width="30px"/>&nbsp 
+                <img src="python.png" width="30px" title="Python"/>&nbsp 
+                <img src="flask.png" width="30px" title="Flask"/>&nbsp 
+                <img src="js.jpg" width="30px" title="JavaScript"/>&nbsp 
+                <img src="react.png" width="30px" title="React"/>&nbsp 
+                <img src="bootstrap.png" width="30px" title="Bootstrap"/>&nbsp 
               </a>
 
-              <div class="collapse " id="collapse12">
+              <div class="collapse " id="collapse12" data-parent="#accordion" aria-labelledby="drop-down12">
                 <ul>
                   <li></li>
                 </ul>
@@ -396,7 +398,7 @@
             </li>
 
             <li>          
-              <a data-toggle="collapse" href="#collapse13" role="button" aria-expanded="false" aria-controls="collapse13" class="drop-down">
+              <a id="drop-down13" data-toggle="collapse" href="#collapse13" role="button" aria-expanded="false" aria-controls="collapse13" class="drop-down">
                 Connect 
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
                 <a href="https://github.com/natibek/connect" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
@@ -408,7 +410,7 @@
                 <img src="bootstrap.png" width="30px"/>
               </a>
 
-              <div class="collapse " id="collapse13">
+              <div class="collapse " id="collapse13" data-parent="#accordion" aria-labelledby="drop-down13">
                 <ul>
                   <li></li>
                 </ul>

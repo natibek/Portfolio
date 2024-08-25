@@ -34,6 +34,7 @@ window.addEventListener('resize', resetCoords);
 for (let dropDown of document.getElementsByClassName("drop-down")) {
   dropDown.addEventListener("click", handleDropDown);
 }
+let cur_expanded = null;
 // window.addEventListener('scroll', handleMouseMove);
 
 //start drop-down-handling
@@ -46,11 +47,16 @@ function handleDropDown(event) {
   }
 
   const dropDownIcon = target.querySelector("i:last-of-type");
-  console.log(dropDownIcon, target)
   const className = dropDownIcon.className;
   const newClassName = className.includes("down") ? className.replace("down", "up") : className.replace("up", "down");
   dropDownIcon.setAttribute("class", newClassName);
 
+  if (cur_expanded && target.id !== cur_expanded.id) {
+    const dropDownIcon = cur_expanded.querySelector("i:last-of-type");
+    dropDownIcon.setAttribute("class", dropDownIcon.className.replace("up", "down"));
+  }
+
+  cur_expanded = target;
 }
 
 // start wink handling
