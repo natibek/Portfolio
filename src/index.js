@@ -1,9 +1,6 @@
 // Handles the dynamic aspect of the page
 
-const contentStartY = document.getElementById("content-start").getBoundingClientRect().y;
-document.getElementsByClassName("legend")[0].style.marginTop = contentStartY;
-
-
+// make this change over the day
 const BOUNDARYY = 50;
 const BOUNDARYX = 70; // the radius for the eye movement boundary
 const ORIGINALCY = 65;
@@ -27,6 +24,7 @@ const rightBrow = document.getElementById('right-brow');
 
 // registering event listeners
 document.addEventListener('mousemove', handleMouseMove);
+document.addEventListener('touchmove', handleMouseMove);
 document.addEventListener('click', handleClick);
 document.addEventListener('DOMContentLoaded', handleWink);
 window.addEventListener('resize', resetCoords);
@@ -34,6 +32,7 @@ window.addEventListener('resize', resetCoords);
 for (let dropDown of document.getElementsByClassName("drop-down")) {
   dropDown.addEventListener("click", handleDropDown);
 }
+document.getElementById("legend-drop-down").addEventListener("click", handleDropDown);
 let cur_expanded = null;
 // window.addEventListener('scroll', handleMouseMove);
 
@@ -42,21 +41,26 @@ function handleDropDown(event) {
   // Updates the drop down icon to point in the correct direction
 
   let target = event.target;
-  if (!target.classList.contains("drop-down")){
+  if(!target.classList.contains("drop-down")){
     target = target.parentNode;
   }
-
   const dropDownIcon = target.querySelector("i:last-of-type");
   const className = dropDownIcon.className;
+
+  if (target.id === "legend-drop-down") {
+    const newClassName = className.includes("right") ? className.replace("right", "left") : className.replace("left", "right");
+    dropDownIcon.setAttribute("class", newClassName);
+    return
+  }
   const newClassName = className.includes("down") ? className.replace("down", "up") : className.replace("up", "down");
   dropDownIcon.setAttribute("class", newClassName);
 
-  if (cur_expanded && target.id !== cur_expanded.id) {
+  if (cur_expanded && target.id !== cur_expanded.id && target.className!== "legend") {
     const dropDownIcon = cur_expanded.querySelector("i:last-of-type");
     dropDownIcon.setAttribute("class", dropDownIcon.className.replace("up", "down"));
   }
-
-  cur_expanded = target;
+  
+  if (target.className!== "legend") cur_expanded = target;
 }
 
 // start wink handling

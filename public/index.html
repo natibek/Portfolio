@@ -101,7 +101,13 @@
   <div class="d-flex">
     <!-- Tags -->
     <div class="legend"> 
-      <ul class="tags">
+
+      <a id="legend-drop-down" data-toggle="collapse" href="#legend-content" role="button" aria-expanded="false" aria-controls="legend-content">
+        <p class="t">Tags</p> 
+        <i class="bi bi-caret-right-fill" style="color: #800020;" title="Tags"></i>
+      </a>
+
+      <ul class="tags collapse" id="legend-content">
         <li><div class="icon"><img src="python.png" width="30px"/></div><div class="tag">Python</div></li> 
         <li><div class="icon"><img src="flask.png" width="30px"/></div><div class="tag">Flask</div></li> 
         <li><div class="icon"><img src="tk2.png" width="30px"/></div><div class="tag">TkInter</div></li> 
