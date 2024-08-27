@@ -32,10 +32,19 @@ window.addEventListener('resize', resetCoords);
 for (let dropDown of document.getElementsByClassName("drop-down")) {
   dropDown.addEventListener("click", handleDropDown);
 }
-document.getElementById("legend-drop-down").addEventListener("click", handleDropDown);
+document.getElementById("legend-drop-down").addEventListener("click", handleSideBar);
 let cur_expanded = null;
 // window.addEventListener('scroll', handleMouseMove);
 
+function handleSideBar(event) {
+  // Updates the caret for the side bar
+
+  const sideBarIcon = document.getElementById("legend-caret");
+  const className = sideBarIcon.className;
+  const newClassName = className.includes("right") ? className.replace("right", "left") : className.replace("left", "right");
+  sideBarIcon .setAttribute("class", newClassName);
+  return
+}
 //start drop-down-handling
 function handleDropDown(event) {
   // Updates the drop down icon to point in the correct direction
@@ -47,20 +56,15 @@ function handleDropDown(event) {
   const dropDownIcon = target.querySelector("i:last-of-type");
   const className = dropDownIcon.className;
 
-  if (target.id === "legend-drop-down") {
-    const newClassName = className.includes("right") ? className.replace("right", "left") : className.replace("left", "right");
-    dropDownIcon.setAttribute("class", newClassName);
-    return
-  }
   const newClassName = className.includes("down") ? className.replace("down", "up") : className.replace("up", "down");
   dropDownIcon.setAttribute("class", newClassName);
 
-  if (cur_expanded && target.id !== cur_expanded.id && target.className!== "legend") {
+  if (cur_expanded && target.id !== cur_expanded.id) {
     const dropDownIcon = cur_expanded.querySelector("i:last-of-type");
     dropDownIcon.setAttribute("class", dropDownIcon.className.replace("up", "down"));
   }
   
-  if (target.className!== "legend") cur_expanded = target;
+  cur_expanded = target;
 }
 
 // start wink handling
