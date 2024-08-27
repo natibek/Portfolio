@@ -12,6 +12,19 @@ body {
     }
 }
 
+@media (max-width: 550px) {
+    .face {
+        transform: scale(0.7);
+    }
+}
+
+@media (max-width: 360px) {
+    .face {
+        transform: scale(0.5);
+    }
+
+}
+
 .eyes {
     display: flex;
     gap: 100px;
@@ -70,10 +83,6 @@ body {
     margin-top: 35px;
     margin-left: -38px;
     gap: 10px;
-}
-
-#legend-drop-down:hover {
-    margin-left: 0px;
 }
 
 .legend {

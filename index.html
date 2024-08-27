@@ -27,14 +27,13 @@
         <svg class="eye-lid" width="210" height="130" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="f1">
-              <feOffset in="SourceAlpha" />
-              <feGaussianBlur stdDeviation="2" />
-              <feBlend in="SourceGraphic" in2="blurOut" />
+              <feOffset in="SourceAlpha" dx="2" dy="2" result="offsetblur" />
+              <feGaussianBlur in="offsetblur" stdDeviation="2" result="blurOut" />
+              <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
             </filter>
           </defs>
           <circle class="eye-ball" cx="105" cy="65" r="15" fill="black" />
-          <ellipse cx="105" cy="65" rx="100" ry="60" fill="transparent" stroke="black" stroke-width="2"
-            filter="url(#f1)" />
+          <ellipse cx="105" cy="65" rx="100" ry="60" fill="none" stroke="black" stroke-width="2" filter="url(#f1)"/>
           <circle class="cornea" cx="105" cy="66" r="2" fill="white" />
         </svg>
       </div>
@@ -48,8 +47,7 @@
 
         <svg class="eye-lid" width="210" height="130" xmlns="http://www.w3.org/2000/svg">
           <circle class="eye-ball" cx="105" cy="65" r="15" fill="black" />
-          <ellipse cx="105" cy="65" rx="100" ry="60" fill="transparent" stroke="black" stroke-width="2"
-            filter="url(#f1)" />
+          <ellipse cx="105" cy="65" rx="100" ry="60" fill="transparent" stroke="black" stroke-width="2" filter="url(#f1)" />
           <circle class="cornea" cx="105" cy="66" r="2" fill="white" />
         </svg>
       </div>
@@ -81,14 +79,12 @@
       <div style="padding: 5px;">
         <div class="d-flex align-items-center">
           <h3>Nathnael (Nati) Bekele &nbsp</h3>
-          <div>
-            <a href="https://github.com/natibek" target="_blank">
-              <i class="bi bi-github" style="font-size: 1.5rem;"></i>
-            </a> &nbsp
-            <a href="https://linkedin.com/in/nati-bekele" target="_blank">
-              <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
-            </a>
-          </div>
+          <a href="https://github.com/natibek" target="_blank">
+            <i class="bi bi-github" style="font-size: 1.5rem;"></i>
+          </a> &nbsp &nbsp
+          <a href="https://linkedin.com/in/nati-bekele" target="_blank">
+            <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+          </a>
         </div>
         <div class="d-flex flex-column">
           <!-- <img src="./public/uchicago logo.png" width="35px" height="35px" style="position: relative; top: -5px;"/> -->
@@ -108,7 +104,8 @@
       <ul class="tags collapse" id="legend-content">
         <li><div class="icon"><img src="./public/python.png" width="30px"/></div><div class="tag">Python</div></li> 
         <li><div class="icon"><img src="./public/flask.png" width="30px"/></div><div class="tag">Flask</div></li> 
-        <li><div class="icon"><img src="./public/tk2.png" width="30px"/></div><div class="tag">TkInter</div></li> 
+        <li><div class="icon"><img src="./public/jinga.png" width="30px"/></div><div class="tag">Jinga</div></li> 
+        <li><div class="icon"><img src="./public/tk2.png" width="30px"/></div><div class="tag">Tkinter</div></li> 
         <li><div class="icon"><img src="./public/psychopy.jpg" width="30px"/></div><div class="tag">PsychoPy</div></li> 
         <li><div class="icon"><img src="./public/c.png" width="35px"/></div><div class="tag">C</div></li> 
         <li><div class="icon"><img src="./public/cpp.jpeg" width="35px"/></div><div class="tag">C++</div></li> 
@@ -192,6 +189,7 @@
               <img src="./public/python.png" width="30px" title="Python"/>
               <img src="./public/oop.png" width="30px" title="OOP"/>
               <img src="./public/flask.png" width="30px" title="Flask"/>
+              <img src="./public/jinga.png" width="30px" title="Jinga"/>
               <img src="./public/testing.jpg" width="30px" title="Testing"/>
 
             </a>
@@ -229,6 +227,7 @@
               <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
               <img src="./public/python.png" width="30px" title="Python"/>
               <img src="./public/flask.png" width="30px" title="Flask"/>
+              <img src="./public/jinga.png" width="30px" title="Jinga"/>
               <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>
             </a>
             <div class="collapse " id="collapse3" data-parent="#accordion" aria-labelledby="drop-down3">
@@ -263,9 +262,9 @@
           <ul>
             <li>
               <a id="drop-down5" data-toggle="collapse" href="#collapse5" role="button" aria-expanded="false" aria-controls="collapse5" class="drop-down">
+                <a href="https://www.guessthewiki.com" target="_blank"><img src="./public/guessthewiki_icon.svg" width="30px" alt="link" style="position: relative; top: -3px;"/></a> &nbsp
                 GuessTheWiki
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
-                <a href="https://www.guessthewiki.com" target="_blank"><img src="./public/guessthewiki_icon.svg" width="30px" alt="link" style="position: relative; top: -3px;"/></a> &nbsp
                 <img src="./public/python.png" width="30px" title="Python"/>&nbsp
                 <img src="./public/js.jpg" width="30px" title="JavaScript"/>&nbsp
                 <img src="./public/flask.png" width="30px" title="Flask"/>&nbsp
@@ -283,9 +282,9 @@
 
             <li>
               <a id="drop-down6" data-toggle="collapse" href="#collapse6" role="button" aria-expanded="false" aria-controls="collapse6" class="drop-down">
+                <a href="https://github.com/natibek/Box_Backup_App" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp
                 Box Backup App 
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp 
-                <a href="https://github.com/natibek/Box_Backup_App" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp
                 <img src="./public/python.png" width="30px" title="Python"/>&nbsp
                 <img src="./public/tk.png" width="30px" title="Tkinter"/>&nbsp
               </a>
@@ -299,9 +298,9 @@
 
             <li>
               <a id="drop-down7" data-toggle="collapse" href="#collapse7" role="button" aria-expanded="false" aria-controls="collapse7" class="drop-down">
+                <a href="https://natibek.github.io/Gabata/Gabata_webpage.html" target="_blank"><img src="./public/gabata.png" width="20px" alt="link"/></a> &nbsp 
                 Gabata(<em>Mancala</em>) 
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
-                <a href="https://natibek.github.io/Gabata/Gabata_webpage.html" target="_blank"><img src="./public/gabata.png" width="30px" alt="link"/></a> &nbsp 
                 <img src="./public/python.png" width="30px" title="Python"/>&nbsp 
                 <img src="./public/oop.png" width="30px" title="OOP"/>&nbsp 
                 <img src="./public/tk.png" width="30px" title="Tkinter"/>&nbsp 
@@ -316,9 +315,9 @@
 
             <li>
               <a id="drop-down8" data-toggle="collapse" href="#collapse8" role="button" aria-expanded="false" aria-controls="collapse8" class="drop-down">
+                <a href="https://github.com/natibek/PublicationTracking" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
                 Publication Tracking
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
-                <a href="https://github.com/natibek/PublicationTracking" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
                 <img src="./public/python.png" width="30px" title="Python"/>&nbsp 
                 <img src="./public/flask.png" width="30px" title="Flask"/>&nbsp 
                 <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>
@@ -339,9 +338,9 @@
           <ul>
             <li>
               <a id="drop-down9" data-toggle="collapse" href="#collapse9" role="button" aria-expanded="false" aria-controls="collapse9" class="drop-down">
+                <a href="https://github.com/natibek/ampy" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
                 AmPy
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
-                <a href="https://github.com/natibek/ampy" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
                 <img src="./public/cpp.jpeg" width="30px" title="C++"/>
               </a>
 
@@ -354,9 +353,9 @@
 
             <li>
               <a id="drop-down10" data-toggle="collapse" href="#collapse10" role="button" aria-expanded="false" aria-controls="collapse10" class="drop-down">
+                <a href="https://github.com/natibek/localGits" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
                 localGits
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
-                <a href="https://github.com/natibek/localGits" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
                 <img src="./public/python.png" width="30px" title="Python"/>
               </a>
 
@@ -369,9 +368,9 @@
 
             <li>          
               <a id="drop-down11" data-toggle="collapse" href="#collapse11" role="button" aria-expanded="false" aria-controls="collapse11" class="drop-down">
+                <a href="https://github.com/natibek/licensepy" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
                 licensepy
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
-                <a href="https://github.com/natibek/licensepy" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
                 <img src="./public/python.png" width="30px" title="Python"/>
               </a>
 
@@ -384,9 +383,9 @@
 
             <li>          
               <a id="drop-down12" data-toggle="collapse" href="#collapse12" role="button" aria-expanded="false" aria-controls="collapse12" class="drop-down">
+                <a href="https://github.com/natibek/Crochet_Pattern_Generator" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
                 Crochet Pattern Generator 
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp
-                <a href="https://github.com/natibek/Crochet_Pattern_Generator" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
                 <img src="./public/python.png" width="30px" title="Python"/>&nbsp 
                 <img src="./public/flask.png" width="30px" title="Flask"/>&nbsp 
                 <img src="./public/js.jpg" width="30px" title="JavaScript"/>&nbsp 
@@ -403,9 +402,9 @@
 
             <li>          
               <a id="drop-down13" data-toggle="collapse" href="#collapse13" role="button" aria-expanded="false" aria-controls="collapse13" class="drop-down">
+                <a href="https://github.com/natibek/connect" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
                 Connect 
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
-                <a href="https://github.com/natibek/connect" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
                 <img src="./public/python.png" width="30px"/> &nbsp 
                 <img src="./public/flask.png" width="30px"/>&nbsp 
                 <img src="./public/js.jpg" width="30px"/>&nbsp 
