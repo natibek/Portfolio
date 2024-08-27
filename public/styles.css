@@ -151,3 +151,7 @@ main {
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+.hide {
+    display: none;
+}

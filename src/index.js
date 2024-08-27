@@ -1,5 +1,16 @@
 // Handles the dynamic aspect of the page
 
+// map checkbox id to title
+const mapIdTitle = {
+  ml: 'MACHINE LEARNING',
+};
+
+for (let checkBox of document.getElementsByClassName('check-input')) {
+  checkBox.addEventListener("click", handleCheckBox);
+}
+
+const filterableContent = document.getElementsByClassName("filterable");
+
 // make this change over the day
 const BOUNDARYY = 50;
 const BOUNDARYX = 70; // the radius for the eye movement boundary
@@ -13,8 +24,7 @@ const eyeLids = document.getElementsByClassName('eye-lid');
 const corneas = document.getElementsByClassName('cornea');
 let eyeCoords = {
   leftx: eyeBalls[0].getBoundingClientRect().x,
-  lefty: eyeBalls[0].getBoundingClientRect().y,
-  rightx: eyeBalls[1].getBoundingClientRect().x,
+  lefty: eyeBalls[0].getBoundingClientRect().y, rightx: eyeBalls[1].getBoundingClientRect().x,
   righty: eyeBalls[1].getBoundingClientRect().y,
 };
 
@@ -36,9 +46,12 @@ window.addEventListener('resize', resetCoords);
 for (let dropDown of document.getElementsByClassName('drop-down')) {
   dropDown.addEventListener('click', handleDropDown);
 }
+
 document.getElementById('legend-drop-down').addEventListener('mouseover', handleSideBarHover);
 document.getElementById('legend-drop-down').addEventListener('mouseout', handleSideBarOut);
 document.getElementById('legend-drop-down').addEventListener('click', handleSideBarClick);
+
+
 let cur_expanded = null;
 
 function handleSideBarOut() {
@@ -252,3 +265,56 @@ function handleMouseMove(event) {
   }
 }
 // end eye movement control
+
+
+// handle filtering
+function allUnchecked() {
+  // Checks if all the checkboxes are unchecked
+
+  for (let checkBox of document.getElementsByClassName("check-input")) {
+    if (checkBox.checked) return false;
+  }
+  return true;
+}
+
+function handleCheckBox(event) {
+  // When the checkbox is checked filters to remove filterable elements that don't have the target
+  // tag. When unchecked, it adds all the filterable elements which where filtered out. Check if 
+  // a filterable element contains the tag by looking at the title of the images they have.
+
+  const target = event.target;
+  let boxId = target.id;
+  boxId = mapIdTitle.hasOwnProperty(boxId) ? mapIdTitle[boxId]: boxId.toUpperCase();
+
+  if (allUnchecked()) {
+    for (let filterable of filterableContent) {
+      filterable.classList.remove("hide");
+    }
+    return
+  } 
+  else if (target.checked) {
+    for (let filterable of filterableContent) {
+      let containsTag = false;
+      for (let img of filterable.querySelectorAll('img')) {
+        if (img.title.toUpperCase() === boxId) {
+          containsTag = true;
+        }
+      }
+      if (!containsTag) filterable.classList.add("hide");
+      else filterable.classList.remove("hide");
+    }
+  } 
+  else {
+    for (let filterable of filterableContent) {
+      let containsTag = false;
+      for (let img of filterable.querySelectorAll('img')) {
+        if (img.title.toUpperCase() === boxId) {
+          containsTag = true;
+        }
+      }
+      if (!containsTag) filterable.classList.add("hide");
+    }
+
+  }
+    
+}

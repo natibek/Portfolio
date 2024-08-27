@@ -102,21 +102,66 @@
       </a>
 
       <ul class="tags collapse" id="legend-content">
-        <li><div class="icon"><img src="./public/python.png" width="30px"/></div><div class="tag">Python</div></li> 
-        <li><div class="icon"><img src="./public/flask.png" width="30px"/></div><div class="tag">Flask</div></li> 
-        <li><div class="icon"><img src="./public/jinga.png" width="30px"/></div><div class="tag">Jinga</div></li> 
-        <li><div class="icon"><img src="./public/tk2.png" width="30px"/></div><div class="tag">Tkinter</div></li> 
-        <li><div class="icon"><img src="./public/psychopy.jpg" width="30px"/></div><div class="tag">PsychoPy</div></li> 
-        <li><div class="icon"><img src="./public/c.png" width="35px"/></div><div class="tag">C</div></li> 
-        <li><div class="icon"><img src="./public/cpp.jpeg" width="35px"/></div><div class="tag">C++</div></li> 
-        <li><div class="icon"><img src="./public/js.jpg" width="30px"/></div><div class="tag">JavaScript</div></li> 
-        <li><div class="icon"><img src="./public/react.png" width="35px"/></div><div class="tag">React</div></li> 
-        <li><div class="icon"><img src="./public/bootstrap.png" width="30px"/></div><div class="tag">Bootstrap</div></li> 
-        <li><div class="icon"><img src="./public/oop.png" width="40px"/></div><div class="tag">OOP</div></li> 
-        <li><div class="icon"><img src="./public/testing.jpg" width="30px"/></div><div class="tag">Testing</div></li> 
-        <li><div class="icon"><img src="./public/systems.jpg" width="30px"/></div><div class="tag">Systems</div></li> 
-        <li><div class="icon"><img src="./public/quantum.png" width="30px"/></div><div class="tag">Quantum</div></li> 
-        <li><div class="icon"><img src="./public/ml.jpeg" width="30px"/></div><div class="tag">Machine Learning</div></li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="python" />
+          <div class="icon"><img src="./public/python.png" width="30px"/></div><div class="tag">Python</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="flask" />
+          <div class="icon"><img src="./public/flask.png" width="30px"/></div><div class="tag">Flask</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="jinga" />
+          <div class="icon"><img src="./public/jinga.png" width="30px"/></div><div class="tag">Jinga</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="jinga" />
+          <div class="icon"><img src="./public/tk2.png" width="30px"/></div><div class="tag">Tkinter</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="psychopy" />
+          <div class="icon"><img src="./public/psychopy.jpg" width="30px"/></div><div class="tag">PsychoPy</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="c" />
+          <div class="icon"><img src="./public/c.png" width="35px"/></div><div class="tag">C</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="c++" />
+          <div class="icon"><img src="./public/cpp.jpeg" width="35px"/></div><div class="tag">C++</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="javascript" />
+          <div class="icon"><img src="./public/js.jpg" width="30px"/></div><div class="tag">JavaScript</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="react" />
+          <div class="icon"><img src="./public/react.png" width="35px"/></div><div class="tag">React</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="bootstrap" />
+          <div class="icon"><img src="./public/bootstrap.png" width="30px"/></div><div class="tag">Bootstrap</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="oop" />
+          <div class="icon"><img src="./public/oop.png" width="40px"/></div><div class="tag">OOP</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="testing" />
+          <div class="icon"><img src="./public/testing.jpg" width="30px"/></div><div class="tag">Testing</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="systems" />
+          <div class="icon"><img src="./public/systems.jpg" width="30px"/></div><div class="tag">Systems</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="quantum" />
+          <div class="icon"><img src="./public/quantum.png" width="30px"/></div><div class="tag">Quantum</div>
+        </li> 
+        <li>
+          <input class="check-input" type="checkbox" value="" id="ml" />
+          <div class="icon"><img src="./public/ml.jpeg" width="30px"/></div><div class="tag">Machine Learning</div>
+        </li> 
       </ul>
     </div>
 
@@ -137,28 +182,35 @@
         <div>
           <h3>Coursework</h3>
           <ul>
-            <li>Intro to Computer Science I/II: <em>Algorithms</em>
+            <li class="filterable">
+              Intro to Computer Science I/II: <em>Algorithms</em>
               <img src="./public/python.png" width="30px" title="Python"/>
               <img src="./public/oop.png" width="30px" title="OOP"/>
             </li>
-            <li>Systems Programming I/II: <em>Assembly, Multithreading, Algorithms</em>
+            <li class="filterable">
+              Systems Programming I/II: <em>Assembly, Multithreading, Algorithms</em>
               <img src="./public/c.png" width="30px" title="C"/>
             </li>
-            <li>Data Visualization: <em>D3</em>
+            <li class="filterable">
+              Data Visualization: <em>D3</em>
               <img src="./public/js.jpg" width="30px" height="30px" title="JavaScript"/>
             </li>
-            <li>Creative Machines and Innovative Designs: 
+            <li class="filterable">
+              Creative Machines and Innovative Designs: 
               <img src="./public/cpp.jpeg" width="30px" title="C++"/>
             </li>
-            <li>Computer Vision: <em>PyTorch, Various Models</em>
+            <li class="filterable">
+              Computer Vision: <em>PyTorch, Various Models</em>
               <img src="./public/python.png" width="30px" title="Python"/>
               <img src="./public/ml.jpeg" width="30px" title="Machine Learning"/>
             </li>
-            <li>Mathematical Foundations of Machine Learning
+            <li class="filterable">
+              Mathematical Foundations of Machine Learning
               <img src="./public/python.png" width="30px" title="Python"/>
               <img src="./public/ml.jpeg" width="30px" title="Machine Learning"/>
             </li>
-            <li>Intro to Data Science I/II
+            <li class="filterable">
+              Intro to Data Science I/II
               <img src="./public/python.png" width="30px" title="Python"/>
               <img src="./public/ml.jpeg" width="30px" title="Machine Learning"/>
             </li>
@@ -221,7 +273,7 @@
       <div>
         <h3>Work Experience</h3>
         <ul>
-          <li>
+          <li class="filterable">
             <a id="drop-down3" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapse3" class="drop-down">
               Biological Sciences Division at the University of Chicago: <em>Student Data Analyst and Programmer</em>
               <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
@@ -237,7 +289,7 @@
             </div>
           </li>
 
-          <li>
+          <li class="filterable">
             <a id="drop-down4" data-toggle="collapse" href="#collapse4" role="button" aria-expanded="false" aria-controls="collapse4" class="drop-down">
               Memory and Perception in Schizophrenia Lab: <em>Programming Assisntant</em>
               <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
@@ -260,7 +312,7 @@
         <div style="position: relative; left: 30px">
           <h4>Completed</h4>
           <ul>
-            <li>
+            <li class="filterable">
               <a href="https://www.guessthewiki.com" target="_blank"><img src="./public/guessthewiki_icon.svg" width="30px" alt="link" style="position: relative; top: -3px;"/></a> &nbsp
               <a id="drop-down5" data-toggle="collapse" href="#collapse5" role="button" aria-expanded="false" aria-controls="collapse5" class="drop-down">
                 GuessTheWiki
@@ -280,7 +332,7 @@
               </div>
             </li>
 
-            <li>
+            <li class="filterable">
               <a href="https://github.com/natibek/Box_Backup_App" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp
               <a id="drop-down6" data-toggle="collapse" href="#collapse6" role="button" aria-expanded="false" aria-controls="collapse6" class="drop-down">
                 Box Backup App 
@@ -296,7 +348,7 @@
               </div>
             </li>
 
-            <li>
+            <li class="filterable">
               <a href="https://natibek.github.io/Gabata/" target="_blank"><img src="./public/marble.png" width="20px" alt="link"/></a> &nbsp 
               <a id="drop-down7" data-toggle="collapse" href="#collapse7" role="button" aria-expanded="false" aria-controls="collapse7" class="drop-down" style="margin-left: -5px;">
                 Gabata(<em>Mancala</em>) 
@@ -313,7 +365,7 @@
               </div>
             </li>
 
-            <li>
+            <li class="filterable">
               <a href="https://github.com/natibek/PublicationTracking" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
               <a id="drop-down8" data-toggle="collapse" href="#collapse8" role="button" aria-expanded="false" aria-controls="collapse8" class="drop-down">
                 Publication Tracking
@@ -337,7 +389,7 @@
         <div style="position: relative; left: 30px">
           <h4>In Progress</h4>
           <ul>
-            <li>
+            <li class="filterable">
               <a href="https://github.com/natibek/ampy" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
               <a id="drop-down9" data-toggle="collapse" href="#collapse9" role="button" aria-expanded="false" aria-controls="collapse9" class="drop-down">
                 AmPy
@@ -352,7 +404,7 @@
               </div>
             </li>
 
-            <li>
+            <li class="filterable">
               <a href="https://github.com/natibek/localGits" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
               <a id="drop-down10" data-toggle="collapse" href="#collapse10" role="button" aria-expanded="false" aria-controls="collapse10" class="drop-down">
                 localGits
@@ -367,7 +419,7 @@
               </div>
             </li>
 
-            <li>          
+            <li class="filterable">          
               <a href="https://github.com/natibek/licensepy" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
               <a id="drop-down11" data-toggle="collapse" href="#collapse11" role="button" aria-expanded="false" aria-controls="collapse11" class="drop-down">
                 licensepy
@@ -382,7 +434,7 @@
               </div>
             </li>
 
-            <li>          
+            <li class="filterable">          
               <a href="https://github.com/natibek/Crochet_Pattern_Generator" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
               <a id="drop-down12" data-toggle="collapse" href="#collapse12" role="button" aria-expanded="false" aria-controls="collapse12" class="drop-down">
                 Crochet Pattern Generator 
@@ -401,15 +453,15 @@
               </div>
             </li>
 
-            <li>          
+            <li class="filterable">          
               <a href="https://github.com/natibek/connect" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
               <a id="drop-down13" data-toggle="collapse" href="#collapse13" role="button" aria-expanded="false" aria-controls="collapse13" class="drop-down">
                 Connect 
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
-                <img src="./public/js.jpg" width="30px"/>&nbsp 
-                <img src="./public/oop.png" width="30px"/>&nbsp 
-                <img src="./public/react.png" width="30px"/>&nbsp 
-                <img src="./public/bootstrap.png" width="30px"/>
+                <img src="./public/js.jpg" width="30px" title="JavaScript"/>&nbsp 
+                <img src="./public/oop.png" width="30px" title="OOP"/>&nbsp 
+                <img src="./public/react.png" width="30px" title="React"/>&nbsp 
+                <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>
               </a>
 
               <div class="collapse " id="collapse13" data-parent="#accordion" aria-labelledby="drop-down13">
