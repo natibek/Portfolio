@@ -8,6 +8,7 @@ body {
 @media (max-width: 1000px) {
     body {
         flex-wrap: wrap;
+        margin-top: 100px;
     }
 }
 
@@ -36,12 +37,11 @@ body {
 }
 
 .face {
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: fit-content;
-    height:100dvh;
 }
 
 .mustache {
