@@ -12,11 +12,16 @@ for (let checkBox of document.getElementsByClassName('check-input')) {
 const filterableContent = document.getElementsByClassName("filterable");
 
 // make this change over the day
-const BOUNDARYY = 50;
-const BOUNDARYX = 70; // the radius for the eye movement boundary
-const ORIGINALCY = 65;
-const ORIGINALCX = 105;
+const BOUNDARYY = 60;
+const BOUNDARYX = 90; // the radius for the eye movement boundary
 
+const scrollX = window.scrollX || document.documentElement.scrollLeft;
+const scrollY = window.scrollY || document.documentElement.scrollTop;
+
+let ORIGINALCY = 65;
+let ORIGINALCX = 105;
+
+console.log(ORIGINALCY, ORIGINALCX, scrollY, scrollX)
 let midAnimation = false;
 
 const eyeBalls = document.getElementsByClassName('eye-ball');
@@ -24,7 +29,8 @@ const eyeLids = document.getElementsByClassName('eye-lid');
 const corneas = document.getElementsByClassName('cornea');
 let eyeCoords = {
   leftx: eyeBalls[0].getBoundingClientRect().x,
-  lefty: eyeBalls[0].getBoundingClientRect().y, rightx: eyeBalls[1].getBoundingClientRect().x,
+  lefty: eyeBalls[0].getBoundingClientRect().y, 
+  rightx: eyeBalls[1].getBoundingClientRect().x,
   righty: eyeBalls[1].getBoundingClientRect().y,
 };
 
@@ -199,6 +205,12 @@ function resetCoords() {
     rightx: eyeBalls[1].getBoundingClientRect().x,
     righty: eyeBalls[1].getBoundingClientRect().y,
   };
+
+  //const scrollX = window.scrollX || document.documentElement.scrollLeft;
+  //const scrollY = window.scrollY || document.documentElement.scrollTop;
+
+  //ORIGINALCY = 65 - scrollY;
+  //ORIGINALCX = 105 - scrollX;
 }
 // end handling window resize
 
@@ -236,8 +248,9 @@ function handleMouseMove(event) {
   const scrollX = window.scrollX || document.documentElement.scrollLeft;
   const scrollY = window.scrollY || document.documentElement.scrollTop;
 
-  let x = event.clientX + scrollX;
-  let y = event.clientY + scrollY;
+  console.log(event.clientX, event.clientY)
+  let x = event.clientX;
+  let y = event.clientY;
   let dy = lerpY(y);
   if (dy) {
     // sometimes the change is too fast and dy is NaN
