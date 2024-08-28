@@ -1,27 +1,28 @@
 // Handles the dynamic aspect of the page
 
-// map checkbox id to title
+// variables for filtering
+  // map checkbox id to title
 const mapIdTitle = {
-  ml: 'MACHINE LEARNING',
+  ml: 'MACHINE-LEARNING',
+  "c++": "Cpp"
 };
 
 for (let checkBox of document.getElementsByClassName('check-input')) {
   checkBox.addEventListener("click", handleCheckBox);
 }
-
+let checkedFilters = [];
 const filterableContent = document.getElementsByClassName("filterable");
 
-// make this change over the day
+const filterDiv = document.getElementById("filters");
+
+// variables for the face
+// make this change over the day?
 const BOUNDARYY = 60;
 const BOUNDARYX = 90; // the radius for the eye movement boundary
-
-const scrollX = window.scrollX || document.documentElement.scrollLeft;
-const scrollY = window.scrollY || document.documentElement.scrollTop;
 
 let ORIGINALCY = 65;
 let ORIGINALCX = 105;
 
-console.log(ORIGINALCY, ORIGINALCX, scrollY, scrollX)
 let midAnimation = false;
 
 const eyeBalls = document.getElementsByClassName('eye-ball');
@@ -206,11 +207,6 @@ function resetCoords() {
     righty: eyeBalls[1].getBoundingClientRect().y,
   };
 
-  //const scrollX = window.scrollX || document.documentElement.scrollLeft;
-  //const scrollY = window.scrollY || document.documentElement.scrollTop;
-
-  //ORIGINALCY = 65 - scrollY;
-  //ORIGINALCX = 105 - scrollX;
 }
 // end handling window resize
 
@@ -248,9 +244,8 @@ function handleMouseMove(event) {
   const scrollX = window.scrollX || document.documentElement.scrollLeft;
   const scrollY = window.scrollY || document.documentElement.scrollTop;
 
-  console.log(event.clientX, event.clientY)
-  let x = event.clientX;
-  let y = event.clientY;
+  let x = event.clientX + scrollX;
+  let y = event.clientY + scrollY;
   let dy = lerpY(y);
   if (dy) {
     // sometimes the change is too fast and dy is NaN
@@ -290,6 +285,18 @@ function allUnchecked() {
   return true;
 }
 
+function hasAllTags(filterable, tags) {
+  let matchCount = 0;
+  for (const tag of tags){
+    for (const img of filterable.querySelectorAll('img')) {
+      if (img.title.toUpperCase() === tag) {
+        matchCount += 1;
+      }
+    }
+  }
+  return matchCount === tags.length;
+}
+
 function handleCheckBox(event) {
   // When the checkbox is checked filters to remove filterable elements that don't have the target
   // tag. When unchecked, it adds all the filterable elements which where filtered out. Check if 
@@ -299,35 +306,42 @@ function handleCheckBox(event) {
   let boxId = target.id;
   boxId = mapIdTitle.hasOwnProperty(boxId) ? mapIdTitle[boxId]: boxId.toUpperCase();
 
-  if (allUnchecked()) {
-    for (let filterable of filterableContent) {
-      filterable.classList.remove("hide");
-    }
-    return
-  } 
-  else if (target.checked) {
-    for (let filterable of filterableContent) {
+  if (target.checked) {
+    checkedFilters.push(boxId);
+    for (const filterable of filterableContent) {
       let containsTag = false;
-      for (let img of filterable.querySelectorAll('img')) {
+      for (const img of filterable.querySelectorAll('img')) {
         if (img.title.toUpperCase() === boxId) {
           containsTag = true;
+          break;
         }
       }
       if (!containsTag) filterable.classList.add("hide");
-      else filterable.classList.remove("hide");
+      
     }
+    const filterIcon = document.createElement("div")
+    filterIcon.setAttribute("id", boxId);
+    filterIcon.setAttribute("class", "filter");
+    filterIcon.innerHTML = boxId;
+    filterDiv.appendChild(filterIcon);
   } 
   else {
-    for (let filterable of filterableContent) {
-      let containsTag = false;
-      for (let img of filterable.querySelectorAll('img')) {
-        if (img.title.toUpperCase() === boxId) {
-          containsTag = true;
-        }
+    checkedFilters = checkedFilters.filter(el => el !== boxId);
+    if (checkedFilters.length === 0){
+      for (const filterable of filterableContent) {
+        filterable.classList.remove("hide");
       }
-      if (!containsTag) filterable.classList.add("hide");
-    }
+    } else {
+      for (const filterable of filterableContent) {
+        if (hasAllTags(filterable, checkedFilters)) {
+          filterable.classList.remove("hide");
+        } else {
+          filterable.classList.add("hide");
+        }
 
+      }
+    }
+    filterDiv.querySelector(`#${boxId}`).remove();
   }
     
 }
