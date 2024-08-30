@@ -4,7 +4,7 @@
 <head>
   <title>Nati's Portfolio</title>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="./public/portfolio_page.png" type="image/png" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -15,158 +15,162 @@
 </head>
 
 <body>
-  <div class="face">
-    <div class="eyes">
-      <div class="eye">
-        <svg height="100" width="260" id="left-brow" class="brow">
-          <path id="fname-path" fill="none" d="M 0 120 C 0 120, 130 0, 260 120"></path>
-          <text class="name" text-anchor="middle">
-            <textPath href="#fname-path" startOffset="50%">Nathnael</textPath>
-          </text>
-        </svg>
-        <svg class="eye-lid" width="210" height="130" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="f1">
-              <feOffset in="SourceAlpha" dx="2" dy="2" result="offsetblur" />
-              <feGaussianBlur in="offsetblur" stdDeviation="2" result="blurOut" />
-              <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-            </filter>
-          </defs>
-          <circle class="eye-ball" cx="105" cy="65" r="15" fill="black" />
-          <ellipse cx="105" cy="65" rx="100" ry="60" fill="none" stroke="black" stroke-width="2" filter="url(#f1)"/>
-          <circle class="cornea" cx="105" cy="66" r="2" fill="white" />
-        </svg>
-      </div>
+    <!-- Tags -->
+  <div class="legend"> 
+    <a id="legend-drop-down" data-toggle="collapse" href="#legend-content" role="button" aria-expanded="false" aria-controls="legend-content">
+      Tags
+      <i id="legend-caret" class="bi bi-caret-right-fill" style="color: #800020;" title="Tags"></i>
+    </a>
 
-      <div class="eye">
-        <svg height="100" width="260" id="right-brow" class="brow">
-          <text class="name" text-anchor="middle">
-            <textPath href="#fname-path" startOffset="50%">Bekele's</textPath>
-          </text>
-        </svg>
-
-        <svg class="eye-lid" width="210" height="130" xmlns="http://www.w3.org/2000/svg">
-          <circle class="eye-ball" cx="105" cy="65" r="15" fill="black" />
-          <ellipse cx="105" cy="65" rx="100" ry="60" fill="transparent" stroke="black" stroke-width="2" filter="url(#f1)" />
-          <circle class="cornea" cx="105" cy="66" r="2" fill="white" />
-        </svg>
-      </div>
-    </div>
-    <div class="nose">
-      <svg height="200" width="150">
-        <!--
-                    <path fill="none" id="nose-path" stroke-width="3" d="M 70 0 L 90 150 L 10 130"/>
-                    <text class="name" text-anchor="start">
-                        <textPath href="#nose-path" startOffset="10%" side="right">Portfolio
-                        </textPath>
-                    </text>
-                   -->
-        <path fill="none" stroke="black" id="nose-path" stroke-width="3" d="M 30 0 L 10 150 L 90 130" />
-      </svg>
-    </div>
-
-    <div class="mustache">
-      <svg height="100" width="260">
-        <text class="name" text-anchor="middle">
-          <textPath href="#fname-path" startOffset="50%">Portfolio</textPath>
-        </text>
-      </svg>
-    </div>
+    <ul class="tags collapse" id="legend-content">
+      <li>
+        <input class="check-input" type="checkbox" value="" id="python" />
+        <div class="icon"><img src="./public/python.png" width="30px"/></div><div class="tag">Python</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="flask" />
+        <div class="icon"><img src="./public/flask.png" width="30px"/></div><div class="tag">Flask</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="jinga" />
+        <div class="icon"><img src="./public/jinga.png" width="30px"/></div><div class="tag">Jinga</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="tkinter" />
+        <div class="icon"><img src="./public/tk2.png" width="30px"/></div><div class="tag">Tkinter</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="psychopy" />
+        <div class="icon"><img src="./public/psychopy.jpg" width="30px"/></div><div class="tag">PsychoPy</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="c" />
+        <div class="icon"><img src="./public/c.png" width="35px"/></div><div class="tag">C</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="Cpp" />
+        <div class="icon"><img src="./public/cpp.jpeg" width="35px"/></div><div class="tag">C++</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="javascript" />
+        <div class="icon"><img src="./public/js.jpg" width="30px"/></div><div class="tag">JavaScript</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="react" />
+        <div class="icon"><img src="./public/react.png" width="35px"/></div><div class="tag">React</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="bootstrap" />
+        <div class="icon"><img src="./public/bootstrap.png" width="30px"/></div><div class="tag">Bootstrap</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="oop" />
+        <div class="icon"><img src="./public/oop.png" width="40px"/></div><div class="tag">OOP</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="testing" />
+        <div class="icon"><img src="./public/testing.jpg" width="30px"/></div><div class="tag">Testing</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="systems" />
+        <div class="icon"><img src="./public/systems.jpg" width="30px"/></div><div class="tag">Systems</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="quantum" />
+        <div class="icon"><img src="./public/quantum.png" width="30px"/></div><div class="tag">Quantum</div>
+      </li> 
+      <li>
+        <input class="check-input" type="checkbox" value="" id="ml" />
+        <div class="icon"><img src="./public/ml.jpeg" width="30px"/></div><div class="tag">Machine-Learning</div>
+      </li> 
+    </ul>
   </div>
 
-  <div class="container content">
-    <div class="d-flex flex-row">
-      <div style="padding: 5px;">
-        <div class="d-flex align-items-center">
-          <h3>Nathnael (Nati) Bekele &nbsp</h3>
-          <a href="https://github.com/natibek" target="_blank">
-            <i class="bi bi-github" style="font-size: 1.5rem;"></i>
-          </a> &nbsp &nbsp
-          <a href="https://linkedin.com/in/nati-bekele" target="_blank">
-            <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
-          </a>
+  <div class="all">
+    <div class="face">
+      <div class="eyes">
+        <div class="eye">
+          <svg height="100" width="260" id="left-brow" class="brow">
+            <path id="fname-path" fill="none" d="M 0 120 C 0 120, 130 0, 260 120"></path>
+            <text class="name" text-anchor="middle">
+              <textPath href="#fname-path" startOffset="50%">Nathnael</textPath>
+            </text>
+          </svg>
+          <svg class="eye-lid" width="210" height="130" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="f1">
+                <feOffset in="SourceAlpha" dx="2" dy="2" result="offsetblur" />
+                <feGaussianBlur id="blur" in="offsetblur" stdDeviation="17" result="blurOut" />
+                <!--
+                <feFlood id="blurColor" flood-color="rgb(255,0,0)" result="color" />
+                <feComposite in2="blurOut" operator="in" result="coloredBlur" />
+                -->
+                <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+              </filter>
+            </defs>
+            <circle class="eye-ball" cx="105" cy="65" r="15" fill="black" />
+            <ellipse cx="105" cy="65" rx="100" ry="60" fill="none" stroke="black" stroke-width="2" filter="url(#f1)"/>
+            <circle class="cornea" cx="105" cy="66" r="2" fill="white" />
+          </svg>
         </div>
-        <div class="d-flex flex-column">
-          <!-- <img src="./public/uchicago logo.png" width="35px" height="35px" style="position: relative; top: -5px;"/> -->
-          <h4>BS in Computer Science Specializing in Programming Languages from The University of Chicago</h4>
-          <h5>4th Year</h5>
+
+        <div class="eye">
+          <svg height="100" width="260" id="right-brow" class="brow">
+            <text class="name" text-anchor="middle">
+              <textPath href="#fname-path" startOffset="50%">Bekele's</textPath>
+            </text>
+          </svg>
+
+          <svg class="eye-lid" width="210" height="130" xmlns="http://www.w3.org/2000/svg">
+            <circle class="eye-ball" cx="105" cy="65" r="15" fill="black" />
+            <ellipse cx="105" cy="65" rx="100" ry="60" fill="transparent" stroke="black" stroke-width="2" filter="url(#f1)" />
+            <circle class="cornea" cx="105" cy="66" r="2" fill="white" />
+          </svg>
         </div>
       </div>
-    </div>
+      <div class="nose">
+        <svg height="200" width="150">
+          <!--
+                      <path fill="none" id="nose-path" stroke-width="3" d="M 70 0 L 90 150 L 10 130"/>
+                      <text class="name" text-anchor="start">
+                          <textPath href="#nose-path" startOffset="10%" side="right">Portfolio
+                          </textPath>
+                      </text>
+                    -->
+          <path fill="none" stroke="black" id="nose-path" stroke-width="3" d="M 30 0 L 10 150 L 90 130" />
+        </svg>
+      </div>
 
-    <!-- Tags -->
-    <div class="legend"> 
-      <a id="legend-drop-down" data-toggle="collapse" href="#legend-content" role="button" aria-expanded="false" aria-controls="legend-content">
-        Tags
-        <i id="legend-caret" class="bi bi-caret-right-fill" style="color: #800020;" title="Tags"></i>
-      </a>
-
-      <ul class="tags collapse" id="legend-content">
-        <li>
-          <input class="check-input" type="checkbox" value="" id="python" />
-          <div class="icon"><img src="./public/python.png" width="30px"/></div><div class="tag">Python</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="flask" />
-          <div class="icon"><img src="./public/flask.png" width="30px"/></div><div class="tag">Flask</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="jinga" />
-          <div class="icon"><img src="./public/jinga.png" width="30px"/></div><div class="tag">Jinga</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="tkinter" />
-          <div class="icon"><img src="./public/tk2.png" width="30px"/></div><div class="tag">Tkinter</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="psychopy" />
-          <div class="icon"><img src="./public/psychopy.jpg" width="30px"/></div><div class="tag">PsychoPy</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="c" />
-          <div class="icon"><img src="./public/c.png" width="35px"/></div><div class="tag">C</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="Cpp" />
-          <div class="icon"><img src="./public/cpp.jpeg" width="35px"/></div><div class="tag">C++</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="javascript" />
-          <div class="icon"><img src="./public/js.jpg" width="30px"/></div><div class="tag">JavaScript</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="react" />
-          <div class="icon"><img src="./public/react.png" width="35px"/></div><div class="tag">React</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="bootstrap" />
-          <div class="icon"><img src="./public/bootstrap.png" width="30px"/></div><div class="tag">Bootstrap</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="oop" />
-          <div class="icon"><img src="./public/oop.png" width="40px"/></div><div class="tag">OOP</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="testing" />
-          <div class="icon"><img src="./public/testing.jpg" width="30px"/></div><div class="tag">Testing</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="systems" />
-          <div class="icon"><img src="./public/systems.jpg" width="30px"/></div><div class="tag">Systems</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="quantum" />
-          <div class="icon"><img src="./public/quantum.png" width="30px"/></div><div class="tag">Quantum</div>
-        </li> 
-        <li>
-          <input class="check-input" type="checkbox" value="" id="ml" />
-          <div class="icon"><img src="./public/ml.jpeg" width="30px"/></div><div class="tag">Machine-Learning</div>
-        </li> 
-      </ul>
+      <div class="mustache">
+        <svg height="100" width="260">
+          <text class="name" text-anchor="middle">
+            <textPath href="#fname-path" startOffset="50%">Portfolio</textPath>
+          </text>
+        </svg>
+      </div>
     </div>
 
     <!-- Main Content -->
-    <main id="accordion">
+    <main class="container" id="accordion">
+      <div class="d-flex flex-row">
+        <div style="padding: 5px;">
+          <div class="d-flex align-items-center">
+            <h1>Nathnael (Nati) Bekele &nbsp</h1>
+            <a href="https://github.com/natibek" target="_blank">
+              <i class="bi bi-github" style="font-size: 1.5rem;"></i>
+            </a> &nbsp &nbsp
+            <a href="https://linkedin.com/in/nati-bekele" target="_blank">
+              <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+            </a>
+          </div>
+          <div class="d-flex flex-column">
+            <!-- <img src="./public/uchicago logo.png" width="35px" height="35px" style="position: relative; top: -5px;"/> -->
+            <h2>BS in Computer Science Specializing in Programming Languages from The University of Chicago</h2>
+            <h2>4th Year</h2>
+          </div>
+        </div>
+      </div>
+
       <div id="filters">
       </div>
       <div class="general">

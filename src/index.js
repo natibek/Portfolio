@@ -25,6 +25,8 @@ let ORIGINALCX = 105;
 
 let midAnimation = false;
 
+const eyeBlurColor = document.getElementById("blurColor")
+const eyeBlur = document.getElementById("blur")
 const eyeBalls = document.getElementsByClassName('eye-ball');
 const eyeLids = document.getElementsByClassName('eye-lid');
 const corneas = document.getElementsByClassName('cornea');
@@ -48,6 +50,7 @@ window.addEventListener('touchmove', handleMouseMove);
 
 document.addEventListener('click', handleClick);
 document.addEventListener('DOMContentLoaded', handleWink);
+document.addEventListener('DOMContentLoaded', handleSleepy);
 window.addEventListener('resize', resetCoords);
 
 for (let dropDown of document.getElementsByClassName('drop-down')) {
@@ -116,6 +119,35 @@ function handleDropDown(event) {
   cur_expanded = target;
 }
 
+// start handle eye with time
+let eyeColorMap = {}
+
+for (let i = 1; i <= 24; i++) {
+  eyeColorMap[i] = `rgb(${0 + i * 10}, 255, 255)`;
+}
+
+// reddest night -> 7pm - 7am
+
+function handleSleepy() {
+  const now = new Date();
+  let curHour = now.getHours();
+  console.log(curHour);
+
+  for (const key in eyeColorMap) {
+    if (curHour < key) {
+      //eyeBlurColor.setAttribute('flood-color', eyeColorMap[key]);
+      console.log(key)
+      eyeBlur.setAttribute('stdDeviation', `${key}`);
+      
+      break;
+    }
+  }
+
+  setTimeout(handleSleepy, (60 - now.getMinutes())*60*1000)
+
+}
+// end handle eye with time
+
 // start wink handling
 async function handleWink() {
   // Adds winking movement to the eyes. Randomly chooses and eye and also waits a random amount
@@ -167,7 +199,7 @@ function handleClick(event) {
   createRipple(x, y);
   if (!midAnimation) {
     midAnimation = true;
-    setTimeout(moveBrows, 80);
+    setTimeout(moveBrows, 70);
   }
 }
 
@@ -241,11 +273,12 @@ function handleMouseMove(event) {
   // Handles the mouse movement events. If the cursor is inbetween the eyes, the only movement is
   // in the y direction. Otherwise, the closest eye is chosen and the eye balls are moved to follow
   // the cursor from the POV of the chosen eye.
-  const scrollX = window.scrollX || document.documentElement.scrollLeft;
-  const scrollY = window.scrollY || document.documentElement.scrollTop;
 
-  let x = event.clientX + scrollX;
-  let y = event.clientY + scrollY;
+  //const scrollX = window.scrollX || document.documentElement.scrollLeft;
+  //const scrollY = window.scrollY || document.documentElement.scrollTop;
+
+  let x = event.clientX;
+  let y = event.clientY;
   let dy = lerpY(y);
   if (dy) {
     // sometimes the change is too fast and dy is NaN
