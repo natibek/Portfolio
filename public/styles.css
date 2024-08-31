@@ -1,5 +1,5 @@
-
-body {
+* {
+    box-sizing: border-box;
 }
 
 .all {
@@ -7,7 +7,6 @@ body {
     justify-content: center;
     align-items: start;
     padding: 30px;
-    gap: 20px;
 }
 
 @media (max-width: 1000px) {
@@ -127,6 +126,9 @@ h4 {
 
 .tags {
     position: absolute;
+    height: fit-content;
+    max-height: 45dvh;
+    overflow-y: auto;
     left: 60px;
     top: -10px;
     display: flex;
