@@ -9,31 +9,6 @@
     padding: 30px;
 }
 
-@media (max-width: 1000px) {
-    .all {
-        flex-wrap: wrap;
-        font-size: 0.9rem;
-    }
-    .face {
-        opacity: 0.3;
-    }
-    main{
-        margin-top: -50dvh;
-    }
-}
-
-@media (max-width: 550px) {
-    .face {
-        transform: scale(0.7);
-    }
-}
-
-@media (max-width: 360px) {
-    .face {
-        transform: scale(0.5);
-    }
-
-}
 
 h1 {
     font-size: larger;
@@ -127,7 +102,7 @@ h4 {
 .tags {
     position: absolute;
     height: fit-content;
-    max-height: 45dvh;
+    max-height: 60dvh;
     overflow-y: auto;
     left: 60px;
     top: -10px;
@@ -203,4 +178,35 @@ main {
     border-radius: 3%;    
     padding-right: 5px; 
     padding-left: 5px;
+}
+
+@media (max-width: 1000px) {
+    .all {
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+    }
+    .face {
+        position: relative;
+        top: 10dvh;
+        opacity: 0.9;
+    }
+    main{
+        margin-top: 30dvh;
+    }
+}
+
+@media (max-width: 550px) {
+    .face {
+        transform: scale(0.7);
+    }
+    li {
+        margin-left: -10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .face {
+        transform: scale(0.5);
+    }
+
 }
