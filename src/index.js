@@ -60,6 +60,8 @@ for (let dropDown of document.getElementsByClassName('drop-down')) {
   dropDown.addEventListener('click', handleDropDown);
 }
 
+const sideBarIcon = document.getElementById('legend-caret');
+const legendDropDown = document.getElementById('legend-drop-down');
 document.getElementById('legend-drop-down').addEventListener('mouseover', handleSideBarHover);
 document.getElementById('legend-drop-down').addEventListener('mouseout', handleSideBarOut);
 document.getElementById('legend-drop-down').addEventListener('click', handleSideBarClick);
@@ -69,34 +71,29 @@ document.getElementById('legend-drop-down').addEventListener('click', handleSide
 let cur_expanded = null;
 
 function handleSideBarOut() {
-  const sideBarIcon = document.getElementById('legend-caret');
+  // handle mouseout event by hiding
   if (sideBarIcon.className.includes('right')) {
-    document.getElementById('legend-drop-down').style.setProperty('margin-left', '-38px');
+    legendDropDown.style.setProperty('margin-left', '-38px');
   }
 }
 
 function handleSideBarHover() {
-  const sideBarIcon = document.getElementById('legend-caret');
+  // handle hover/mouseover event by revealing button
   if (sideBarIcon.className.includes('right')) {
-    document.getElementById('legend-drop-down').style.setProperty('margin-left', '0px');
+    legendDropDown.style.setProperty('margin-left', '0px');
   }
 }
 
 function handleSideBarClick() {
   // Updates the caret for the side bar
 
-  const sideBarIcon = document.getElementById('legend-caret');
   const className = sideBarIcon.className;
   if (className.includes('right')) {
     sideBarIcon.setAttribute('class', className.replace('right', 'left'));
-    document
-      .getElementById('legend-drop-down')
-      .style.setProperty('margin-left', '0px', 'important');
+    legendDropDown.style.setProperty('margin-left', '0px', 'important');
   } else {
     sideBarIcon.setAttribute('class', className.replace('left', 'right'));
-    document
-      .getElementById('legend-drop-down')
-      .style.setProperty('margin-left', '-38px', 'important');
+    legendDropDown.style.setProperty('margin-left', '-38px', 'important');
   }
 }
 //start drop-down-handling

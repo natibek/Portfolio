@@ -110,8 +110,12 @@ h4 {
     flex-direction: column;
     background-color: white;
     border: 2px solid black;
-    padding: 5px;
+    padding: 15px;
     border-radius: 5px;
+}
+
+.check-input {
+    padding: 2px;
 }
 
 #legend-drop-down {
