@@ -190,21 +190,24 @@ main {
         font-size: 0.9rem;
     }
     .face {
+        display: none;
         position: relative;
         top: 10dvh;
         opacity: 0.9;
     }
+    /*
     main{
         margin-top: 30dvh;
     }
+    */
 }
 
 @media (max-width: 550px) {
     .face {
         transform: scale(0.7);
     }
-    li {
-        margin-left: -10px;
+    li:not(.tag) {
+        margin-left: -25px;
     }
 }
 
