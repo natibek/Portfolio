@@ -195,6 +195,9 @@ main {
         top: 10dvh;
         opacity: 0.9;
     }
+    img {
+        width: 20px;
+    }
     /*
     main{
         margin-top: 30dvh;
