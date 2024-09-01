@@ -12,16 +12,19 @@ for (let checkBox of document.getElementsByClassName('check-input')) {
 }
 let checkedFilters = [];
 const filterableContent = document.getElementsByClassName("filterable");
+const matchDisplay = document.getElementById("matchCount");
 
 const filterDiv = document.getElementById("filters");
 
 // variables for the face
 // make this change over the day?
-const BOUNDARYY = 60;
-const BOUNDARYX = 90; // the radius for the eye movement boundary
+const BoundaryY = 50;
+const BoundaryX = 75; // the radius for the eye movement boundary
+let Rate = 30;
 
-let ORIGINALCY = 65;
-let ORIGINALCX = 105;
+
+let OriginalCY = 65;
+let OriginalCX = 105;
 
 let midAnimation = false;
 
@@ -57,42 +60,40 @@ for (let dropDown of document.getElementsByClassName('drop-down')) {
   dropDown.addEventListener('click', handleDropDown);
 }
 
+const sideBarIcon = document.getElementById('legend-caret');
+const legendDropDown = document.getElementById('legend-drop-down');
 document.getElementById('legend-drop-down').addEventListener('mouseover', handleSideBarHover);
 document.getElementById('legend-drop-down').addEventListener('mouseout', handleSideBarOut);
 document.getElementById('legend-drop-down').addEventListener('click', handleSideBarClick);
 
 
+
 let cur_expanded = null;
 
 function handleSideBarOut() {
-  const sideBarIcon = document.getElementById('legend-caret');
+  // handle mouseout event by hiding
   if (sideBarIcon.className.includes('right')) {
-    document.getElementById('legend-drop-down').style.setProperty('margin-left', '-38px');
+    legendDropDown.style.setProperty('margin-left', '-38px');
   }
 }
 
 function handleSideBarHover() {
-  const sideBarIcon = document.getElementById('legend-caret');
+  // handle hover/mouseover event by revealing button
   if (sideBarIcon.className.includes('right')) {
-    document.getElementById('legend-drop-down').style.setProperty('margin-left', '0px');
+    legendDropDown.style.setProperty('margin-left', '0px');
   }
 }
 
 function handleSideBarClick() {
   // Updates the caret for the side bar
 
-  const sideBarIcon = document.getElementById('legend-caret');
   const className = sideBarIcon.className;
   if (className.includes('right')) {
     sideBarIcon.setAttribute('class', className.replace('right', 'left'));
-    document
-      .getElementById('legend-drop-down')
-      .style.setProperty('margin-left', '0x', 'important');
+    legendDropDown.style.setProperty('margin-left', '0px', 'important');
   } else {
     sideBarIcon.setAttribute('class', className.replace('left', 'right'));
-    document
-      .getElementById('legend-drop-down')
-      .style.setProperty('margin-left', '-38px', 'important');
+    legendDropDown.style.setProperty('margin-left', '-38px', 'important');
   }
 }
 //start drop-down-handling
@@ -129,14 +130,16 @@ for (let i = 1; i <= 24; i++) {
 // reddest night -> 7pm - 7am
 
 function handleSleepy() {
+  // according to the hour, update the eye speed, color, and shading.
+
   const now = new Date();
   let curHour = now.getHours();
-  console.log(curHour);
+  //console.log(curHour);
 
   for (const key in eyeColorMap) {
     if (curHour < key) {
       //eyeBlurColor.setAttribute('flood-color', eyeColorMap[key]);
-      console.log(key)
+   //   console.log(key)
       eyeBlur.setAttribute('stdDeviation', `${key}`);
       
       break;
@@ -197,7 +200,8 @@ function handleClick(event) {
   const x = event.clientX + window.scrollX;
   const y = event.clientY + window.scrollY;
   createRipple(x, y);
-  if (!midAnimation) {
+
+  if (!midAnimation && window.innerWidth > 1000) {
     midAnimation = true;
     setTimeout(moveBrows, 70);
   }
@@ -257,7 +261,7 @@ function lerpX(x, povX) {
   // the eye ball can move)
   const direction = (x - povX) / Math.abs(x - povX);
   const magnitude = x > povX ? x - povX : povX - x;
-  return direction * Math.min((magnitude * BOUNDARYX) / povX, 35);
+  return direction * Math.min((magnitude * Rate) / povX, BoundaryX);
 }
 
 function lerpY(y) {
@@ -266,7 +270,7 @@ function lerpY(y) {
   // boundary of a 50 rad circle
   const direction = (y - eyeCoords.lefty) / Math.abs(y - eyeCoords.lefty);
   const magnitude = y > eyeCoords.lefty ? y - eyeCoords.lefty : eyeCoords.lefty - y;
-  return direction * Math.min((magnitude * BOUNDARYY) / eyeCoords.lefty, 50);
+  return direction * Math.min((magnitude * Rate) / eyeCoords.lefty, BoundaryY);
 }
 
 function handleMouseMove(event) {
@@ -274,34 +278,37 @@ function handleMouseMove(event) {
   // in the y direction. Otherwise, the closest eye is chosen and the eye balls are moved to follow
   // the cursor from the POV of the chosen eye.
 
-  //const scrollX = window.scrollX || document.documentElement.scrollLeft;
-  //const scrollY = window.scrollY || document.documentElement.scrollTop;
+  // const scrollX = window.scrollX || document.documentElement.scrollLeft;
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
 
-  let x = event.clientX;
-  let y = event.clientY;
-  let dy = lerpY(y);
+  const x = event.clientX;
+  const y = event.clientY;
+
+  if (window.innerWidth < 1000 && (y + scrollY) > window.innerHeight) return;
+
+  const dy = lerpY(y);
   if (dy) {
     // sometimes the change is too fast and dy is NaN
     [0, 1].forEach((idx) => {
-      corneas[idx].setAttribute('cy', ORIGINALCY + dy);
-      eyeBalls[idx].setAttribute('cy', ORIGINALCY + dy);
+      corneas[idx].setAttribute('cy', OriginalCY+ dy);
+      eyeBalls[idx].setAttribute('cy', OriginalCY + dy);
     });
   }
 
   if (x >= eyeCoords.rightx || x <= eyeCoords.leftx) {
     // not between the eyes just move up and down
-    povX = chooseEye(x);
-    let dx = lerpX(x, povX);
+    const povX = chooseEye(x);
+    const dx = lerpX(x, povX);
     if (dx) {
       [0, 1].forEach((idx) => {
-        corneas[idx].setAttribute('cx', ORIGINALCX + dx);
-        eyeBalls[idx].setAttribute('cx', ORIGINALCX + dx);
+        corneas[idx].setAttribute('cx', OriginalCX+ dx);
+        eyeBalls[idx].setAttribute('cx', OriginalCX+ dx);
       });
     }
   } else {
     [0, 1].forEach((idx) => {
-      corneas[idx].setAttribute('cx', ORIGINALCX);
-      eyeBalls[idx].setAttribute('cx', ORIGINALCX);
+      corneas[idx].setAttribute('cx', OriginalCX);
+      eyeBalls[idx].setAttribute('cx', OriginalCX);
     });
   }
 }
@@ -319,6 +326,9 @@ function allUnchecked() {
 }
 
 function hasAllTags(filterable, tags) {
+  // checks if a filterable element matches with all the filter tags by comparing the titles
+  // of the img children it has wit the filter tags
+
   let matchCount = 0;
   for (const tag of tags){
     for (const img of filterable.querySelectorAll('img')) {
@@ -341,17 +351,6 @@ function handleCheckBox(event) {
 
   if (target.checked) {
     checkedFilters.push(boxId);
-    for (const filterable of filterableContent) {
-      let containsTag = false;
-      for (const img of filterable.querySelectorAll('img')) {
-        if (img.title.toUpperCase() === boxId) {
-          containsTag = true;
-          break;
-        }
-      }
-      if (!containsTag) filterable.classList.add("hide");
-      
-    }
     const filterIcon = document.createElement("div")
     filterIcon.setAttribute("id", boxId);
     filterIcon.setAttribute("class", "filter");
@@ -360,21 +359,25 @@ function handleCheckBox(event) {
   } 
   else {
     checkedFilters = checkedFilters.filter(el => el !== boxId);
-    if (checkedFilters.length === 0){
-      for (const filterable of filterableContent) {
-        filterable.classList.remove("hide");
-      }
-    } else {
-      for (const filterable of filterableContent) {
-        if (hasAllTags(filterable, checkedFilters)) {
-          filterable.classList.remove("hide");
-        } else {
-          filterable.classList.add("hide");
-        }
-
-      }
-    }
     filterDiv.querySelector(`#${boxId}`).remove();
   }
-    
+
+  if (checkedFilters.length === 0){
+    for (const filterable of filterableContent) {
+      filterable.classList.remove("hide");
+      matchDisplay.classList.add("hide");
+    }
+  } else {
+    let matches = 0;
+    for (const filterable of filterableContent) {
+      if (hasAllTags(filterable, checkedFilters)) {
+        filterable.classList.remove("hide");
+        matches += 1;
+      } else {
+        filterable.classList.add("hide");
+      }
+      matchDisplay.classList.remove("hide");
+      matchDisplay.innerHTML = `Matches: ${matches}`;
+    }
+  }
 }
