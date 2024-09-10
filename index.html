@@ -77,6 +77,10 @@
         <div class="icon"><img src="./public/systems.jpg" width="30px"/></div><div class="tag">Systems</div>
       </li> 
       <li class="tag">
+        <input class="check-input" type="checkbox" value="" id="database" />
+        <div class="icon"><img src="./public/database.png" width="30px"/></div><div class="tag">Database</div>
+      </li> 
+      <li class="tag">
         <input class="check-input" type="checkbox" value="" id="quantum" />
         <div class="icon"><img src="./public/quantum.png" width="30px"/></div><div class="tag">Quantum</div>
       </li> 
@@ -156,7 +160,7 @@
       <div class="d-flex flex-row">
         <div style="padding: 5px;">
           <div class="d-flex align-items-center">
-            <h1>Nathnael (Nati) Bekele &nbsp</h1>
+            <h1>Nathnael (Nati) Bekele</h1> &nbsp &nbsp
             <a href="https://github.com/natibek" target="_blank">
               <i class="bi bi-github" style="font-size: 1.5rem;"></i>
             </a> &nbsp &nbsp
@@ -164,7 +168,7 @@
               <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
             </a> &nbsp &nbsp
             <a href="https://pypi.org/user/natibek/" target="_blank">
-              <img src="./public/pypi.svg" width="30px" alt="link" />
+              <img src="./public/pypi.svg" width="35px" alt="link" />
             </a>
           </div>
           <div class="d-flex flex-column">
@@ -175,59 +179,28 @@
         </div>
       </div>
 
-      <div id="filters">
-      </div>
-      <div id="matchCount" class="hide"></div>
 
       <div class="general">
         <div>
           <h3>Interests</h3>
           <ul>
-            <li>Backend Development</li>
-            <li>Quantum Computing</li>
-            <li>Programming Languages</li>
-            <li>Systems Programming</li>
+            <li>Computer Systems</li>
             <li>Library Development</li>
+            <li>Quantum Computing</li>
+            <li>HPC</li>
+            <li>Game Development</li>
+            <li>Backend Development</li>
+            <li>Programming Languages</li>
           </ul>
         </div>
 
         <div>
-          <h3>Coursework</h3>
+          <h3>Awards</h3>
           <ul>
-            <li class="filterable">
-              Intro to Computer Science I/II: <em>Algorithms</em>
-              <img src="./public/python.png" width="30px" title="Python"/>
-              <img src="./public/oop.png" width="30px" title="OOP"/>
-              <img src="./public/testing.jpg" width="30px" title="Testing"/>
-            </li>
-            <li class="filterable">
-              Systems Programming I/II: <em>Assembly, Multithreading, Algorithms</em>
-              <img src="./public/c.png" width="30px" title="C"/>
-              <img src="./public/testing.jpg" width="30px" title="Testing"/>
-            </li>
-            <li class="filterable">
-              Data Visualization: <em>D3</em>
-              <img src="./public/js.jpg" width="30px" title="JavaScript"/>
-            </li>
-            <li class="filterable">
-              Creative Machines and Innovative Designs: 
-              <img src="./public/cpp.jpeg" width="30px" title="Cpp"/>
-            </li>
-            <li class="filterable">
-              Computer Vision: <em>PyTorch, Various Models</em>
-              <img src="./public/python.png" width="30px" title="Python"/>
-              <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>
-            </li>
-            <li class="filterable">
-              Mathematical Foundations of Machine-Learning
-              <img src="./public/python.png" width="30px" title="Python"/>
-              <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>
-            </li>
-            <li class="filterable">
-              Intro to Data Science I/II
-              <img src="./public/python.png" width="30px" title="Python"/>
-              <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>
-            </li>
+            <li>UChicago Advanced Scholar</li>
+            <li>Best Overall Award at The UChicago Winter Tech Showcase for <a href="https://guessthewiki.com" target="_blank">GuessTheWiki</a></li>
+            <li>UChicago Odyssey Scholar</li>
+            <li>Dean's List 2022</li>
           </ul>
         </div>
 
@@ -244,6 +217,49 @@
         </div>
       </div>
 
+      <div id="filters"></div> <!--Will be filled by the JS script when the filtering takes place.-->
+      <div id="matchCount" class="hide"></div>
+
+      <div>
+        <h3>Coursework</h3>
+        <ul>
+          <li class="filterable">
+            Intro to Computer Science I/II: <em>Algorithms</em>
+            <img src="./public/python.png" width="30px" title="Python"/>
+            <img src="./public/oop.png" width="30px" title="OOP"/>
+            <img src="./public/testing.jpg" width="30px" title="Testing"/>
+          </li>
+          <li class="filterable">
+            Systems Programming I/II: <em>Assembly, Multithreading, Algorithms</em>
+            <img src="./public/c.png" width="30px" title="C"/>
+            <img src="./public/testing.jpg" width="30px" title="Testing"/>
+          </li>
+          <li class="filterable">
+            Data Visualization: <em>D3</em>
+            <img src="./public/js.jpg" width="30px" title="JavaScript"/>
+          </li>
+          <li class="filterable">
+            Creative Machines and Innovative Designs: 
+            <img src="./public/cpp.jpeg" width="30px" title="Cpp"/>
+          </li>
+          <li class="filterable">
+            Computer Vision: <em>PyTorch, Various Models</em>
+            <img src="./public/python.png" width="30px" title="Python"/>
+            <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>
+          </li>
+          <li class="filterable">
+            Mathematical Foundations of Machine-Learning
+            <img src="./public/python.png" width="30px" title="Python"/>
+            <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>
+          </li>
+          <li class="filterable">
+            Intro to Data Science I/II
+            <img src="./public/python.png" width="30px" title="Python"/>
+            <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>
+          </li>
+        </ul>
+      </div>
+
       <div >
         <h3>Internships</h3>
         <ul>
@@ -258,6 +274,7 @@
               <img src="./public/jinga.png" width="30px" title="Jinga"/>
               <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>
               <img src="./public/testing.jpg" width="30px" title="Testing"/>
+              <img src="./public/database.png" width="30px" title="Database"/>
 
             </a>
 
@@ -359,12 +376,14 @@
 
               <div class="collapse " id="collapse10" data-parent="#accordion" aria-labelledby="drop-down10">
                 <ul>
-                  <li>A command line tool for managing all local git repo clones simultaneous.</li>
+                  <li>A command line tool for managing multiple local git repo clones simultaneous.</li>
+                  <li>Extensively uses the `argparse` and `subprocess` libraries.</li>
+                  <li>Has appropriate exit codes for integration with other tests.</li>
                 </ul>
               </div>
             </li>
 
-            <li class="filterable">
+            <li class="filterable" id="guessthewiki">
               <a href="https://www.guessthewiki.com" target="_blank"><img src="./public/guessthewiki_icon.svg" width="30px" alt="link" style="position: relative; top: -3px;"/></a> &nbsp
               <a id="drop-down5" data-toggle="collapse" href="#collapse5" role="button" aria-expanded="false" aria-controls="collapse5" class="drop-down">
                 GuessTheWiki
@@ -374,12 +393,19 @@
                 <img src="./public/flask.png" width="30px" title="Flask"/>&nbsp
                 <img src="./public/react.png" width="30px" title="React"/>&nbsp
                 <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>&nbsp
+                <img src="./public/database.png" width="30px" title="Database"/>&nbsp
 
               </a>
 
               <div class="collapse " id="collapse5" data-parent="#accordion" aria-labelledby="drop-down5">
                 <ul>
-                  <li></li>
+                  <li>Wordle inspired guessing game in which you have 6 attempts guess the title of a wikipedia page from sentences scraped from the article with the sentences getting more descriptive with each wrong guess.</li>
+                  <li>Integrated Gensim’s pretrained NLP models for semantic comparison of user input and title for scoring.</li>
+                  <li>Utilized NLTK tokenize and rank a Wikipedia article’s scraped sentences in relative descriptiveness.</li>
+                  <li>Designed a Postgres database to store user data including usernames, encrypted passwords, and game scores.</li>
+                  <li>Designed Flask Restful Apis to get hints, score guesses, login, and register users.</li>
+                  <li>Implemented online multiplayer game play using Socket.Io web sockets and NodeJS.</li>
+                  <li>Won Best Overall Award at the UChicago Winter Tech Showcase.</li>
                 </ul>
               </div>
             </li>
