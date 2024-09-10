@@ -354,7 +354,7 @@ function handleCheckBox(event) {
 
   if (target.checked) {
     checkedFilters.push(boxId);
-    const filterIcon = document.createElement("div")
+    const filterIcon = document.createElement("div");
     filterIcon.setAttribute("id", boxId);
     filterIcon.setAttribute("class", "filter");
     filterIcon.innerHTML = boxId;
@@ -393,7 +393,7 @@ function handleClearFilters() {
   for (const checkBox of checkBoxes) 
     if (checkBox.checked) checkBox.checked = false;
 
-  for (const filterIcon of document.getElementsByClassName("filter"))
+  for (const filterIcon of filterDiv.querySelectorAll("div"))
     filterIcon.remove();
 
   for (const filterable of filterableContent) 
