@@ -7,14 +7,18 @@ const mapIdTitle = {
   "c++": "Cpp"
 };
 
-for (let checkBox of document.getElementsByClassName('check-input')) {
+const checkBoxes = document.getElementsByClassName('check-input');
+for (const checkBox of checkBoxes) {
   checkBox.addEventListener("click", handleCheckBox);
+  checkBox.checked = false; // force uncheck when page is reloaded
 }
+
 let checkedFilters = [];
 const filterableContent = document.getElementsByClassName("filterable");
 const matchDisplay = document.getElementById("matchCount");
-
 const filterDiv = document.getElementById("filters");
+const clearFiltersBtn = document.getElementById("clear-filters");
+clearFiltersBtn.addEventListener("click", handleClearFilters);
 
 // variables for the face
 // make this change over the day?
@@ -56,7 +60,7 @@ document.addEventListener('DOMContentLoaded', handleWink);
 document.addEventListener('DOMContentLoaded', handleSleepy);
 window.addEventListener('resize', resetCoords);
 
-for (let dropDown of document.getElementsByClassName('drop-down')) {
+for (const dropDown of document.getElementsByClassName('drop-down')) {
   dropDown.addEventListener('click', handleDropDown);
 }
 
@@ -145,7 +149,6 @@ function handleSleepy() {
       break;
     }
   }
-
   setTimeout(handleSleepy, (60 - now.getMinutes())*60*1000)
 
 }
@@ -365,8 +368,9 @@ function handleCheckBox(event) {
   if (checkedFilters.length === 0){
     for (const filterable of filterableContent) {
       filterable.classList.remove("hide");
-      matchDisplay.classList.add("hide");
     }
+    matchDisplay.classList.add("hide");
+    clearFiltersBtn.classList.add("hide");
   } else {
     let matches = 0;
     for (const filterable of filterableContent) {
@@ -379,5 +383,23 @@ function handleCheckBox(event) {
       matchDisplay.classList.remove("hide");
       matchDisplay.innerHTML = `Matches: ${matches}`;
     }
+    clearFiltersBtn.classList.remove("hide");
   }
+}
+
+function handleClearFilters() {
+  // Clears all the selected filters. Uncheck checkboxes, removes filter icons, and display everything.
+
+  for (const checkBox of checkBoxes) 
+    if (checkBox.checked) checkBox.checked = false;
+
+  for (const filterIcon of document.getElementsByClassName("filter"))
+    filterIcon.remove();
+
+  for (const filterable of filterableContent) 
+    filterable.classList.remove("hide");
+
+  matchDisplay.classList.add("hide");
+  clearFiltersBtn.classList.add("hide");
+  
 }

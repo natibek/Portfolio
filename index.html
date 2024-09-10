@@ -156,7 +156,7 @@
     </div>
 
     <!-- Main Content -->
-    <main class="container" id="accordion">
+    <main id="accordion">
       <div class="d-flex flex-row">
         <div style="padding: 5px;">
           <div class="d-flex align-items-center">
@@ -168,7 +168,7 @@
               <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
             </a> &nbsp &nbsp
             <a href="https://pypi.org/user/natibek/" target="_blank">
-              <img src="./public/pypi.svg" width="35px" alt="link" />
+              <img id="pypi" src="./public/pypi.svg" width="32px" alt="link" />
             </a>
           </div>
           <div class="d-flex flex-column">
@@ -186,7 +186,7 @@
           <ul>
             <li>Computer Systems</li>
             <li>Library Development</li>
-            <li>Quantum Computing</li>
+            <li>Quantum Software Development</li>
             <li>HPC</li>
             <li>Game Development</li>
             <li>Backend Development</li>
@@ -211,51 +211,54 @@
             <li>JavaScript, CSS, HTML</li>
             <li>C++</li>
             <li>C</li>
-            <li>SML</li>
             <li>Bash</li>
+            <li>SML</li>
           </ul>
         </div>
       </div>
 
       <div id="filters"></div> <!--Will be filled by the JS script when the filtering takes place.-->
-      <div id="matchCount" class="hide"></div>
+      <div class="d-flex align-items-center" style="gap: 20px;">
+        <div id="matchCount" class="hide"></div>
+        <i class="bi bi-x-lg hide" id="clear-filters" style="color: #800020;"></i>
+      </div>
 
       <div>
         <h3>Coursework</h3>
         <ul>
           <li class="filterable">
-            Intro to Computer Science I/II: <em>Algorithms</em>
-            <img src="./public/python.png" width="30px" title="Python"/>
-            <img src="./public/oop.png" width="30px" title="OOP"/>
-            <img src="./public/testing.jpg" width="30px" title="Testing"/>
+            Intro to Computer Science I/II: <em>Algorithms</em>:&nbsp;
+            <img src="./public/python.png" width="30px"  title="Python"/>&nbsp;
+            <img src="./public/oop.png" width="40px"  title="OOP"/>&nbsp;
+            <img src="./public/testing.jpg" width="30px" title="Testing"/>&nbsp;
           </li>
           <li class="filterable">
-            Systems Programming I/II: <em>Assembly, Multithreading, Algorithms</em>
-            <img src="./public/c.png" width="30px" title="C"/>
-            <img src="./public/testing.jpg" width="30px" title="Testing"/>
+            Systems Programming I/II: <em>Assembly, Multithreading, Algorithms</em>: &nbsp;
+            <img src="./public/c.png" width="30px" title="C"/>&nbsp;
+            <img src="./public/testing.jpg" width="30px" title="Testing"/>&nbsp;
           </li>
           <li class="filterable">
-            Data Visualization: <em>D3</em>
-            <img src="./public/js.jpg" width="30px" title="JavaScript"/>
+            Data Visualization: <em>D3</em>: &nbsp;
+            <img src="./public/js.jpg" width="30px" title="JavaScript"/>&nbsp;
           </li>
           <li class="filterable">
-            Creative Machines and Innovative Designs: 
-            <img src="./public/cpp.jpeg" width="30px" title="Cpp"/>
+            Creative Machines and Innovative Designs: &nbsp;
+            <img src="./public/cpp.jpeg" width="30px" title="Cpp"/>&nbsp;
           </li>
           <li class="filterable">
-            Computer Vision: <em>PyTorch, Various Models</em>
-            <img src="./public/python.png" width="30px" title="Python"/>
-            <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>
+            Computer Vision: <em>PyTorch, Various Models</em>: &nbsp;
+            <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
+            <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>&nbsp;
           </li>
           <li class="filterable">
-            Mathematical Foundations of Machine-Learning
-            <img src="./public/python.png" width="30px" title="Python"/>
-            <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>
+            Mathematical Foundations of Machine-Learning: &nbsp;
+            <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
+            <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>&nbsp;
           </li>
           <li class="filterable">
-            Intro to Data Science I/II
-            <img src="./public/python.png" width="30px" title="Python"/>
-            <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>
+            Intro to Data Science I/II: &nbsp;
+            <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
+            <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>&nbsp;
           </li>
         </ul>
       </div>
@@ -266,15 +269,15 @@
           <li class="filterable">
             <a id="drop-down1" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1" class="drop-down" >
               Infleqtion: <em>Quantum Software Deveopment Intern in the Compiler Team</em> 
-              <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
-              <img src="./public/quantum.png" width="30px" title="Quantum"/>
-              <img src="./public/python.png" width="30px" title="Python"/>
-              <img src="./public/oop.png" width="30px" title="OOP"/>
-              <img src="./public/flask.png" width="30px" title="Flask"/>
-              <img src="./public/jinga.png" width="30px" title="Jinga"/>
-              <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>
-              <img src="./public/testing.jpg" width="30px" title="Testing"/>
-              <img src="./public/database.png" width="30px" title="Database"/>
+              <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp;
+              <img src="./public/quantum.png" width="30px" title="Quantum"/>&nbsp;
+              <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
+              <img src="./public/oop.png" width="40px" title="OOP"/>&nbsp;
+              <img src="./public/flask.png" width="30px" title="Flask"/>&nbsp;
+              <img src="./public/jinga.png" width="30px" title="Jinga"/>&nbsp;
+              <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>&nbsp;
+              <img src="./public/testing.jpg" width="30px" title="Testing"/>&nbsp;
+              <img src="./public/database.png" width="30px" title="Database"/>&nbsp;
 
             </a>
 
@@ -293,9 +296,9 @@
           <li class="filterable">
             <a id="drop-down2" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="true" aria-controls="collapse2" class="drop-down">
               Golden Peak Media: <em>Generative AI Intern</em> 
-              <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
-              <img src="./public/python.png" width="30px" title="Python"/>
-              <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>
+              <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp;
+              <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
+              <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>&nbsp;
             </a>
 
             <div class="collapse" id="collapse2" data-parent="#accordion" aria-labelledby="drop-down2">
@@ -318,12 +321,12 @@
           <li class="filterable">
             <a id="drop-down3" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapse3" class="drop-down">
               Biological Sciences Division at the University of Chicago: <em>Student Data Analyst and Programmer</em>
-              <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
-              <img src="./public/python.png" width="30px" title="Python"/>
-              <img src="./public/flask.png" width="30px" title="Flask"/>
-              <img src="./public/jinga.png" width="30px" title="Jinga"/>
-              <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>
-              <img src="./public/oop.png" width="30px" title="OOP"/>
+              <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp;
+              <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
+              <img src="./public/flask.png" width="30px" title="Flask"/>&nbsp;
+              <img src="./public/jinga.png" width="30px" title="Jinga"/>&nbsp;
+              <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>&nbsp;
+              <img src="./public/oop.png" width="40px" title="OOP"/>&nbsp;
             </a>
             <div class="collapse " id="collapse3" data-parent="#accordion" aria-labelledby="drop-down3">
               <ul>
@@ -344,9 +347,9 @@
           <li class="filterable">
             <a id="drop-down4" data-toggle="collapse" href="#collapse4" role="button" aria-expanded="false" aria-controls="collapse4" class="drop-down">
               Memory and Perception in Schizophrenia Lab: <em>Programming Assisntant</em>
-              <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
-              <img src="./public/python.png" width="30px" title="Python"/>
-              <img src="./public/psychopy.jpg" width="30px" title="PsychoPy"/>
+              <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp;
+              <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
+              <img src="./public/psychopy.jpg" width="30px" title="PsychoPy"/>&nbsp;
             </a>
 
             <div class="collapse " id="collapse4" data-parent="#accordion" aria-labelledby="drop-down4">
@@ -370,8 +373,8 @@
               <a href="https://pypi.org/project/localgit/" target="_blank"><img src="./public/pypi.svg" width="30px" alt="link" /></a>&nbsp 
               <a id="drop-down10" data-toggle="collapse" href="#collapse10" role="button" aria-expanded="false" aria-controls="collapse10" class="drop-down">
                 localgit
-                <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
-                <img src="./public/python.png" width="30px" title="Python"/>
+                <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp;
+                <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
               </a>
 
               <div class="collapse " id="collapse10" data-parent="#accordion" aria-labelledby="drop-down10">
@@ -387,13 +390,13 @@
               <a href="https://www.guessthewiki.com" target="_blank"><img src="./public/guessthewiki_icon.svg" width="30px" alt="link" style="position: relative; top: -3px;"/></a> &nbsp
               <a id="drop-down5" data-toggle="collapse" href="#collapse5" role="button" aria-expanded="false" aria-controls="collapse5" class="drop-down">
                 GuessTheWiki
-                <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
-                <img src="./public/python.png" width="30px" title="Python"/>&nbsp
-                <img src="./public/js.jpg" width="30px" title="JavaScript"/>&nbsp
-                <img src="./public/flask.png" width="30px" title="Flask"/>&nbsp
-                <img src="./public/react.png" width="30px" title="React"/>&nbsp
-                <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>&nbsp
-                <img src="./public/database.png" width="30px" title="Database"/>&nbsp
+                <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp;
+                <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
+                <img src="./public/js.jpg" width="30px" title="JavaScript"/>&nbsp;
+                <img src="./public/flask.png" width="30px" title="Flask"/>&nbsp;
+                <img src="./public/react.png" width="30px" title="React"/>&nbsp;
+                <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>&nbsp;
+                <img src="./public/database.png" width="30px" title="Database"/>&nbsp;
 
               </a>
 
@@ -414,10 +417,10 @@
               <a href="https://github.com/natibek/Box_Backup_App" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp
               <a id="drop-down6" data-toggle="collapse" href="#collapse6" role="button" aria-expanded="false" aria-controls="collapse6" class="drop-down">
                 Box Backup App 
-                <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp 
-                <img src="./public/python.png" width="30px" title="Python"/>&nbsp
-                <img src="./public/tk.png" width="30px" title="Tkinter"/>&nbsp
-                <img src="./public/oop.png" width="30px" title="OOP"/>
+                <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp;
+                <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
+                <img src="./public/tk.png" width="30px" title="Tkinter"/>&nbsp;
+                <img src="./public/oop.png" width="40px" title="OOP"/>
               </a>
 
               <div class="collapse " id="collapse6" data-parent="#accordion" aria-labelledby="drop-down6">
@@ -440,13 +443,13 @@
             </li>
 
             <li class="filterable">
-              <a href="https://natibek.github.io/Gabata/" target="_blank"><img src="./public/marble.png" width="20px" alt="link"/></a> &nbsp 
+              <a href="https://natibek.github.io/Gabata/" target="_blank"><img src="./public/marble.png" width="20px" alt="link"/></a> &nbsp;
               <a id="drop-down7" data-toggle="collapse" href="#collapse7" role="button" aria-expanded="false" aria-controls="collapse7" class="drop-down" style="margin-left: -5px;">
                 Gabata(<em>Mancala</em>) 
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
-                <img src="./public/python.png" width="30px" title="Python"/>&nbsp 
-                <img src="./public/tk.png" width="30px" title="Tkinter"/>&nbsp 
-                <img src="./public/oop.png" width="30px" title="OOP"/>&nbsp 
+                <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
+                <img src="./public/tk.png" width="30px" title="Tkinter"/>&nbsp;
+                <img src="./public/oop.png" width="40px" title="OOP"/>&nbsp;
               </a>
 
               <div class="collapse " id="collapse7" data-parent="#accordion" aria-labelledby="drop-down7">
@@ -457,13 +460,13 @@
             </li>
 
             <li class="filterable">
-              <a href="https://github.com/natibek/PublicationTracking" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
+              <a href="https://github.com/natibek/PublicationTracking" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp;
               <a id="drop-down8" data-toggle="collapse" href="#collapse8" role="button" aria-expanded="false" aria-controls="collapse8" class="drop-down">
                 Publication Tracking
-                <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
-                <img src="./public/python.png" width="30px" title="Python"/>&nbsp 
-                <img src="./public/flask.png" width="30px" title="Flask"/>&nbsp 
-                <img src="./public/jinga.png" width="30px" title="Jinga"/>&nbsp
+                <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp;
+                <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
+                <img src="./public/flask.png" width="30px" title="Flask"/>&nbsp;
+                <img src="./public/jinga.png" width="30px" title="Jinga"/>&nbsp;
                 <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>
               </a>
 
@@ -475,11 +478,11 @@
             </li>
 
             <li class="filterable">
-              <a href="https://github.com/natibek/Portfolio" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
+              <a href="https://github.com/natibek/Portfolio" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp;
               <a id="drop-down14" data-toggle="collapse" href="#collapse14" role="button" aria-expanded="false" aria-controls="collapse14" class="drop-down">
                 Portfolio
-                <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
-                <img src="./public/js.jpg" width="30px" title="JavaScript"/>&nbsp 
+                <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp;
+                <img src="./public/js.jpg" width="30px" title="JavaScript"/>&nbsp;
                 <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>
               </a>
 
@@ -492,10 +495,10 @@
             </li>
 
             <li class="filterable">
-              <a href="https://github.com/natibek/RemoveTrailingWhiteSpaces" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
+              <a href="https://github.com/natibek/RemoveTrailingWhiteSpaces" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp;
               <a id="drop-down15" data-toggle="collapse" href="#collapse15" role="button" aria-expanded="false" aria-controls="collapse15" class="drop-down">
                 Remove Trailing White Spaces
-                <i class="bi bi-caret-down-fill" style="color: #800020;"></i>
+                <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp;
                 <img src="./public/c.png" width="30px" title="C"/>
               </a>
 
@@ -517,12 +520,12 @@
           <h4>In Progress</h4>
           <ul>
             <li class="filterable">
-              <a href="https://github.com/natibek/ampy" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
+              <a href="https://github.com/natibek/ampy" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp;
               <a id="drop-down9" data-toggle="collapse" href="#collapse9" role="button" aria-expanded="false" aria-controls="collapse9" class="drop-down">
                 AmPy
-                <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
-                <img src="./public/cpp.jpeg" width="30px" title="Cpp"/>
-                <img src="./public/oop.png" width="30px" title="OOP"/>
+                <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp;
+                <img src="./public/cpp.jpeg" width="30px" title="Cpp"/>&nbsp;
+                <img src="./public/oop.png" width="40px" title="OOP"/>
               </a>
 
               <div class="collapse " id="collapse9" data-parent="#accordion" aria-labelledby="drop-down9">
@@ -534,10 +537,10 @@
 
 
             <li class="filterable">          
-              <a href="https://github.com/natibek/licensepy" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
+              <a href="https://github.com/natibek/licensepy" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp;
               <a id="drop-down11" data-toggle="collapse" href="#collapse11" role="button" aria-expanded="false" aria-controls="collapse11" class="drop-down">
                 licensepy
-                <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
+                <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp;
                 <img src="./public/python.png" width="30px" title="Python"/>
               </a>
 
@@ -549,15 +552,15 @@
             </li>
 
             <li class="filterable">          
-              <a href="https://github.com/natibek/Crochet_Pattern_Generator" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
+              <a href="https://github.com/natibek/Crochet_Pattern_Generator" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp;
               <a id="drop-down12" data-toggle="collapse" href="#collapse12" role="button" aria-expanded="false" aria-controls="collapse12" class="drop-down">
                 Crochet Pattern Generator 
-                <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp
-                <img src="./public/python.png" width="30px" title="Python"/>&nbsp 
-                <img src="./public/flask.png" width="30px" title="Flask"/>&nbsp 
-                <img src="./public/js.jpg" width="30px" title="JavaScript"/>&nbsp 
-                <img src="./public/react.png" width="30px" title="React"/>&nbsp 
-                <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>&nbsp 
+                <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp;
+                <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
+                <img src="./public/flask.png" width="30px" title="Flask"/>&nbsp;
+                <img src="./public/js.jpg" width="30px" title="JavaScript"/>&nbsp;
+                <img src="./public/react.png" width="30px" title="React"/>&nbsp;
+                <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>&nbsp;
               </a>
 
               <div class="collapse " id="collapse12" data-parent="#accordion" aria-labelledby="drop-down12">
@@ -568,13 +571,13 @@
             </li>
 
             <li class="filterable">          
-              <a href="https://github.com/natibek/connect" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp 
+              <a href="https://github.com/natibek/connect" target="_blank"><i class="bi bi-github" style="font-size: 1.2rem;"></i></a>&nbsp;
               <a id="drop-down13" data-toggle="collapse" href="#collapse13" role="button" aria-expanded="false" aria-controls="collapse13" class="drop-down">
                 Connect 
-                <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp
-                <img src="./public/js.jpg" width="30px" title="JavaScript"/>&nbsp 
-                <img src="./public/oop.png" width="30px" title="OOP"/>&nbsp 
-                <img src="./public/react.png" width="30px" title="React"/>&nbsp 
+                <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp;
+                <img src="./public/js.jpg" width="30px" title="JavaScript"/>&nbsp;
+                <img src="./public/oop.png" width="40px" title="OOP"/>&nbsp;
+                <img src="./public/react.png" width="30px" title="React"/>&nbsp;
                 <img src="./public/bootstrap.png" width="30px" title="Bootstrap"/>
               </a>
 

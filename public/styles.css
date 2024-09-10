@@ -4,11 +4,13 @@
 
 .all {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: start;
-    padding: 30px;
+    padding: 20px;
+    gap: 30px;
+    position: relative;
+    top: -50px;
 }
-
 
 h1 {
     font-size: larger;
@@ -94,7 +96,7 @@ h4 {
     position: sticky;
     height: fit-content;
     width: fit-content;
-    top: 20dvh;
+    top: 15dvh;
     left: 0px;
     z-index: 3;
 }
@@ -112,6 +114,11 @@ h4 {
     border: 2px solid black;
     padding: 15px;
     border-radius: 5px;
+}
+
+#clear-filters:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .check-input {
@@ -163,6 +170,7 @@ main {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 30px;
 }
 
 .hide {
@@ -191,32 +199,17 @@ main {
     }
     .face {
         display: none;
-        position: relative;
-        top: 10dvh;
-        opacity: 0.9;
     }
     img {
         width: 20px;
     }
-    /*
-    main{
-        margin-top: 30dvh;
+    .all{
+        padding: 15px;
     }
-    */
 }
 
 @media (max-width: 550px) {
-    .face {
-        transform: scale(0.7);
-    }
     li:not(.tag) {
         margin-left: -25px;
     }
-}
-
-@media (max-width: 360px) {
-    .face {
-        transform: scale(0.5);
-    }
-
 }
