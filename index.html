@@ -105,7 +105,7 @@
             <defs>
               <filter id="f1">
                 <feOffset in="SourceAlpha" dx="2" dy="2" result="offsetblur" />
-                <feGaussianBlur id="blur" in="offsetblur" stdDeviation="17" result="blurOut" />
+                <feGaussianBlur id="blur" in="offsetblur" stdDeviation="0.6667" result="blurOut" />
                 <!--
                 <feFlood id="blurColor" flood-color="rgb(255,0,0)" result="color" />
                 <feComposite in2="blurOut" operator="in" result="coloredBlur" />
@@ -114,7 +114,10 @@
               </filter>
             </defs>
             <circle class="eye-ball" cx="105" cy="65" r="15" fill="black" />
-            <ellipse cx="105" cy="65" rx="100" ry="60" fill="none" stroke="black" stroke-width="2" filter="url(#f1)"/>
+            <ellipse class="eye-contour" cx="105" cy="65" rx="100" ry="60" fill="none" stroke="black" stroke-width="2" filter="url(#f1)"/>
+            <!--
+            <ellipse class="eye-shadow" cx="105" cy="65" rx="100" ry="60" fill="none" stroke="black" stroke-width="5" opacity="0.1" />
+            -->
             <circle class="cornea" cx="105" cy="66" r="2" fill="white" />
           </svg>
         </div>
@@ -128,20 +131,13 @@
 
           <svg class="eye-lid" width="210" height="130" xmlns="http://www.w3.org/2000/svg">
             <circle class="eye-ball" cx="105" cy="65" r="15" fill="black" />
-            <ellipse cx="105" cy="65" rx="100" ry="60" fill="transparent" stroke="black" stroke-width="2" filter="url(#f1)" />
+            <ellipse class="eye-contour" cx="105" cy="65" rx="100" ry="60" fill="transparent" stroke="black" stroke-width="2" filter="url(#f1)" />
             <circle class="cornea" cx="105" cy="66" r="2" fill="white" />
           </svg>
         </div>
       </div>
       <div class="nose">
         <svg height="200" width="150">
-          <!--
-                      <path fill="none" id="nose-path" stroke-width="3" d="M 70 0 L 90 150 L 10 130"/>
-                      <text class="name" text-anchor="start">
-                          <textPath href="#nose-path" startOffset="10%" side="right">Portfolio
-                          </textPath>
-                      </text>
-                    -->
           <path fill="none" stroke="black" id="nose-path" stroke-width="3" d="M 30 0 L 10 150 L 90 130" />
         </svg>
       </div>

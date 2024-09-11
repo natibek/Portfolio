@@ -22,8 +22,10 @@ clearFiltersBtn.addEventListener("click", handleClearFilters);
 
 // variables for the face
 // make this change over the day?
-const BoundaryY = 50;
-const BoundaryX = 75; // the radius for the eye movement boundary
+const MaxBoundaryY = 50;
+let BoundaryY = 50;
+const MaxBoundaryX = 75;
+let BoundaryX = 75; // the radius for the eye movement boundary
 let Rate = 30;
 
 
@@ -36,6 +38,7 @@ const eyeBlurColor = document.getElementById("blurColor")
 const eyeBlur = document.getElementById("blur")
 const eyeBalls = document.getElementsByClassName('eye-ball');
 const eyeLids = document.getElementsByClassName('eye-lid');
+const eyeContour = document.getElementsByClassName('eye-contour');
 const corneas = document.getElementsByClassName('cornea');
 let eyeCoords = {
   leftx: eyeBalls[0].getBoundingClientRect().x,
@@ -125,30 +128,60 @@ function handleDropDown(event) {
 }
 
 // start handle eye with time
-let eyeColorMap = {}
-
+let eyeColorMap = {};
 for (let i = 1; i <= 24; i++) {
   eyeColorMap[i] = `rgb(${0 + i * 10}, 255, 255)`;
 }
 
-// reddest night -> 7pm - 7am
+const minBlur = 0;
+const maxBlur = 8;
 
+function test(curHour) {
+  const x = curHour;
+  if (curHour >= 3 && curHour < 15) {
+    // increasing eye height
+    // decreasing redness
+    blurVal = maxBlur - (((curHour - 3)/12) * 8);
+  } else {
+    // decreasing eye height
+    // increasing redness
+    curHour = [0, 1, 2].includes(curHour) ? curHour + 24: curHour;
+    blurVal = minBlur + (((curHour - 15)/12) * 8);
+  }
+  console.log(x, blurVal);
+  eyeBlur.setAttribute('stdDeviation', `${blurVal}`);
+
+  if (x < 24) {
+    console.log("here")
+    setTimeout(() => {
+      test(x + 1)
+    }, 2000);
+  }
+} 
+
+
+// most awake at 15
+// least awake at 3
 function handleSleepy() {
   // according to the hour, update the eye speed, color, and shading.
-
   const now = new Date();
   let curHour = now.getHours();
-  //console.log(curHour);
-
-  for (const key in eyeColorMap) {
-    if (curHour < key) {
-      //eyeBlurColor.setAttribute('flood-color', eyeColorMap[key]);
-   //   console.log(key)
-      eyeBlur.setAttribute('stdDeviation', `${key}`);
-      
-      break;
-    }
+  let blurVal;
+  if (curHour >= 3 && curHour < 15) {
+    // increasing eye height
+    // decreasing redness
+    blurVal = maxBlur - (((curHour - 3)/12) * 8);
+  } else {
+    // decreasing eye height
+    // increasing redness
+    curHour = [0, 1, 2].includes(curHour) ? curHour + 24: curHour;
+    blurVal = minBlur + (((curHour - 3)/12) * 8);
   }
+  eyeBlur.setAttribute('stdDeviation', `${blurVal}`);
+  
+   // eyeBlurColor.setAttribute('flood-color', eyeColorMap[key]);
+   // console.log(key)
+   // eyeBlur.setAttribute('stdDeviation', `${key}`);
   setTimeout(handleSleepy, (60 - now.getMinutes())*60*1000)
 
 }
