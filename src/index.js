@@ -74,8 +74,6 @@ document.getElementById('legend-drop-down').addEventListener('mouseover', handle
 document.getElementById('legend-drop-down').addEventListener('mouseout', handleSideBarOut);
 document.getElementById('legend-drop-down').addEventListener('click', handleSideBarClick);
 
-
-
 let cur_expanded = null;
 
 function handleSideBarOut() {
@@ -147,8 +145,12 @@ const maxOpacity = 0.15; // values for the opacity with the red hue
 const minOpacity = 0.1;
 const minEyeRadY = 45; // values for the y radius of the eye
 const maxEyeRadY = 60;
-const minRate = 10;
+const minRate = 10; // value for the mouse follow speeds
 const maxRate = 30;
+
+let reflex = 70;
+const minReflex = 60;
+const maxReflex = 150; 
 
 function test_blur_for_all_hours(curHour) {
   const x = curHour;
@@ -156,6 +158,7 @@ function test_blur_for_all_hours(curHour) {
   if (curHour >= mostTiredHour && curHour < mostActiveHour) {
     // increasing eye height
     // decreasing redness
+    reflex = lerp(mostTiredHour, mostActiveHour, curHour, maxReflex, minReflex);
     Rate = lerp(mostTiredHour, mostActiveHour, curHour, minRate, maxRate);
     contourVal = lerp(mostTiredHour, mostActiveHour, curHour, minEyeRadY, maxEyeRadY);
     blurVal = lerp(mostTiredHour, mostActiveHour, curHour, maxBlur, minBlur);
@@ -165,13 +168,15 @@ function test_blur_for_all_hours(curHour) {
     // decreasing eye height
     // increasing redness
     curHour = curHour >= 0 && curHour < mostActiveHour ? curHour + 24: curHour;
+
+    reflex = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minReflex, maxReflex);
     Rate = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, maxRate, minRate);
     contourVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, maxEyeRadY, minEyeRadY);
     blurVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minBlur, maxBlur);
     opVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minOpacity, maxOpacity);
     strokeVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minStrokeWidth, maxStrokeWidth);
   }
-  console.log(x, blurVal, contourVal, opVal, Rate);
+  console.log(x, blurVal, contourVal, opVal, Rate, reflex);
   [0, 1].forEach(idx => eyeContour[idx].setAttribute('ry', `${contourVal}`));
   [0, 1].forEach(idx => eyeShadow[idx].setAttribute('ry', `${contourVal}`));
   [0, 1].forEach(idx => eyeShadow[idx].setAttribute('opacity', `${opVal}`));
@@ -195,18 +200,21 @@ function handleSleepy() {
   let curHour = now.getHours();
   let blurVal, contourVal, opVal, strokeVal;
   if (curHour >= mostTiredHour && curHour < mostActiveHour) {
-    // increasing eye height, mouse follow rate
-    // decreasing redness, blur, red thickness
+    // increasing eye height, mouse follow rate, reflex speed
+    // decreasing redness, blur, red thickness 
+    reflex = lerp(mostTiredHour, mostActiveHour, curHour, maxReflex, minReflex);
     Rate = lerp(mostTiredHour, mostActiveHour, curHour, minRate, maxRate);
     contourVal = lerp(mostTiredHour, mostActiveHour, curHour, minEyeRadY, maxEyeRadY);
     blurVal = lerp(mostTiredHour, mostActiveHour, curHour, maxBlur, minBlur);
     opVal = lerp(mostTiredHour, mostActiveHour, curHour, maxOpacity, minOpacity);
     strokeVal = lerp(mostTiredHour, mostActiveHour, curHour, maxStrokeWidth, minStrokeWidth);
   } else {
-    // decreasing eye height, mouse follow rate
+    // decreasing eye height, mouse follow rate, reflex speed
     // increasing redness, blur, red thickness
-    Rate = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, maxRate, minRate);
     curHour = curHour >= 0 && curHour < mostActiveHour ? curHour + 24: curHour;
+
+    reflex = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minReflex, maxReflex);
+    Rate = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, maxRate, minRate);
     contourVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, maxEyeRadY, minEyeRadY);
     blurVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minBlur, maxBlur);
     opVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minOpacity, maxOpacity);
@@ -275,7 +283,7 @@ function handleClick(event) {
 
   if (!midAnimation && window.innerWidth > 1000) {
     midAnimation = true;
-    setTimeout(moveBrows, 70);
+    setTimeout(moveBrows, reflex);
   }
 }
 
