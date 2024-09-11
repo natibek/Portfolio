@@ -39,6 +39,7 @@ const eyeBlur = document.getElementById("blur")
 const eyeBalls = document.getElementsByClassName('eye-ball');
 const eyeLids = document.getElementsByClassName('eye-lid');
 const eyeContour = document.getElementsByClassName('eye-contour');
+const eyeShadow = document.getElementsByClassName('eye-shadow');
 const corneas = document.getElementsByClassName('cornea');
 let eyeCoords = {
   leftx: eyeBalls[0].getBoundingClientRect().x,
@@ -133,55 +134,90 @@ for (let i = 1; i <= 24; i++) {
   eyeColorMap[i] = `rgb(${0 + i * 10}, 255, 255)`;
 }
 
-const minBlur = 0;
+function lerp(minA, maxA, valA, minB, maxB) {
+  return minB + ((valA - minA) * (maxB - minB)) / (maxA - minA)
+}
+const minBlur = 0; // minimum blur value increasing with tiredness
 const maxBlur = 8;
+const mostTiredHour = 1; // hour when most tired attributes are shown
+const mostActiveHour = mostTiredHour + 12; // hour when most tired attributes are shown
+const maxStrokeWidth = 6; // values for the stroke width with the red hue
+const minStrokeWidth = 2;
+const maxOpacity = 0.15; // values for the opacity with the red hue
+const minOpacity = 0.1;
+const minEyeRadY = 45; // values for the y radius of the eye
+const maxEyeRadY = 60;
+const minRate = 10;
+const maxRate = 30;
 
-function test(curHour) {
+function test_blur_for_all_hours(curHour) {
   const x = curHour;
-  if (curHour >= 3 && curHour < 15) {
+  let blurVal, contourVal, opVal, strokeVal;
+  if (curHour >= mostTiredHour && curHour < mostActiveHour) {
     // increasing eye height
     // decreasing redness
-    blurVal = maxBlur - (((curHour - 3)/12) * 8);
+    Rate = lerp(mostTiredHour, mostActiveHour, curHour, minRate, maxRate);
+    contourVal = lerp(mostTiredHour, mostActiveHour, curHour, minEyeRadY, maxEyeRadY);
+    blurVal = lerp(mostTiredHour, mostActiveHour, curHour, maxBlur, minBlur);
+    opVal = lerp(mostTiredHour, mostActiveHour, curHour, maxOpacity, minOpacity);
+    strokeVal = lerp(mostTiredHour, mostActiveHour, curHour, maxStrokeWidth, minStrokeWidth);
   } else {
     // decreasing eye height
     // increasing redness
-    curHour = [0, 1, 2].includes(curHour) ? curHour + 24: curHour;
-    blurVal = minBlur + (((curHour - 15)/12) * 8);
+    curHour = curHour >= 0 && curHour < mostActiveHour ? curHour + 24: curHour;
+    Rate = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, maxRate, minRate);
+    contourVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, maxEyeRadY, minEyeRadY);
+    blurVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minBlur, maxBlur);
+    opVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minOpacity, maxOpacity);
+    strokeVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minStrokeWidth, maxStrokeWidth);
   }
-  console.log(x, blurVal);
+  console.log(x, blurVal, contourVal, opVal, Rate);
+  [0, 1].forEach(idx => eyeContour[idx].setAttribute('ry', `${contourVal}`));
+  [0, 1].forEach(idx => eyeShadow[idx].setAttribute('ry', `${contourVal}`));
+  [0, 1].forEach(idx => eyeShadow[idx].setAttribute('opacity', `${opVal}`));
+  [0, 1].forEach(idx => eyeShadow[idx].setAttribute('stroke-width', `${strokeVal}`));
   eyeBlur.setAttribute('stdDeviation', `${blurVal}`);
 
   if (x < 24) {
-    console.log("here")
     setTimeout(() => {
-      test(x + 1)
+      test_blur_for_all_hours(x + 1)
     }, 2000);
   }
 } 
-
 
 // most awake at 15
 // least awake at 3
 function handleSleepy() {
   // according to the hour, update the eye speed, color, and shading.
+
+  // test_blur_for_all_hours(0); return ;// for testing
   const now = new Date();
   let curHour = now.getHours();
-  let blurVal;
-  if (curHour >= 3 && curHour < 15) {
-    // increasing eye height
-    // decreasing redness
-    blurVal = maxBlur - (((curHour - 3)/12) * 8);
+  let blurVal, contourVal, opVal, strokeVal;
+  if (curHour >= mostTiredHour && curHour < mostActiveHour) {
+    // increasing eye height, mouse follow rate
+    // decreasing redness, blur, red thickness
+    Rate = lerp(mostTiredHour, mostActiveHour, curHour, minRate, maxRate);
+    contourVal = lerp(mostTiredHour, mostActiveHour, curHour, minEyeRadY, maxEyeRadY);
+    blurVal = lerp(mostTiredHour, mostActiveHour, curHour, maxBlur, minBlur);
+    opVal = lerp(mostTiredHour, mostActiveHour, curHour, maxOpacity, minOpacity);
+    strokeVal = lerp(mostTiredHour, mostActiveHour, curHour, maxStrokeWidth, minStrokeWidth);
   } else {
-    // decreasing eye height
-    // increasing redness
-    curHour = [0, 1, 2].includes(curHour) ? curHour + 24: curHour;
-    blurVal = minBlur + (((curHour - 3)/12) * 8);
+    // decreasing eye height, mouse follow rate
+    // increasing redness, blur, red thickness
+    Rate = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, maxRate, minRate);
+    curHour = curHour >= 0 && curHour < mostActiveHour ? curHour + 24: curHour;
+    contourVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, maxEyeRadY, minEyeRadY);
+    blurVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minBlur, maxBlur);
+    opVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minOpacity, maxOpacity);
+    strokeVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minStrokeWidth, maxStrokeWidth);
   }
+  [0, 1].forEach(idx => eyeContour[idx].setAttribute('ry', `${contourVal}`));
+  [0, 1].forEach(idx => eyeShadow[idx].setAttribute('ry', `${contourVal}`));
+  [0, 1].forEach(idx => eyeShadow[idx].setAttribute('opacity', `${opVal}`));
+  [0, 1].forEach(idx => eyeShadow[idx].setAttribute('stroke-width', `${strokeVal}`));
   eyeBlur.setAttribute('stdDeviation', `${blurVal}`);
   
-   // eyeBlurColor.setAttribute('flood-color', eyeColorMap[key]);
-   // console.log(key)
-   // eyeBlur.setAttribute('stdDeviation', `${key}`);
   setTimeout(handleSleepy, (60 - now.getMinutes())*60*1000)
 
 }
