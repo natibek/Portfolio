@@ -225,6 +225,9 @@ main {
         width: 25px;
         height: 20px;
     }
+    .general div {
+        flex: none;
+    }
 }
 
 @media (max-width: 550px) {
