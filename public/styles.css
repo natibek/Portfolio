@@ -181,6 +181,17 @@ main {
 .general div {
     flex: 1;
 }
+.info {
+    margin-bottom: 15px;
+}
+
+.info li:not(.topic-sentence){
+    font-style: italic;
+}
+
+.topic-sentence {
+    font-weight: bold;
+}
 
 .projects {
     position: relative;
