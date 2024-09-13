@@ -18,6 +18,7 @@ const filterableContent = document.getElementsByClassName("filterable");
 const matchDisplay = document.getElementById("matchCount");
 const filterDiv = document.getElementById("filters");
 const clearFiltersBtn = document.getElementById("clear-filters");
+const matchPlusBtn = document.getElementById("match-plus-button");
 clearFiltersBtn.addEventListener("click", handleClearFilters);
 
 // variables for the face
@@ -448,6 +449,7 @@ function handleCheckBox(event) {
     }
     matchDisplay.classList.add("hide");
     clearFiltersBtn.classList.add("hide");
+    matchPlusBtn.classList.add("hide");
   } else {
     let matches = 0;
     for (const filterable of filterableContent) {
@@ -457,6 +459,7 @@ function handleCheckBox(event) {
       } else {
         filterable.classList.add("hide");
       }
+      matchPlusBtn.classList.remove("hide");
       matchDisplay.classList.remove("hide");
       matchDisplay.innerHTML = `Matches: ${matches}`;
     }
@@ -478,5 +481,6 @@ function handleClearFilters() {
 
   matchDisplay.classList.add("hide");
   clearFiltersBtn.classList.add("hide");
+  matchPlusBtn.classList.add("hide");
   
 }
