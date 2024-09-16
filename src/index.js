@@ -59,6 +59,7 @@ window.addEventListener('touchstart', handleMouseMove);
 window.addEventListener('touchend', handleMouseMove);
 window.addEventListener('touchmove', handleMouseMove);
 // window.addEventListener('scroll', handleMouseMove);
+document.addEventListener('DOMContentLoaded', generateBackground);
 
 document.addEventListener('click', handleClick);
 document.addEventListener('DOMContentLoaded', handleWink);
@@ -69,6 +70,7 @@ for (const dropDown of document.getElementsByClassName('drop-down')) {
   dropDown.addEventListener('click', handleDropDown);
 }
 
+// start side bar handling
 const sideBarIcon = document.getElementById('legend-caret');
 const legendDropDown = document.getElementById('legend-drop-down');
 document.getElementById('legend-drop-down').addEventListener('mouseover', handleSideBarHover);
@@ -103,7 +105,9 @@ function handleSideBarClick() {
     legendDropDown.style.setProperty('margin-left', '-38px', 'important');
   }
 }
-//start drop-down-handling
+// end side bar handling
+
+// start drop-down-handling
 function handleDropDown(event) {
   // Updates the drop down icon to point in the correct direction
 
@@ -126,6 +130,7 @@ function handleDropDown(event) {
 
   cur_expanded = target;
 }
+// end drop down handling
 
 // start handle eye with time
 let eyeColorMap = {};
@@ -315,6 +320,8 @@ function moveBrows() {
 // end click handling
 
 // start updates when resizing the window
+let lastWidth = window.innerWidth;
+let lastHeight = window.innerHeight;
 function resetCoords() {
   // Updates the positions of the eyeballs when the window is resized.
   eyeCoords = {
@@ -323,7 +330,11 @@ function resetCoords() {
     rightx: eyeBalls[1].getBoundingClientRect().x,
     righty: eyeBalls[1].getBoundingClientRect().y,
   };
-
+  if (window.innerWidth - lastWidth >= 40 || window.innerHeight - lastHeight >= 40){
+    generateBackground();
+    lastWidth = window.innerWidth;
+    lastHeight = window.innerHeight;
+  }
 }
 // end handling window resize
 
@@ -396,7 +407,7 @@ function handleMouseMove(event) {
 // end eye movement control
 
 
-// handle filtering
+// start handle filtering
 function allUnchecked() {
   // Checks if all the checkboxes are unchecked
 
@@ -484,3 +495,44 @@ function handleClearFilters() {
   matchPlusBtn.classList.add("hide");
   
 }
+
+// end filtering
+backgroundDiv = document.getElementById("background");
+
+function generateBackground() {
+  while(backgroundDiv.firstChild){
+    backgroundDiv.removeChild(backgroundDiv.firstChild);
+  }
+  const winWidth = window.innerWidth;
+  const winHeight = window.innerHeight;
+
+  const backgroundImgWidth = 20;
+  const backgroundImgHeight = 20;
+  const margin = 5;
+  const totalX = backgroundImgWidth + 2*margin;
+  const totalY = backgroundImgHeight + 2*margin;
+
+  const numX = Math.floor(winWidth / totalX);
+  const numY = Math.floor(winHeight / totalY);
+  let count = 1;
+  console.log(winWidth, winHeight)
+  for (let row = 1; row <= numY; row++) {
+    const rowDiv = document.createElement("div");
+    rowDiv.setAttribute("class", "rowDiv");
+    backgroundDiv.appendChild(rowDiv);
+    for (let col = 1; col <= numX; col++) {
+      const circle = document.createElement("div");
+      circle.setAttribute("class", "background-img");
+      circle.classList.add("circular");
+      circle.style.backgroundColor = "red";
+      // circle.innerHTML = `${count}`
+
+      rowDiv.appendChild(circle);
+      count++;
+    }
+  }
+  console.log(count)
+}
+
+// start colorful dynamic background
+
