@@ -500,7 +500,11 @@ function handleClearFilters() {
 backgroundDiv = document.getElementById("background");
 
 function generateBackground() {
+  // creates the background with cicles that populate the window upon resize and when the dom is 
+  // loaded.
+
   while(backgroundDiv.firstChild){
+    // removes the existing background
     backgroundDiv.removeChild(backgroundDiv.firstChild);
   }
   const winWidth = window.innerWidth;
@@ -524,7 +528,9 @@ function generateBackground() {
       const circle = document.createElement("div");
       circle.setAttribute("class", "background-img");
       circle.classList.add("circular");
-      circle.style.backgroundColor = "red";
+      circle.style.backgroundColor = `rgb(${Math.random() * 200}, ${Math.random() * 200}, ${Math.random() * 200})`
+      //circle.style.backgroundColor = "hsl(" + (360 * ((col*row + col) / (numY*numX))) + ",70%,50%)";
+      //circle.style.backgroundColor = "red";
       // circle.innerHTML = `${count}`
 
       rowDiv.appendChild(circle);
