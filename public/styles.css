@@ -264,7 +264,17 @@ main {
 }
 
 .background-img:hover {
-    transform: scale(1.2);
+    transform: scale(1.4);
+    opacity: 0.2;
+}
+.left-round {
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.right-round {
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
 }
 
 .circular {

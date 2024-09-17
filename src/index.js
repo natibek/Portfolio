@@ -55,6 +55,8 @@ const rightBrow = document.getElementById('right-brow');
 
 // registering event listeners
 document.addEventListener('mousemove', handleMouseMove);
+document.addEventListener('mousemove', handleBackgroundMouseMove);
+
 window.addEventListener('touchstart', handleMouseMove);
 window.addEventListener('touchend', handleMouseMove);
 window.addEventListener('touchmove', handleMouseMove);
@@ -182,7 +184,7 @@ function test_blur_for_all_hours(curHour) {
     opVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minOpacity, maxOpacity);
     strokeVal = lerp(mostActiveHour, mostTiredHour -1 + 24, curHour, minStrokeWidth, maxStrokeWidth);
   }
-  console.log(x, blurVal, contourVal, opVal, Rate, reflex);
+  // console.log(x, blurVal, contourVal, opVal, Rate, reflex);
   [0, 1].forEach(idx => eyeContour[idx].setAttribute('ry', `${contourVal}`));
   [0, 1].forEach(idx => eyeShadow[idx].setAttribute('ry', `${contourVal}`));
   [0, 1].forEach(idx => eyeShadow[idx].setAttribute('opacity', `${opVal}`));
@@ -286,6 +288,7 @@ function handleClick(event) {
   const x = event.clientX + window.scrollX;
   const y = event.clientY + window.scrollY;
   createRipple(x, y);
+  generateBackground();
 
   if (!midAnimation && window.innerWidth > 1000) {
     midAnimation = true;
@@ -497,7 +500,17 @@ function handleClearFilters() {
 }
 
 // end filtering
-backgroundDiv = document.getElementById("background");
+
+// start colorful dynamic background
+const backgroundDiv = document.getElementById("background");
+const startX = 5;
+const startY = 15;
+const backgroundImgWidth = 20;
+const backgroundImgHeight = 20;
+const margin = 5;
+const totalX = backgroundImgWidth + 2*margin;
+const totalY = backgroundImgHeight + 2*margin;
+
 
 function generateBackground() {
   // creates the background with cicles that populate the window upon resize and when the dom is 
@@ -510,35 +523,48 @@ function generateBackground() {
   const winWidth = window.innerWidth;
   const winHeight = window.innerHeight;
 
-  const backgroundImgWidth = 20;
-  const backgroundImgHeight = 20;
-  const margin = 5;
-  const totalX = backgroundImgWidth + 2*margin;
-  const totalY = backgroundImgHeight + 2*margin;
-
   const numX = Math.floor(winWidth / totalX);
   const numY = Math.floor(winHeight / totalY);
   let count = 1;
-  console.log(winWidth, winHeight)
-  for (let row = 1; row <= numY; row++) {
-    const rowDiv = document.createElement("div");
+  let color, rand, rowDiv, backgroundPix;
+  // console.log(winWidth, winHeight)
+  for (let row = 0; row < numY; row++) {
+    rowDiv = document.createElement("div");
     rowDiv.setAttribute("class", "rowDiv");
     backgroundDiv.appendChild(rowDiv);
-    for (let col = 1; col <= numX; col++) {
-      const circle = document.createElement("div");
-      circle.setAttribute("class", "background-img");
-      circle.classList.add("circular");
-      circle.style.backgroundColor = `rgb(${Math.random() * 200}, ${Math.random() * 200}, ${Math.random() * 200})`
-      //circle.style.backgroundColor = "hsl(" + (360 * ((col*row + col) / (numY*numX))) + ",70%,50%)";
-      //circle.style.backgroundColor = "red";
-      // circle.innerHTML = `${count}`
+    for (let col = 0; col < numX; col++) {
+      backgroundPix = document.createElement("div");
+      backgroundPix.setAttribute("class", "background-img");
+      rand = Math.random() 
+      if (rand <= 0.25) backgroundPix.classList.add("circular");
+      else if (rand <= 0.5) backgroundPix.classList.add("right-round");
+      else if (rand <= 0.75) backgroundPix.classList.add("left-round");
 
-      rowDiv.appendChild(circle);
+      color = `rgb(${Math.round(Math.random() * 200)}, ${Math.round(Math.random() * 200)}, ${Math.round(Math.random() * 200)})`; 
+      backgroundPix.style.backgroundColor = color;
+      backgroundPix.setAttribute("title", color);
+      //backgroundPix.setAttribute("id", `${startX + col*totalX},${startY + row*totalY}`);
+      backgroundPix.setAttribute("id", `${col},${row}`);
+      rowDiv.appendChild(backgroundPix);
       count++;
     }
   }
-  console.log(count)
 }
 
-// start colorful dynamic background
+function handleBackgroundMouseMove(event) {
+  // coloring the background
+  const x = event.clientX;
+  const y = event.clientY;
+  const colprime = (x - startX)/totalX;
+  const rowprime = (y - startY)/totalY;
 
+  const hov = document.getElementById(`${Math.round(colprime)},${Math.round(rowprime)}`)
+  // console.log(colprime, rowprime, hov.getBoundingClientRect().x, hov.getBoundingClientRect().y)
+  // console.log(hov.getBoundingClientRect().x, x)
+  // console.log(hov.getBoundingClientRect().y, y)
+  hov.style.backgroundColor = "blue";
+  hov.style.opacity = 0.08;
+  
+}
+
+// end colorful dynamic background
