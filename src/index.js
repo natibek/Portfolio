@@ -1,3 +1,8 @@
+if ('addEventListener' in document) {
+	document.addEventListener('DOMContentLoaded', function() {
+		FastClick.attach(document.body);
+	}, false);
+}
 // Handles the dynamic aspect of the page
 
 // variables for filtering
@@ -488,8 +493,9 @@ function handleCheckBox(event) {
 function handleClearFilters() {
   // Clears all the selected filters. Uncheck checkboxes, removes filter icons, and display everything.
 
+  checkedFilters = [];
   for (const checkBox of checkBoxes) 
-    if (checkBox.checked) checkBox.checked = false;
+    checkBox.checked = false;
 
   for (const filterIcon of filterDiv.querySelectorAll("div"))
     filterIcon.remove();
