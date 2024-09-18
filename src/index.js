@@ -60,13 +60,14 @@ document.addEventListener('mousemove', handleBackgroundMouseMove);
 window.addEventListener('touchstart', handleMouseMove);
 window.addEventListener('touchend', handleMouseMove);
 window.addEventListener('touchmove', handleMouseMove);
-// window.addEventListener('scroll', handleMouseMove);
-document.addEventListener('DOMContentLoaded', generateBackground);
 
 document.addEventListener('click', handleClick);
+// window.addEventListener('scroll', handleMouseMove);
+document.addEventListener('DOMContentLoaded', generateBackground);
 document.addEventListener('DOMContentLoaded', handleWink);
 document.addEventListener('DOMContentLoaded', handleSleepy);
-window.addEventListener('resize', resetCoords);
+
+window.addEventListener('resize', handleResize);
 
 for (const dropDown of document.getElementsByClassName('drop-down')) {
   dropDown.addEventListener('click', handleDropDown);
@@ -288,7 +289,8 @@ function handleClick(event) {
   const x = event.clientX + window.scrollX;
   const y = event.clientY + window.scrollY;
   createRipple(x, y);
-  generateBackground();
+  rippleBackground(event.clientX, event.clientY, 1);
+  // generateBackground();
 
   if (!midAnimation && window.innerWidth > 1000) {
     midAnimation = true;
@@ -304,7 +306,9 @@ function createRipple(x, y) {
   ripple.style.top = `${y - 5}px`; // Adjusting position based on circle size
   document.body.appendChild(ripple);
   ripple.addEventListener('animationend', () => ripple.remove());
+
 }
+
 
 function moveBrows() {
   // Adds brow movements by adding and removing the appropriate css animations
@@ -325,7 +329,7 @@ function moveBrows() {
 // start updates when resizing the window
 let lastWidth = window.innerWidth;
 let lastHeight = window.innerHeight;
-function resetCoords() {
+function handleResize() {
   // Updates the positions of the eyeballs when the window is resized.
   eyeCoords = {
     leftx: eyeBalls[0].getBoundingClientRect().x,
@@ -333,7 +337,7 @@ function resetCoords() {
     rightx: eyeBalls[1].getBoundingClientRect().x,
     righty: eyeBalls[1].getBoundingClientRect().y,
   };
-  if (window.innerWidth - lastWidth >= 40 || window.innerHeight - lastHeight >= 40){
+  if (window.innerWidth - lastWidth >= 20 || window.innerHeight - lastHeight >= 20){
     generateBackground();
     lastWidth = window.innerWidth;
     lastHeight = window.innerHeight;
@@ -510,7 +514,7 @@ const backgroundImgHeight = 20;
 const margin = 5;
 const totalX = backgroundImgWidth + 2*margin;
 const totalY = backgroundImgHeight + 2*margin;
-
+let maxRow, maxCol;
 
 function generateBackground() {
   // creates the background with cicles that populate the window upon resize and when the dom is 
@@ -549,22 +553,88 @@ function generateBackground() {
       count++;
     }
   }
+  maxCol = numX - 1;
+  maxRow = numY - 1;
 }
 
 function handleBackgroundMouseMove(event) {
   // coloring the background
   const x = event.clientX;
   const y = event.clientY;
-  const colprime = (x - startX)/totalX;
-  const rowprime = (y - startY)/totalY;
+  const colprime = Math.round((x - startX)/totalX);
+  const rowprime = Math.round((y - startY)/totalY);
 
-  const hov = document.getElementById(`${Math.round(colprime)},${Math.round(rowprime)}`)
+  const hov = document.getElementById(`${colprime},${rowprime}`);
   // console.log(colprime, rowprime, hov.getBoundingClientRect().x, hov.getBoundingClientRect().y)
   // console.log(hov.getBoundingClientRect().x, x)
   // console.log(hov.getBoundingClientRect().y, y)
-  hov.style.backgroundColor = "blue";
-  hov.style.opacity = 0.08;
+  if (hov) {
+    hov.style.backgroundColor = "blue";
+    hov.style.opacity = 0.13;
+
+    setTimeout(() => {
+      color = `rgb(${Math.round(Math.random() * 200)}, ${Math.round(Math.random() * 200)}, ${Math.round(Math.random() * 200)})`; 
+      hov.style.backgroundColor = color;
+      hov.style.opacity = 0.06;
+    }, 400);
+  }
+}
+
+function generateNeighbors(ring) {
+  let n = [];
+
+  for (let x = -ring; x <= ring; x++) {
+    for (let y = -ring; y <= ring; y++) {
+      if (Math.abs(x) == ring || Math.abs(y) == ring) n.push([x,y]);
+    }
+  }
+  return n;
+}
+
+const rippleNeighbors = {
+  1: generateNeighbors(1),
+  2: generateNeighbors(2),
+  3: generateNeighbors(3),
+  4: generateNeighbors(4),
+  5: generateNeighbors(5),
+}
+
+function rippleBackground(x, y, ring) {
+  const colprime = Math.round((x - startX)/totalX);
+  const rowprime = Math.round((y - startY)/totalY);
+
+  const n = rippleNeighbors[ring];
   
+  let newCol, newRow, neighbor;
+  n.forEach(([dx, dy]) => {
+    newCol = colprime + dx;
+    newRow = rowprime + dy;
+
+    if (newRow < 0 || newRow > maxRow || newCol < 0 || newCol > maxCol)
+      return;
+
+    neighbor = document.getElementById(`${newCol},${newRow}`);
+    neighbor.style.opacity = 0.3;
+  });
+
+  setTimeout(() => {
+    n.forEach(([dx, dy]) => {
+      newCol = colprime + dx;
+      newRow = rowprime + dy;
+      if (newRow < 0 || newRow > maxRow || newCol < 0 || newCol > maxCol)
+        return;
+
+      neighbor = document.getElementById(`${newCol},${newRow}`);
+      neighbor.style.opacity = 0.06;
+    });
+  }, 200)
+  
+  console.log(rippleNeighbors[ring])
+  if (ring < 4) {
+    setTimeout(() => {
+      rippleBackground(x, y, ring + 1) 
+    }, 160);
+  }
 }
 
 // end colorful dynamic background
