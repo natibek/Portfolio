@@ -28,6 +28,7 @@ clearFiltersBtn.addEventListener("click", handleClearFilters);
 
 // variables for the face
 // make this change over the day?
+const SmallScreenThreshold = 1000;
 const MaxBoundaryY = 50;
 let BoundaryY = 50;
 const MaxBoundaryX = 75;
@@ -388,7 +389,7 @@ function handleMouseMove(event) {
   const x = event.clientX;
   const y = event.clientY;
 
-  if (window.innerWidth < 1000 && (y + scrollY) > window.innerHeight) return;
+  if (window.innerWidth < SmallScreenThreshold && (y + scrollY) > window.innerHeight) return;
 
   const dy = lerpY(y);
   if (dy) {
@@ -636,7 +637,8 @@ function rippleBackground(x, y, ring) {
   }, 200)
   
   console.log(rippleNeighbors[ring])
-  if (ring < 4) {
+  if ((window.innerWidth < SmallScreenThreshold && ring < 3) || 
+      (window.innerWidth >= SmallScreenThreshold && ring < 4)) {
     setTimeout(() => {
       rippleBackground(x, y, ring + 1) 
     }, 160);
