@@ -281,12 +281,13 @@
             <div class="collapse" id="collapse1" data-parent="#accordion" aria-labelledby="drop-down1">
               <ul class="info">
                 <li>Implemented measurement and classical control conversion between Pytket and Cirq.</li>
-                <li>Implemented cancelation for jobs sent to different vendors.</li>
+                <li>Implemented cancelation for quantum jobs sent to different vendors.</li>
                 <li>Reimplement the non deterministic average circuit eigenvalue sampling algorithm to catch bad user inputs, allow for weight as user input, and avoid flakes for bad seeds.</li>
-                <li>Enhanced the <a href="https://superstaq.infleqtion.com" target="_blank">Superstaq website</a> website with password recovery, email validation, and deprecated password hash handling using Flask.</li>
+                <li>Enhanced the <a href="https://superstaq.infleqtion.com" target="_blank">Superstaq website</a> with password recovery, email validation, and deprecated password hash handling using Flask.</li>
                 <li>Designed and implemented a license header check/formatter tool.</li>
                 <li>Developed custom pylint plugins to check the return type annotation of class `__init__` functions and whether `__future__.annotations` is imported.</li>
                 <li>Debugged and fixed issues with flakes and other bugs.</li>
+                <li>Implemented Github workflows to add integration testing to a research repository.</li>
               </ul>
             </div>
           </li>
@@ -301,12 +302,12 @@
 
             <div class="collapse" id="collapse2" data-parent="#accordion" aria-labelledby="drop-down2">
               <ul class="info">
-                <li>Cleaned and prepared text data for NLP algorithms using Pandas.</li>
-                <li>Implemented KMeans and Hierarchical clustering over word vectors of content tags generated using Gensim to create taxonomy categories for content across the website using Python.</li>
-                <li>Visualized Hierarchical Clustering of content tags using dendrograms to recommend possible categories for organizations.</li>
-                <li>Designed JSON files to store up-to-date content taxonomy coding to make the categorization of new content current.</li>
-                <li>Implemented content summarization software using the NLTK package on Python to create 2 sentence abstracts for new and legacy content with URL and text inputs.</li>
                 <li>Researched new AI tools and their applications in textual analysis, categorization, and taxonomy.</li>
+                <li>Cleaned and prepared text data for NLP algorithms using Pandas.</li>
+                <li>Implemented KMeans and Hierarchical clustering of content tags generated using Gensim to create a taxonomy for all the communities hosted by the organization using Python.</li>
+                <li>Visualized Hierarchical Clustering of content tags using dendrograms to recommend possible categories for organizations.</li>
+                <li>Implemented content summarization software using the NLTK library in Python to automate content description for editors.</li>
+                <li>Designed JSON files to store up-to-date content taxonomy coding to make the categorization of new content current.</li>
               </ul>
             </div>
           </li>
@@ -338,13 +339,17 @@
                   Scrapped and analyzed the HHMI investigator award page using the Selenium library to
                    fetch text within shadow roots saving time required to manually retrieve 260 data points.
                 </li>
+                <li>
+                  Automated quarterly funding analysis using Python and Openpyxl to produce styled multitab Excel sheets 
+                  containing data applying to only the current quarter.
+                </li>
               </ul>
             </div>
           </li>
 
           <li class="filterable">
             <a id="drop-down4" data-toggle="collapse" href="#collapse4" role="button" aria-expanded="false" aria-controls="collapse4" class="drop-down">
-              Memory and Perception in Schizophrenia Lab: <em>Programming Assisntant</em>
+              Memory and Perception in Schizophrenia Lab at the University of Chicago: <em>Programming Assisntant</em>
               <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp;
               <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
               <img src="./public/psychopy.jpg" width="30px" title="PsychoPy"/>
@@ -409,7 +414,10 @@
 
               <div class="collapse " id="collapse5" data-parent="#accordion" aria-labelledby="drop-down5">
                 <ul class="info">
-                  <li class="topic-sentence">Wordle inspired guessing game in which you have 6 attempts guess the title of a wikipedia page from sentences scraped from the article with the sentences getting more descriptive with each wrong guess.</li>
+                  <li class="topic-sentence">
+                    Wordle-inspired game where you guess the title of a Wikipedia page given sentences from the 
+                    article with the sentences getting more descriptive with each wrong attempt including online multiplayer gameplay. 
+                  </li>
                   <li>Integrated Gensim’s pretrained NLP models for semantic comparison of user input and title for scoring.</li>
                   <li>Utilized NLTK to tokenize and rank a Wikipedia article’s scraped sentences in relative descriptiveness.</li>
                   <li>Designed a Postgres database to store user data including usernames, encrypted passwords, and game scores.</li>
@@ -576,7 +584,7 @@
 
               <div class="collapse " id="collapse11" data-parent="#accordion" aria-labelledby="drop-down11">
                 <ul class="info">
-                  <li class="topic-sentence">Python license dependency testing/check library with recursive dependency handling for pip and conda.</li>
+                  <li class="topic-sentence">Python dependency license testing/check library with recursive dependency handling for pip and conda.</li>
                   <li>Existing libraries do not support all python package managers and do not have recursive dependency checks.</li>
                   <li>Able to configure disallowed licenses for depencies for whom the test will report a failure with an appropriate exit code.</li>
                   <li>Variety of output formatting modes including grouping by license, alphabetical, and failing only.</li>
