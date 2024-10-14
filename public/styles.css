@@ -62,6 +62,7 @@ h4 {
     position: sticky;
     top: 30dvh;
     z-index: 1;
+    transform: scale(0.8)
 }
 
 .mustache {
@@ -173,9 +174,7 @@ main {
 .general {
     margin-top: 10px;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
+    flex-direction: column;
 }
 
 .general div {
@@ -314,6 +313,7 @@ main {
         width: 25px;
         height: 20px;
     }
+    /*
     .general {
         gap: 0;
     }
@@ -321,6 +321,7 @@ main {
         flex: none;
         width: 100%;
     }
+*/
     #gabata-icon {
         position: relative;
         left: -2px;
@@ -353,7 +354,7 @@ main {
     li:not(.tag) {
         margin-left: -15px;
     }
-    main, .general {
+    main{
         gap: 5px;
     }
 }

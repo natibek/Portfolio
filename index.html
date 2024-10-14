@@ -173,7 +173,7 @@
         <div class="d-flex flex-column">
           <!-- <img src="./public/uchicago logo.png" width="35px" height="35px" style="position: relative; top: -5px;"/> -->
           <h2>BS in Computer Science from The University of Chicago, June 2025.</h2>
-          <h2>Specialization in Computer Systems.</h2>
+          <h2>Focusing on Quantum Computing and Computer Systems.</h2>
         </div>
       </div>
 
@@ -181,35 +181,45 @@
         <div>
           <h3>Interests</h3>
           <ul>
-            <li>Computer Systems</li>
-            <li>Library Development</li>
-            <li>Quantum Software Development</li>
-            <li>HPC</li>
-            <li>Game Development</li>
-            <li>Backend Development</li>
-            <li>Programming Languages</li>
+            <li>
+              Computer Systems,
+              Library Development,
+              Quantum Software Development,
+              HPC,
+              Game Development,
+              Backend Development,
+              Programming Languages
+            </li>
           </ul>
         </div>
 
         <div>
           <h3>Awards</h3>
           <ul>
-            <li>UChicago Advanced Scholar</li>
-            <li>Best Overall Award at The UChicago Winter Tech Showcase for <a href="https://guessthewiki.com" target="_blank">GuessTheWiki</a></li>
-            <li>UChicago Odyssey Scholar</li>
-            <li>Dean's List 2021/22</li>
+            <li>
+              UChicago Advanced Scholar,
+              Best Overall Award at The UChicago Winter Tech Showcase for <a href="https://guessthewiki.com" target="_blank">GuessTheWiki</a>,
+              UChicago Odyssey Scholar,
+              Dean's List 2021/22
+            </li>
           </ul>
         </div>
 
         <div>
           <h3>Programming Languages</h3>
           <ul>
-            <li>Python</li>
-            <li>JavaScript, CSS, HTML</li>
-            <li>C++</li>
-            <li>C</li>
-            <li>Bash</li>
-            <li>SML</li>
+            <li>Advanced: Python, Javascript</li>
+            <li>Intermediate: C++, C, Bash</li>
+            <li>Novice: SML</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Libraries</h3>
+          <ul>
+            <li>Python: Flask, Django, Jinga, Cirq, Qiskit, Pytest, Numpy, Pandas, Asteroid, NLTK, Gensim, Scikit</li>
+            <li>JavaScript: React, Socket.Io, Express, d3</li>
+            <li>Other: Bootstrap</li>
           </ul>
         </div>
       </div>
@@ -232,11 +242,17 @@
           <li class="filterable">
             Systems Programming I/II: <em>Assembly, Multithreading, Algorithms</em>: &nbsp;
             <img src="./public/c.png" width="30px" title="C"/>&nbsp;
+            <img src="./public/systems.jpg" width="30px" title="Systems"/>&nbsp;
             <img src="./public/testing.jpg" width="30px" title="Testing"/>
           </li>
           <li class="filterable">
             Data Visualization: <em>D3</em>: &nbsp;
             <img src="./public/js.jpg" width="30px" title="JavaScript"/>
+          </li>
+          <li class="filterable">
+            Data Engineering: <em>Django, API, SQL</em>: &nbsp;
+            <img src="./public/python.png" width="30px" title="Python"/>
+            <img src="./public/database.png" width="30px" title="Database"/>
           </li>
           <li class="filterable">
             Creative Machines and Innovative Designs: &nbsp;
@@ -253,7 +269,7 @@
             <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>
           </li>
           <li class="filterable">
-            Intro to Data Science I/II: &nbsp;
+            Intro to Data Science I/II: <em>SQL</em>&nbsp;
             <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
             <img src="./public/ml.jpeg" width="30px" title="Machine-Learning"/>
           </li>
@@ -280,6 +296,31 @@
 
             <div class="collapse" id="collapse1" data-parent="#accordion" aria-labelledby="drop-down1">
               <ul class="info">
+                <li class="topic-sentence">Focused on developing testing, linting, and formatting tools, improving the website, and quantum computing.</li>
+                <li>
+                  Implemented novel measurement and classical control conversion between 
+                  Pytket and Cirq to expand circuit types that can be handled. 
+                </li>
+                <li>
+                  Implemented cancelation for quantum jobs sent to different vendors reducing the 
+                  cost associated with unwanted large jobs running until completion.
+                </li>
+                <li>
+                  Reimplemented non-deterministic algorithms to catch bad user inputs, 
+                  and avoid test failing for random seeds.
+                </li>
+                <li>
+                  Enhanced security of the Superstaq website with password recovery, email validation, 
+                  and deprecated password hash handling using Flask.
+                </li>
+                <li>
+                  Developed custom Pylint plugins to improve code styling consistencies and catch type errors.
+                </li>
+                <li>
+                  Implemented Github workflows to add integration testing to a research repository.
+                </li>
+
+                <!--
                 <li>Implemented measurement and classical control conversion between Pytket and Cirq.</li>
                 <li>Implemented cancelation for quantum jobs sent to different vendors.</li>
                 <li>Reimplement the non deterministic average circuit eigenvalue sampling algorithm to catch bad user inputs, allow for weight as user input, and avoid flakes for bad seeds.</li>
@@ -288,6 +329,7 @@
                 <li>Developed custom pylint plugins to check the return type annotation of class `__init__` functions and whether `__future__.annotations` is imported.</li>
                 <li>Debugged and fixed issues with flakes and other bugs.</li>
                 <li>Implemented Github workflows to add integration testing to a research repository.</li>
+                -->
               </ul>
             </div>
           </li>
@@ -302,12 +344,21 @@
 
             <div class="collapse" id="collapse2" data-parent="#accordion" aria-labelledby="drop-down2">
               <ul class="info">
-                <li>Researched new AI tools and their applications in textual analysis, categorization, and taxonomy.</li>
-                <li>Cleaned and prepared text data for NLP algorithms using Pandas.</li>
-                <li>Implemented KMeans and Hierarchical clustering of content tags generated using Gensim to create a taxonomy for all the communities hosted by the organization using Python.</li>
-                <li>Visualized Hierarchical Clustering of content tags using dendrograms to recommend possible categories for organizations.</li>
-                <li>Implemented content summarization software using the NLTK library in Python to automate content description for editors.</li>
-                <li>Designed JSON files to store up-to-date content taxonomy coding to make the categorization of new content current.</li>
+                <li class="topic-sentence">Focused on recommending and implementating content categorization using AI and Machine Learning tools.</li>
+                <li>
+                  Researched new AI tools and their applications in textual analysis, categorization, and taxonomy to 
+                  recommend solutions for content categorization to executives.
+                </li>
+                <li>
+                  Implemented KMeans and Hierarchical clustering of content tags generated using Gensim using Python
+                  to recommend a taxonomy for all the communities hosted by the organization.
+                </li>
+                <li>
+                  Implemented content summarization software using NLTK and Python to automate content description for editors.
+                </li>
+                <!--
+                <li>Designed JSON files to store up-to-date content taxonomy encoding to ease the categorization of new content current.</li>
+                -->
               </ul>
             </div>
           </li>
@@ -317,6 +368,25 @@
       <div class="content">
         <h3>Work Experience</h3>
         <ul>
+          <li class="filterable">
+            <a id="drop-down16" data-toggle="collapse" href="#collapse16" role="button" aria-expanded="false" aria-controls="collapse16" class="drop-down">
+              Meyer’s Group (Dr. Meyer’s Astrophysics Research Group at the University of Chicago)
+              <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp;
+              <img src="./public/python.png" width="30px" title="Python"/>&nbsp;
+              <img src="./public/systems.jpg" width="30px" title="Systems"/>&nbsp;
+              <img src="./public/oop.png" width="40px" title="OOP"/>
+            </a>
+            <div class="collapse " id="collapse16" data-parent="#accordion" aria-labelledby="drop-down16">
+              <ul class="info">
+                <li class="topic-sentence">Focusing on system development for sensors to be used in the Wilkinson Microwave Anisotropy Probe satellite.</li>
+                <li>Implement read/write locks for shared memory used by sensors with Python to improve system robustness.</li>
+                <li>Implement safe data writing via UDP for infrared cameras to prevent network and system crashes.</li>
+                <li>Implement system-wide sensor status check, termination, and restart protocol to ensure sensors are always functional while the device is in use.</li>
+                <li>Design and implement a calibration system for the infrared cameras to interpret data across different ambient temperatures the device experiences during launch.</li>
+              </ul>
+            </div>
+
+          </li>
           <li class="filterable">
             <a id="drop-down3" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapse3" class="drop-down">
               Biological Sciences Division at the University of Chicago: <em>Student Data Analyst and Programmer</em>
@@ -329,19 +399,19 @@
             </a>
             <div class="collapse " id="collapse3" data-parent="#accordion" aria-labelledby="drop-down3">
               <ul class="info">
+                <li class="topic-sentence">Focused on automating the department's fiscal and analytical work.</li>
                 <li>
-                  Developed a multithreaded Box drive backup desktop software using TKinter and Boxsdk 
-                  (including OAuth2 features) to automate the tedious backing up process folders and files 
-                  with the use of SHA1 file hashing for version comparison.
+                  Developed multithreaded data backup software with version checks and OAuth using TKinter, 
+                  Boxsdk, and Python that handles multiple folders and files simultaneously to automate 
+                  manual and tedious backup processes.
                 </li>
-                <li>Automated publication tracking of authors from the department with a Flask web software and Scopus to save 5hrs per week.</li>
+                <li>Automated department’s publication tracking with Flask web software to save more than 5 hours per week.</li>
                 <li>
-                  Scrapped and analyzed the HHMI investigator award page using the Selenium library to
-                   fetch text within shadow roots saving time required to manually retrieve 260 data points.
+                  Implemented web scraper with Selenium and Python to fetch 260 data points to automate manual copy-pasting.
                 </li>
                 <li>
                   Automated quarterly funding analysis using Python and Openpyxl to produce styled multitab Excel sheets 
-                  containing data applying to only the current quarter.
+                  saving hours of manual work that is repeated each quarterly.
                 </li>
               </ul>
             </div>
@@ -357,9 +427,14 @@
 
             <div class="collapse " id="collapse4" data-parent="#accordion" aria-labelledby="drop-down4">
               <ul class="info">
-                <li>Developed experiment tasks Python scripts for ongoing psychology studies using PsychoPy.</li>
-                <li>Implemented scripts that exported event codes, time stamps, and their associated inputs for analysis and syncing with EEG data.</li>
-                <li>Programmed test versions of experiment task designs for initial data collection used in grant applications.</li>
+                <li class="topic-sentence">Visual memory lab using Python to develop experiment tasks for subjects to complete with an EEG cap on.</li>
+                <li>
+                  Implemented experiment tasks with Python that log user inputs and associated event codes and 
+                  time stamps used for EEG data syncing for ongoing visual memory studies. 
+                </li>
+                <li>
+                  Programmed test versions of experiment tasks for initial data collection used in successful grant applications.
+                </li>
               </ul>
             </div>
           </li>
@@ -414,14 +489,17 @@
 
               <div class="collapse " id="collapse5" data-parent="#accordion" aria-labelledby="drop-down5">
                 <ul class="info">
-                  <li class="topic-sentence">
+                    <!--
                     Wordle-inspired game where you guess the title of a Wikipedia page given sentences from the 
                     article with the sentences getting more descriptive with each wrong attempt including online multiplayer gameplay. 
+                    -->
+                  <li class="topic-sentence">
+                    Wikipedia article title guessing web game that includes multiplayer gameplay.
                   </li>
                   <li>Integrated Gensim’s pretrained NLP models for semantic comparison of user input and title for scoring.</li>
                   <li>Utilized NLTK to tokenize and rank a Wikipedia article’s scraped sentences in relative descriptiveness.</li>
                   <li>Designed a Postgres database to store user data including usernames, encrypted passwords, and game scores.</li>
-                  <li>Designed Flask Restful Apis to get hints, score guesses, login, and register users.</li>
+                  <li>Designed Flask Restful Apis to get hints, score guesses, login and register users.</li>
                   <li>Implemented online multiplayer game play using Socket.Io web sockets and NodeJS.</li>
                   <li>Won Best Overall Award at the UChicago Winter Tech Showcase.</li>
                 </ul>
@@ -475,8 +553,8 @@
                 <ul class="info">
                   <li class="topic-sentence">Tkinter based PC game of the Ethiopian Mancala ruleset.</li>
                   <li>Implements bots of different difficulty that use heuristics for choosing best moves.</li>
-                  <li>Allows for interruptive bot level changes.</li>
-                  <li>Fun animations for bot and player moves.</li>
+                  <li>Allows for midgame bot level changes.</li>
+                  <li>Motion animations for bot and player moves.</li>
                 </ul>
               </div>
             </li>

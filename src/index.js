@@ -636,9 +636,10 @@ function rippleBackground(x, y, ring) {
     });
   }, 200)
   
-  console.log(rippleNeighbors[ring])
-  if ((window.innerWidth < SmallScreenThreshold && ring < 3) || 
-      (window.innerWidth >= SmallScreenThreshold && ring < 4)) {
+  // console.log(rippleNeighbors[ring])
+  // if ((window.innerWidth < SmallScreenThreshold && ring < 3) || 
+      // (window.innerWidth >= SmallScreenThreshold && ring < 4)) {
+  if (ring < 3){
     setTimeout(() => {
       rippleBackground(x, y, ring + 1) 
     }, 160);
