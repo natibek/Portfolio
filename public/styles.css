@@ -9,23 +9,24 @@
     gap: 100px;
     position: relative;
     top: -50px;
+    font-size: 19px;
 }
 
 h1 {
-    font-size: larger;
+    font-size: largest;
     font-weight: bold;
 }
 
 h2 {
-    font-size: large;
+    font-size: larger;
 }
 
 h3 {
-    font-size: large;
+    font-size: larger;
     font-weight: bold;
 }
 h4 {
-    font-size: medium;
+    font-size: large;
     font-weight: bold;
 }
 
@@ -199,6 +200,9 @@ main {
 
 .hide {
     display: none;
+}
+
+.cgroup {
 }
 
 #filters {

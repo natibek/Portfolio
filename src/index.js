@@ -551,7 +551,7 @@ function generateBackground() {
       else if (rand <= 0.5) backgroundPix.classList.add("right-round");
       else if (rand <= 0.75) backgroundPix.classList.add("left-round");
 
-      color = `rgb(${Math.round(Math.random() * 200)}, ${Math.round(Math.random() * 200)}, ${Math.round(Math.random() * 200)})`; 
+      color = `rgb(${Math.round(Math.random() * 200)}, ${Math.round(Math.random() * 200)}, ${Math.round(Math.random() * 200)}, 0.5)`; 
       backgroundPix.style.backgroundColor = color;
       backgroundPix.setAttribute("title", color);
       //backgroundPix.setAttribute("id", `${startX + col*totalX},${startY + row*totalY}`);
