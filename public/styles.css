@@ -290,12 +290,13 @@ main {
         font-size: 1rem;
     }
     h2, h3 {
-        font-size: medium;
+        font-size: large;
     }
     .all {
         width: 90dvw;
         flex-wrap: wrap;
         font-size: 0.95rem;
+        font-size: 18px;
         padding: 15px;
         margin-left: 11px;
     }
@@ -338,7 +339,15 @@ main {
 
 @media (max-width: 550px) {
     h4 {
-        font-size: 0.95rem;
+        font-size: medium;
+    }
+
+    h2 {
+    font-size: large;
+    }
+
+    h3 {
+        font-size: medium;
     }
     #clear-filters {
         top: -1px;
@@ -347,7 +356,7 @@ main {
         font-size: 0.9rem;
     }
     .all {
-        font-size: 0.85rem;
+        font-size: 16px;
     }
     img:not(#contact-pypi-img) {
         width: 18px;
