@@ -33,6 +33,10 @@
         <div class="icon"><img src="./public/python.png" width="30px"/></div><div class="tag">Python</div>
       </li> 
       <li class="tag">
+        <input class="check-input" type="checkbox" value="" id="rust" />
+        <div class="icon"><img src="./public/rust.png" width="30px"/></div><div class="tag">Rust</div>
+      </li> 
+      <li class="tag">
         <input class="check-input" type="checkbox" value="" id="django" />
         <div class="icon"><img src="./public/django.jpeg" width="30px"/></div><div class="tag">Django</div>
       </li> 
@@ -607,13 +611,12 @@
               <a id="drop-down11" data-toggle="collapse" href="#collapse11" role="button" aria-expanded="false" aria-controls="collapse11" class="drop-down">
                 licensepy
                 <i class="bi bi-caret-down-fill" style="color: #800020;"></i> &nbsp;
-                <img src="./public/python.png" width="30px" title="Python"/> &nbsp;
-                <img src="./public/oop.png" width="40px" title="OOP"/>
+                <img src="./public/rust.png" width="30px" title="Rust"/> &nbsp;
               </a>
 
               <div class="collapse " id="collapse11" data-parent="#accordion" aria-labelledby="drop-down11">
                 <ul class="info">
-                  <li class="topic-sentence">Python dependency license testing/check library with recursive dependency handling for pip.</li>
+                  <li class="topic-sentence">Python dependency license testing/check CLI tool with recursive dependency handling.</li>
                   <li>Existing libraries do not support all python package managers and do not have recursive dependency checks.</li>
                   <li>Able to configure disallowed licenses for depencies to have for which the test will report a failure with an exit code 1.</li>
                   <li>Variety of output formatting modes including grouping by license, alphabetical, and failing only.</li>
