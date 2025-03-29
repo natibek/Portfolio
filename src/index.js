@@ -647,3 +647,23 @@ function rippleBackground(x, y, ring) {
 }
 
 // end colorful dynamic background
+
+// start better window scroll to for nav
+Array.from(document.getElementsByClassName('nav-link')).forEach(el => {
+  el.addEventListener("click", scroll);
+});
+
+function scroll(event) {
+  event.preventDefault();
+  const target = document.querySelector(event.target.getAttribute("href"));
+  if (target) {
+    const offset = 100;
+    const targetPos = target.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.scrollTo({
+      top: targetPos,
+      behavior: "smooth"
+    });
+  }
+}
+// end window scroll to
