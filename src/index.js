@@ -655,7 +655,8 @@ Array.from(document.getElementsByClassName('nav-link')).forEach(el => {
 
 function scroll(event) {
   event.preventDefault();
-  const target = document.querySelector(event.target.getAttribute("href"));
+  const targetSelector = event.target.getAttribute("href");
+  const target = document.querySelector(targetSelector);
   if (target) {
     const offset = 100;
     const targetPos = target.getBoundingClientRect().top + window.scrollY - offset;
@@ -664,6 +665,7 @@ function scroll(event) {
       top: targetPos,
       behavior: "smooth"
     });
+    history.pushState(null, null, targetSelector);
   }
 }
 // end window scroll to

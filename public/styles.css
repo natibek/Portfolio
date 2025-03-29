@@ -185,14 +185,18 @@ main {
     margin-bottom: 15px;
 }
 
-.info li:not(.topic-sentence){
-    font-style: italic;
-}
+/* .info li:not(.topic-sentence){ */
+    /* font-style: italic; */
+/* } */
 
 .topic-sentence {
     font-weight: bold;
+    margin-left: 15px;
 }
 
+.filterable:has(a) {
+    margin-bottom: 15px;
+}
 .projects {
     position: relative;
     left: 30px;
