@@ -652,6 +652,7 @@ function rippleBackground(x, y, ring) {
 Array.from(document.getElementsByClassName('nav-link')).forEach(el => {
   el.addEventListener("click", scroll);
 });
+document.getElementById("nav-home").addEventListener("click", scroll);
 
 function scroll(event) {
   event.preventDefault();
@@ -667,5 +668,13 @@ function scroll(event) {
     });
     history.pushState(null, null, targetSelector);
   }
+  else if (targetSelector == null) {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    history.pushState(null, null, "#");
+  }
+
 }
 // end window scroll to
