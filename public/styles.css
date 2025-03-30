@@ -172,6 +172,19 @@ main {
     margin-bottom: 5px;
 }
 
+#nav-container {
+    top: 10px;    
+    width: fit-content;
+}
+
+.nav-item {
+    display: inline-block;
+}
+
+#nav {
+    gap: 5px;    
+}
+
 .general {
     margin-top: 10px;
     display: flex;
@@ -197,6 +210,12 @@ main {
 .filterable:has(a) {
     margin-bottom: 15px;
 }
+
+#my-info {
+    margin-bottom: 10px;
+    margin-top: 2px;
+}
+
 .projects {
     position: relative;
     left: 30px;
@@ -339,9 +358,25 @@ main {
     .contact-icons {
         font-size: 1.2rem;
     }
+
+    #nav-container {
+        font-size: 1rem;
+        top: 0;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #my-info {
+        padding-top: 20px;    
+    }
+
 }
 
 @media (max-width: 550px) {
+
     h4 {
         font-size: medium;
     }
@@ -373,5 +408,8 @@ main {
     }
     main{
         gap: 5px;
+    }
+    #nav-container {
+        font-size: 0.8em;
     }
 }
