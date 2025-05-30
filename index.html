@@ -387,28 +387,23 @@
             <div class="collapse" id="collapse1" data-parent="#accordion" aria-labelledby="drop-down1">
               <ul class="info">
                 <li>
-                  Implemented novel measurement and classical control conversion between 
-                  Pytket and Cirq expanding circuits handled by the Superstaq Compiler. 
+                  Integrated control and measurement conversion between Pytket and Cirq, extending Superstaq’s circuit compatibility.
                 </li>
                 <li>
-                  Implemented cancelation for quantum jobs sent to different vendors reducing the 
-                  cost associated with unwanted large jobs running until completion.
+                  Enhanced Flask-based authentication by adding password recovery, email validation, and secure legacy hash handling.
                 </li>
                 <li>
-                  Reimplemented non-deterministic algorithms to catch bad user inputs, 
-                  and avoid test failing for random seeds.
+                  Developed job cancellation to reduce resource consumption and improve user control over quantum job submissions.
                 </li>
                 <li>
-                  Enhanced security of the Superstaq website with password recovery, email validation, 
-                  and deprecated password hash handling using Flask.
+                  Refactored non-deterministic algorithms to validate user input and ensure consistent test results across random seeds.
                 </li>
                 <li>
-                  Developed custom Pylint plugins to improve code styling consistencies and catch type errors.
+                  Created Pylint plugins to enforce style consistency and detect typing issues, improving code quality across codebase.
                 </li>
                 <li>
-                  Implemented Github workflows to add integration testing to a research repository.
+                  Built custom GitHub Actions to strengthen CI pipelines and automate testing across quantum research projects.
                 </li>
-
                 <!--
                 <li>Implemented measurement and classical control conversion between Pytket and Cirq.</li>
                 <li>Implemented cancelation for quantum jobs sent to different vendors.</li>
@@ -467,17 +462,11 @@
             </a>
             <div class="collapse " id="collapse16" data-parent="#accordion" aria-labelledby="drop-down16">
               <ul class="info">
-                <li>Implemented new cross-file locks for shared memory used by sensors with Python to improve system robustness.</li>
-                <li>
-                    Implemented system-wide sensor status check, terminate, and restart protocol 
-                    to ensure sensors are alway functional while the device is in use.
-                </li>
-                <li>Implement safe data writing via UDP for infrared cameras to prevent network and system crashes.</li>
-                <li>Implement system-wide sensor status check, termination, and restart protocol to ensure sensors are always functional while the device is in use.</li>
-                <li>
-                    Design and implement a calibration system for the infrared cameras to interpret 
-                    data across different ambient temperatures the device experiences during launch.
-                </li>
+                <li>Designed cross-process locks for Python sensor systems to ensure safe shared memory access and prevent data races.</li>
+                <li>Implemented multithreaded image capture with fixed-pattern noise correction, synchronizing cameras, and reducing inter-camera timing variance to under 2 second.</li>
+                <li>Developed UDP-based safe and bz2 compressed image transmission for infrared cameras, mitigating network overloads and reducing storage requirements.</li>
+                <li>Built Python wrappers for C-bindings to enhance code usability and maintainability for infrared camera control.</li>
+                <li>Created a Python desktop app for browsing and filtering camera images (by date, time, camera, and type), streamlining debugging, and eliminating manual image review.</li>
               </ul>
             </div>
 
