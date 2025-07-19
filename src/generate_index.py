@@ -279,5 +279,5 @@ if __name__ == "__main__":
     with_project_completed, i = insert_project(with_work_exp, i, True)
     with_project_in_progress, i = insert_project(with_project_completed, i, False)
 
-    with open("./new_index.html", "w") as f:
+    with open("./index.html", "w") as f:
         f.write(with_project_in_progress)
