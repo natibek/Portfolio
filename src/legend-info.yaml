@@ -1,0 +1,43 @@
+# id of the parent container
+
+# <li class="tag">
+#   <input class="check-input" type="checkbox" value="" id="{input_id}" />
+#   <div class="icon"><img src="{img_src}" width="30px"/></div><div class="tag">{name}</div>
+# </li> 
+legends:
+  - input_id: python
+    name: Python 
+  - input_id: rust
+    name: Rust 
+  - input_id: django
+    name: Django
+  - input_id: flask
+    name: Flask
+  - input_id: jinga
+    name: Jinga
+  - input_id: tkinter
+    name: Tkinter
+  - input_id: psychopy
+    name: PsychoPy
+  - input_id: c
+    name: C
+  - input_id: Cpp
+    name: C++
+  - input_id: javascript
+    name: JavaScript
+  - input_id: react
+    name: React
+  - input_id: bootstrap
+    name: Bootstrap 
+  - input_id: oop
+    name: OOP
+  - input_id: testing
+    name: Testing
+  - input_id: systems
+    name: Systems
+  - input_id: database
+    name: Database
+  - input_id: quantum
+    name: Quantum
+  - input_id: ml
+    name: Machine-Learning

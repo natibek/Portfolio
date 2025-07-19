@@ -1,0 +1,185 @@
+# <li class="filterable">
+# <a href="{link}" target="_blank">
+# 
+#   <img src="./public/{link_img}" width="25px" alt="link" /> | github
+# </a>&nbsp 
+# <a id="drop-down{i}" data-toggle="collapse" href="#collapse{i}" role="button" aria-expanded="false" aria-controls="collapse{i}" class="drop-down">
+#   {project}
+#   <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp;
+#
+#   <img src="./public/{src}" width="30px" title="{title}"/>
+#   <div class="topic_sentence">{topic_sentence}</div>
+# </a>
+# 
+# <div class="collapse " id="collapse{i}" data-parent="#accordion" aria-labelledby="drop-down{i}">
+#   <ul class="info">
+#     <li>{bullet_point}</li>
+#   </ul>
+# </div>
+# </li>
+
+completed:
+  - link: "https://pypi.org/project/erys"
+    link_img: Pypi
+    project: Erys
+    skills:
+      - Python
+      - OOP
+    topic_sentence: Terminal interface for Jupyter Notebooks.
+    bullet_points:
+      - Textual based terminal UI supported across platforms.
+      - Renders images, JSON, html, and ansi text.
+      - Supports opening, creating, editing, runing, saving notebooks.
+  - link: "https://pypi.org/project/localgit/"
+    link_img: Pypi
+    project: localgit
+    skills:
+      - Python
+    topic_sentence: A command line tool for managing multiple local git repo clones simultaneous.
+    bullet_points:
+      - List all the repo clones found on the device.
+      - View the statuses and commit logs of multiple repos.
+      - Call pull and push on multiple repos.
+      - Extensively uses the `argparse` and `subprocess` libraries.
+      - Has appropriate exit codes for integration with other tests.
+      - Uses github workflow for automated release update and publishing on pypi.
+  - link: "https://www.guessthewiki.com"
+    link_img: Gtw
+    project: GuessTheWiki
+    skills:
+      - Python
+      - JavaScript
+      - Flask
+      - React
+      - Bootstrap
+      - Database
+    topic_sentence: Wikipedia article title guessing web game that includes multiplayer gameplay.
+    bullet_points:
+      - Integrated Gensim’s pretrained NLP models for semantic comparison of user input and title for scoring.
+      - Utilized NLTK to tokenize and rank a Wikipedia article’s scraped sentences in relative descriptiveness.
+      - Designed a Postgres database to store user data including usernames, encrypted passwords, and game scores.
+      - Designed Flask Restful Apis to get hints, score guesses, login and register users.
+      - Implemented online multiplayer game play using Socket.Io web sockets and NodeJS.
+      - Won Best Overall Award at the UChicago Winter Tech Showcase.
+  - link: "https://pypi.org/project/licensepy/"
+    link_img: Pypi
+    project: licensepy
+    skills:
+      - Rust
+    topic_sentence: Rust based Python dependency license testing/check CLI tool with recursive dependency handling.
+    bullet_points:
+      - Existing libraries do not support all python package managers and do not have recursive dependency checks.
+      - Able to configure disallowed licenses for depencies to have for which the test will report a failure with an exit code 1.
+      - Variety of output formatting modes including grouping by license, alphabetical, and failing only.
+      - Rust based implementation extracting ~300 license metadata in 0.05 seconds.
+  - link: "https://crates.io/crates/ghosttify"
+    link_img: Crate
+    project: Ghosttify
+    skills:
+      - Rust
+    topic_sentence: Rust based CLI tool for converting gnome-terminal shortcuts to ghostty keybindings.
+    bullet_points:
+      - Update a ghostty config with these converted keybindings by adding a config-file named gnome-shortcuts.
+  - link: "https://github.com/natibek/Box_Backup_App"
+    link_img: github
+    project: Box Backup App
+    skills:
+      - Python
+      - Tkinter
+      - OOP
+    topic_sentence: Multithreaded Box drive backup desktop software implemented with TKinter and Boxsdk 
+                (including OAuth2 features) to automate multi folder and file back up 
+                with the use of SHA1 file hashing for version comparison.
+    bullet_points:
+      - Uses a local server on a separate thread to host an endpoint that listens for OAuth authentication.
+      - Recusively backs up folders creating new files that do not exists in backup, updating files that do exist in the backup by comparing the SHA1 hash.
+      - Implements UI and logic directory navigation of remote Box Accounts for selecting the backup directory.
+  - link: "https://natibek.github.io/Gabata/"
+    link_img: Marble
+    project: Gabata (Mancala)
+    skills:
+      - Python
+      - Tkinter
+      - OOP
+    topic_sentence: Tkinter based PC game of the Ethiopian Mancala ruleset.
+    bullet_points:
+      -  Implements bots of different difficulty that use heuristics for choosing best moves.
+      -  Allows for midgame bot level changes.
+      -  Motion animations for bot and player moves.
+  - link: "https://github.com/natibek/PublicationTracking"
+    link_img: github
+    project: Publication Tracking
+    skills:
+      - Python
+      - Flask
+      - Jinga
+      - Bootstrap
+    topic_sentence: A Flask web app automating publication tracking of authors from the Biological Sciences Department using Scopus's weekly csv output.
+    bullet_points:
+      - Avoids storing any data for IP protection.
+      - Parse, clean, and analyze excel files using pandas.
+  - link: "https://github.com/natibek/Portfolio"
+    link_img: github
+    project: Portfolio
+    skills:
+      - JavaScript
+      - Bootstrap
+      - Python
+    topic_sentence: Personal portfolio website with dynamic interative features implemented using JavaScript.
+    bullet_points:
+      - Implements dynamic filtering by tags.
+      - Python script for generating index.html file using html template and yaml files.
+  - link: "https://github.com/natibek/RemoveTrailingWhiteSpaces"
+    link_img: github
+    project: Remove Trailing White Spaces
+    skills:
+      - C
+    topic_sentence: C program for reporting and removing trailing white spaces from files.
+    bullet_points:
+      - Implements CL argument parsing.
+      - Options for verbose output detailing where the trailing white spaces were found.
+
+in-progress:
+  - link: "https://github.com/natibek/ampy"
+    link_img: Ampy
+    project: AmPy
+    skills:
+      - Cpp
+      - OOP
+      - Python
+    topic_sentence: Python programming language with Amharic keywords in addition to existing English keywords to help with programming education.
+    bullet_points:
+      - Includes keyword translations for builtin keywords and libraries such as `os`,
+        `os.path`, `sys`, `time`, `datetime`, `statistics` `math`, `random`, `requests`, `re`, `json`, `heapq`, and `csv`.
+      - Uses JsonCpp for reading keywords from original Json.
+      - Generates binaries containing keywords with values used for checking corruption.
+      - Implements recursive transpilation of imported Ampy files.
+      - Easy scalability for new or changing keywords.
+  - link: "https://github.com/natibek/crochet-pix"
+    link_img: github
+    project: Crochet-Pix
+    skills:
+      - Python
+      - Flask
+      - JavaScript
+      - OOP
+      - React
+      - Bootstrap
+    topic_sentence: Web app with a React frontend and a Flask backend for AI generating and editing pixel art for crochet patterns from images.
+    bullet_points:
+      - Drafts include custom image analysis implementation that reduces color differences while retaining identifiable regions.
+      - Experimenting with different image analysis tools including `Opencv` and `Pillow` for generating simplified images from user input.
+      - Support for mouse and touchscreen use when drawing/editing pixel art.
+      - Custom `.crochet` file for storing pixel art for future use.
+  - link: "https://github.com/natibek/boxin"
+    link_img: github
+    project: BoxIn
+    skills: 
+      - JavaScript
+      - OOP
+      - React
+      - Bootstrap
+    topic_sentence: React based web game where players try to dominate a grid by controlling more squares.
+    bullet_points:
+      - Includes bots with different strengths developed with JavaScript.
+      - Implementing socket for multiplayer gameplay with multiple players.

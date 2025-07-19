@@ -1,0 +1,48 @@
+
+#  <li class="filterable">
+#    <a id="drop-down{i}" data-toggle="collapse" href="#collapse{i}" role="button" aria-expanded="false" aria-controls="collapse{i}" class="drop-down" >
+#      {position}
+#      <i class="bi bi-caret-down-fill" style="color: #800020;"></i>&nbsp;
+#      <img src="./public/{src}" width="30px" title="{title}"/>&nbsp;
+#
+#      <div class="topic-sentence">
+#       {topic-sentence}
+#      </div>
+#    </a>
+#
+#    <div class="collapse" id="collapse{i}" data-parent="#accordion" aria-labelledby="drop-down{i}">
+#      <ul class="info">
+#        <li>
+#          {bullet-point}
+#        </li>
+#       </ul>
+#     </div>
+#   </li>
+internships:
+  - position: "Infleqtion: Quantum Software Deveopment Intern in the Compiler Team"
+    skills:
+      - Quantum
+      - Python
+      - OOP
+      - Flask
+      - Jinga
+      - Bootstrap
+      - Testing
+      - Database
+    topic_sentence: 'Developing testing, linting, and formatting tools, improving the website, and quantum computing effort.'
+    bullet_points:
+      - Integrated control and measurement conversion between Pytket and Cirq, extending Superstaq’s circuit compatibility.
+      - Enhanced Flask-based authentication by adding password recovery, email validation, and secure legacy hash handling.
+      - Developed job cancellation to reduce resource consumption and improve user control over quantum job submissions.
+      - Refactored non-deterministic algorithms to validate user input and ensure consistent test results across random seeds.
+      - Created Pylint plugins to enforce style consistency and detect typing issues, improving code quality across codebase.
+      - Built custom GitHub Actions to strengthen CI pipelines and automate testing across quantum research projects.
+  - position: "Golden Peak Media: Generative AI Intern"
+    skills:
+      - Python
+      - Machine-Learning
+    topic_sentence: Recommending and implementing content categorization using AI and Machine Learning tools.
+    bullet_points:
+      - Researched new AI tools and their applications in textual analysis, categorization, and taxonomy to recommend solutions for content categorization to executives.
+      - Implemented KMeans and Hierarchical clustering of content tags generated using Gensim using Python to recommend a taxonomy for all the communities hosted by the organization.
+      - Implemented content summarization software using NLTK and Python to automate content description for editors.

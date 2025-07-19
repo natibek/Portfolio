@@ -1,0 +1,115 @@
+#  <li class="filterable">
+#    {coursename}: <em>{skills}</em>&nbsp;
+#    <img src="./public/{src}" width="{width}"  title="{title}"/>&nbsp;
+#  </li>
+
+coursework:
+  - coursename: Intro to Computer Science I/II
+    skills: 
+      - Algorithms
+      - OOP
+    imgs:
+      - width: 30px
+        title: Python
+      - width: 40px 
+        title: OOP
+      - width: 30px 
+        title: Testing
+  - coursename: Systems Programming I/II
+    skills: 
+      - Assembly
+      - Multithreading
+      - Algorithms
+      - Systems
+    imgs:
+      - width: 30px
+        title: C
+      - width: 30px 
+        title: Systems
+      - width: 30px 
+        title: Testing
+  - coursename: Introduction to Computer Security
+    skills: 
+      - Os Security
+      - Web Security
+      - Threat Modelling
+    imgs:
+      - width: 30px
+        title: C
+  - coursename: Quantum Computer Systems
+    skills: 
+      - Compilation
+      - Optimization
+    imgs:
+      - width: 30px
+        title: Python
+      - width: 30px 
+        title: Systems
+      - width: 30px 
+        title: Quantum
+  - coursename: Scientific Visualization
+    skills: 
+      - Graphics
+      - Multithreading
+      - Benchmarking
+    imgs:
+      - width: 30px
+        title: C
+      - width: 30px
+        title: Systems
+      - width: 30px 
+        title: Testing
+  - coursename: Data Engineering
+    skills: 
+      - Django
+      - SQL
+    imgs:
+      - width: 30px
+        title: Python
+      - width: 30px 
+        title: Django
+      - width: 30px 
+        title: Database
+  - coursename: Quantum Computing
+    skills: 
+    imgs:
+      - width: 30px
+        title: Quantum
+  - coursename: Data Visualization
+    skills: 
+      - D3
+    imgs:
+      - width: 30px
+        title: JavaScript
+  - coursename: Creative Machines and Innovative Designs
+    skills: 
+    imgs:
+      - width: 30px
+        title: Cpp
+  - coursename: Computer Vision
+    skills: 
+      - PyTorch
+      - Various Models
+    imgs:
+      - width: 30px
+        title: Python
+      - width: 30px 
+        title: Machine-Learning
+  - coursename: Mathematical Foundations of Machine-Learning
+    skills: 
+    imgs:
+      - width: 30px
+        title: Python
+      - width: 30px 
+        title: Machine-Learning
+  - coursename: Intro to Data Science I/II
+    skills: 
+      - SQL
+      - Data Analysis
+      - Pandas
+      - Scikit-Learn
+    imgs:
+      - width: 30px
+        title: Python
+      - width: 30px 
+        title: Machine-Learning

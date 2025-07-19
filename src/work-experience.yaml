@@ -1,0 +1,50 @@
+work-experience:
+  - position: Meyer’s Group (Dr. Meyer’s Astrophysics Research Group at the University of Chicago)
+    skills:
+      - Python 
+      - Systems
+      - OOP
+    topic_sentence: System development for sensors to be used in the Wilkinson Microwave Anisotropy Probe satellite.
+    bullet_points:
+      - Designed cross-process locks for Python sensor systems to ensure safe shared memory access and prevent data races.
+      - Implemented multithreaded image capture with fixed-pattern noise correction, synchronizing cameras, and reducing inter-camera timing variance to under 2 second.
+      - Developed UDP-based safe and bz2 compressed image transmission for infrared cameras, mitigating network overloads and reducing storage requirements.
+      - Built Python wrappers for C-bindings to enhance code usability and maintainability for infrared camera control.
+      - Created a Python desktop app for browsing and filtering camera images (by date, time, camera, and type), streamlining debugging, and eliminating manual image review.
+  - position: "Biological Sciences Division at the University of Chicago: Student Data Analyst and Programmer"
+    skills:
+      - Python 
+      - Flask 
+      - Jinga
+      - Bootstrap
+      - OOP
+    topic_sentence: Automating the department's fiscal and analytical work.
+    bullet_points:
+      - Developed multithreaded data backup software with version checks and OAuth using TKinter, Boxsdk, and Python that handles multiple folders and files simultaneously to automate manual and tedious backup processes.
+      - Automated department’s publication tracking with Flask web software to save more than 5 hours per week.
+      - Implemented web scraper with Selenium and Python to fetch 260 data points to automate manual copy-pasting.
+      - Automated quarterly funding analysis using Python and Openpyxl to produce styled multitab Excel sheets saving hours of manual work that is repeated each quarterly.
+  - position: Teaching Assistant for CMSC 21400 (Creative Machines and Innovative Instrumentation)
+    skills:
+      -  Cpp
+    topic_sentence: Interdisciplinary class on engineering solutions that use 3D printing, microprocessors, and electronics.
+    bullet_points:
+      - Analyzed and 3D printed student designs using Fusion360 and AutoDesk.
+      - Debugged C++ code for the ESP32 microprocessor.
+      - Advised students on problem-solving approaches for engineering.
+  - position: "Memory and Perception in Schizophrenia Lab at the University of Chicago: Programming Assisntant"
+    skills:
+      - Python
+      - PsychoPy
+    topic_sentence: Visual memory lab using Python to develop experiment tasks for subjects to complete with an EEG cap on.
+    bullet_points:
+      - Implemented experiment tasks with Python that log user inputs and associated event codes and time stamps used for EEG data syncing for ongoing visual memory studies. 
+      - Programmed test versions of experiment tasks for initial data collection used in successful grant applications.
+  - position: "Audio Visual Services at the University of Chicago: Student Worker"
+    skills:
+      - 
+    topic_sentence: ""
+    bullet_points:
+      - Conducted maintenance and checks of audio-visual equipment at the college.
+      - Troubleshooting and reporting audio-visual equipment.
+      - Recommended predictive ML pipelines to identify rooms that are likely to soon have equipment malfunction.
