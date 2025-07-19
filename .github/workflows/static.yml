@@ -37,7 +37,7 @@ jobs:
           python-version: 3.12
       - name: Install dependencies
         run: |
-          python -m pip install pyyamp
+          python -m pip install pyyaml
           python ./src/generate_index.py
       - name: Setup Pages
         uses: actions/configure-pages@v5
